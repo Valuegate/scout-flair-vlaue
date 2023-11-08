@@ -10,7 +10,7 @@ const Player = () => {
        <Image src={ball} alt='' position='absolute' zIndex='2' display={['none','block']}  mt='2rem' transform='translate(-300%,-150%)' />
         <Box w={['full','50%']} h={['100%','100%','100%']} bg='#fff' zIndex='5' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Image src={scoutflair} alt='' />
-            <Box p='2rem' w='75%' m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
+            <Box p='2rem' w={['100%','75%']} m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
                 <Input placeholder='Full Name' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Date of Birth' mt='5' type='date' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />                    
                 <Input placeholder='Coach license number' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'  />

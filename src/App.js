@@ -13,6 +13,7 @@ import SelectRole from './pages/SelectRole';
 import Coach from './pages/Login/Coach';
 import Scout from './pages/Login/Scout';
 import Player from './pages/Login/Player';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path='/coach-login' element={<Coach/>} />
             <Route path='/scout-login' element={<Scout/>} />
             <Route path='/player-login' element={<Player/>} />
+            <Route path='/login' element={<Login/>} />
           </Routes>
         </Router>
       </Box>
