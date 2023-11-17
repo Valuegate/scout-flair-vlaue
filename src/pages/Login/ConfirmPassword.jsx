@@ -32,7 +32,7 @@ const ConfirmPassword = () => {
                 <Input placeholder='Confirm Password' type='password' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input _hover={{
                 color:'#fff',
-                background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #6DB7C0 100%))',
+                background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))',
                 shadow:'-2px 8px 0px #232b30',
                 cursor: 'pointer'
             }} 
@@ -44,7 +44,7 @@ const ConfirmPassword = () => {
             fontWeight='700'
             textAlign='center'
             shadow='-2px 8px 0px #D4D6DB'
-            bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #6DB7C0 100%))'
+            bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))'
             p='1.5rem, 48px, 1.5rem, 48px'
             borderRadius='48px'
             value='Change Password'

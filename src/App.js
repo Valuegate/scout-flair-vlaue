@@ -14,6 +14,8 @@ import Coach from './pages/Login/Coach';
 import Scout from './pages/Login/Scout';
 import Player from './pages/Login/Player';
 import Login from './pages/Login/Login';
+import ComingSoon from './pages/ComingSoon';
+import ErrorPage from './pages/404Page';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
             <Route path='/scout-login' element={<Scout/>} />
             <Route path='/player-login' element={<Player/>} />
             <Route path='/login' element={<Login/>} />
+            <Route path='/coming' element={<ComingSoon/>} />
+            <Route path='*' element={<ErrorPage/>} />
           </Routes>
         </Router>
       </Box>

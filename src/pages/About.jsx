@@ -1,16 +1,16 @@
 import { Box,Text,Image,Button, Grid } from '@chakra-ui/react'
 import React from 'react'
 import pic from '../assets/spiral.png'
-import tri from '../assets/tri.svg'
+import tri from '../assets/tri.png'
 import chart from '../assets/chart.png'
 import double from '../assets/doublecoma.png'
 import ball from '../assets/ball.png'
 import tick from '../assets/tick.png'
 import users from '../assets/users.png'
 import expor from '../assets/export.png'
-import wwd from '../assets/wwd.svg'
-import tripic from '../assets/tripic.svg'
-import yellowcomma from '../assets/yellowcomma.svg'
+import wwd from '../assets/wwd.png'
+import tripic from '../assets/tripic.png'
+import yellowcomma from '../assets/yellowcomma.png'
 import {StarIcon} from '@chakra-ui/icons'
 import Faq from '../componets/Faq'
 import Footer from '../componets/Footer'
@@ -60,10 +60,10 @@ const About = () => {
     <Box w='full'h='100%' bg='#1A1818'>
         <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2.3rem','4rem']} mb={['1rem','']}  fontWeight='700' color='#6DB7C0' >We are here to solve the football analytics problem</Text>
-                <Text fontWeight='700' fontSize='24px' color='#6DB7C0'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
+                <Text fontSize={['2.3rem','4rem']} mb={['1rem','']}  fontWeight='700' color='#E5AA42' >We are here to solve the football analytics problem</Text>
+                <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
                 <Button _hover={{
-                    color:'#6DB7C0',
+                    color:'#E5AA42',
                     background:'#232B35',
                     shadow:'-2px 8px 0px #232b30'
                 }} 
@@ -72,7 +72,7 @@ const About = () => {
                 mt='1rem'
                 w='150px'
                 shadow='-2px 8px 0px #ddd'
-                bg='#6DB7C0'
+                bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Contact</Button>
             </Box>
@@ -81,17 +81,17 @@ const About = () => {
             </Box>
         </Box>
         <Box w='full'h={['100%','100%','100%']} bg='#1A1818' display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
-            <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700'  color='#6DB7C0' >What We Do</Text>
-            <Text fontWeight='400' fontSize='28px' color='#6DB7C0' textAlign='center'>We solve the analytics problem</Text>
+            <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700'  color='#E5AA42' >What We Do</Text>
+            <Text fontWeight='400' fontSize='28px' color='#E5AA42' textAlign='center'>We solve the analytics problem</Text>
             <Image mt='1rem' src={tri} />
        </Box>
        <Box w='full'h={['100%','100%','100%']} mt='1.5rem' bg='#1A1818' display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
-            <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700' color='#6DB7C0' >Analyze Us</Text>
-            <Text fontWeight='400' fontSize='28px' color='#6DB7C0' textAlign='center'>Our numbers</Text>
+            <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700' color='#E5AA42' >Analyze Us</Text>
+            <Text fontWeight='400' fontSize='28px' color='#E5AA42' textAlign='center'>Our numbers</Text>
             <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']} templateColumns={['repeat(1,1fr)','repeat(1,1fr)','repeat(1,1fr)','repeat(3,1fr)']} gap='9'>
                 { detail.map((details)=>{
                 return(
-                <Box key={details.id} w={['full','402px']} h='207px' shadow='-9px 8px 0px #ddd' borderRadius='12px' transform='skew(2deg,-2deg)' bg='#6DB7C0' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
+                <Box key={details.id} w={['full','402px']} h='207px' shadow='-9px 8px 0px #ddd' borderRadius='12px' transform='skew(2deg,-2deg)' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
                    <Image src={details?.img} alt=''/>
                    <Text fontSize='24px' fontWeight='700' color='#1A1818'>{details?.title}</Text>
                     <Text fontSize='18px' fontWeight='400' color='#1A1818'>{details?.text}</Text>
@@ -103,8 +103,8 @@ const About = () => {
        </Box>
        <Box w='full'h={['100%','100%','100%']} bg='#1A1818' mt={['','4rem']} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2rem','52px']} fontWeight='700' color='#6DB7C0' >What We Do Different</Text>
-                <Text fontWeight='400' fontSize={['1.2rem','24px']} color='#6DB7C0'>ScoutFlair stands out with detailed player data, personalized analysis, and real-time updates, empowering football enthusiasts, coaches, and analysts to gain a deeper understanding of the game and make informed decisions. 
+                <Text fontSize={['2rem','52px']} fontWeight='700' color='#E5AA42' >What We Do Different</Text>
+                <Text fontWeight='400' fontSize={['1.2rem','24px']} color='#E5AA42'>ScoutFlair stands out with detailed player data, personalized analysis, and real-time updates, empowering football enthusiasts, coaches, and analysts to gain a deeper understanding of the game and make informed decisions. 
 
 We're your trusted source for next-level football insights.</Text>
             </Box>
@@ -120,16 +120,16 @@ We're your trusted source for next-level football insights.</Text>
                 <Image mr='1rem' src={yellowcomma} position='absolute' display={['none','block','none','block']} transform={['translate(-250%,-250%)' ,'translate(-250%,-250%)','translate(-250%,-250%)','translate(-120%,0%)']} />
                 <Box w={['full','full','full','70%']} h='70%' display='flex' flexDirection={['column','column','column','row']} alignItems='center' justifyContent='space-between'>
                     <Box display='flex' justifyContent='center' alignItems='center' p='1rem'>
-                        <Text fontSize='22px' textAlign='center' fontWeight='400' color='#6DB7C0' >
+                        <Text fontSize='22px' textAlign='center' fontWeight='400' color='#E5AA42' >
                             "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
                             <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' >
                                 <Text fontSize='20px' fontWeight='400' color='#fff'>Chinedu Okonkwo</Text>
                                 <Box display='flex'>
-                                    <StarIcon color='#6DB7C0'/>
-                                    <StarIcon color='#6DB7C0'/>
-                                    <StarIcon color='#6DB7C0'/>
-                                    <StarIcon color='#6DB7C0'/>
-                                    <StarIcon color='#6DB7C0'/>
+                                    <StarIcon color='#E5AA42'/>
+                                    <StarIcon color='#E5AA42'/>
+                                    <StarIcon color='#E5AA42'/>
+                                    <StarIcon color='#E5AA42'/>
+                                    <StarIcon color='#E5AA42'/>
                                 </Box>
                             </Box>  
                         </Text>

@@ -2,7 +2,7 @@ import { Box, FormControl, FormLabel, Textarea, Text, Button, Image, Input } fro
 import React from 'react'
 import contact from '../assets/contact.png'
 import pic from '../assets/anyrgb 2.png'
-import pic2 from '../assets/pic22.svg'
+import pic2 from '../assets/Ellipse 75.png'
 import Cta from '../componets/Cta'
 import Footer from '../componets/Footer'
 
@@ -11,9 +11,9 @@ const Contact = () => {
      <Box w='full'h='100%' bg='#1A1818'>
         <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2.3rem','4rem']} fontWeight='700' color='#6DB7C0' >Write us today</Text>
+                <Text fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
                 <Button _hover={{
-                    color:'#6DB7C0',
+                    color:'#E5AA42',
                     background:'#232B35',
                     shadow:'-2px 8px 0px #ddd'
                 }} 
@@ -21,7 +21,7 @@ const Contact = () => {
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 shadow='-2px 8px 0px #ddd'
-                bg='#6DB7C0'
+                bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Start Free Trial</Button>
             </Box>
@@ -36,26 +36,26 @@ const Contact = () => {
                 <Image src={pic2} position='absolute' transform='translate(15%,25%)'zIndex='2' />
             </Box>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2rem','36px']} fontWeight='700' color='#6DB7C0' >Write us a message</Text>
+                <Text fontSize={['2rem','36px']} fontWeight='700' color='#E5AA42' >Write us a message</Text>
                <Box>
                 <FormControl mt='1rem'>
-                    <FormLabel color='#6DB7C0'>Name</FormLabel>
+                    <FormLabel color='#E5AA42'>Name</FormLabel>
                     <Input type='text' color='#000' bg='#fff' borderRadius='25px' />
                 </FormControl>
                 <FormControl mt='1rem'>
-                    <FormLabel color='#6DB7C0'>Email</FormLabel>
+                    <FormLabel color='#E5AA42'>Email</FormLabel>
                     <Input type='mail' color='#000' bg='#fff' borderRadius='25px' />
                 </FormControl>
                 <FormControl mt='1rem'>
-                    <FormLabel color='#6DB7C0'>Phone Number</FormLabel>
+                    <FormLabel color='#E5AA42'>Phone Number</FormLabel>
                     <Input type='text' color='#000' bg='#fff' borderRadius='25px' />
                 </FormControl>
                 <FormControl mt='1rem'>
-                    <FormLabel color='#6DB7C0'>Message</FormLabel>
+                    <FormLabel color='#E5AA42'>Message</FormLabel>
                     <Textarea type='text' cols='8' color='#000' bg='#fff' borderRadius='25px' />
                 </FormControl>
                 <Button _hover={{
-                    color:'#6DB7C0',
+                    color:'#E5AA42',
                     background:'#232B35',
                     shadow:'-2px 8px 0px #232b30'
                 }} 
@@ -63,7 +63,7 @@ const Contact = () => {
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 shadow='-2px 8px 0px #ddd'
-                bg='#6DB7C0'
+                bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Send Message</Button>
                </Box>

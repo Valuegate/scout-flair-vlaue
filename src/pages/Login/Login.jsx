@@ -1,29 +1,77 @@
-import React from 'react'
-import {Box,  Checkbox,  Image, Input, Text, useToast} from '@chakra-ui/react'
+import React,{useState} from 'react'
+import {Box,  Checkbox,  Image, Input, Text, } from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png'
-import { Link } from 'react-router-dom';
-import SucessfulSignup from '../../componets/SucessfulSignup';
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const toast = useToast();
     const [textType, setTextType] = React.useState('password');
+    const [loading, setLoading] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     const handleType =()=>{
         setTextType(!textType)
     }
     const handleSubmit = (e)=>{
         e.preventDefault();
-         toast({
-      title: 'Login successful!.',
-      position: 'top',
-      description: 'Your details have been successfully added.',
-      status: 'success',
-      duration: 9000,
-      isClosable: true,
-    });
-        return(
-            <SucessfulSignup/>
-        )
+      
+   const input = {
+    username: email,
+      password: password,
+    };
+
+    setLoading(true);
+
+    axios({
+      method: 'post',
+      responseType: 'json',
+      url: 'http://62.72.22.207:8080/scoutflair/v1/signin',
+      data: input,
+    })
+      .then(response => {
+        setLoading(false);
+        sessionStorage.setItem(
+          'token',
+          JSON.stringify(response?.data?.jwtToken)
+
+        );
+        localStorage.setItem('userType',JSON.stringify(response?.data?.userType))
+         localStorage.setItem('login', JSON.stringify('true')) 
+           Swal.fire({
+  title: 'Success',
+  text: 'Login successful',
+  icon: 'sucess',
+  confirmButtonText: 'Cool'
+})
+        // if(response.data.userType === 'NEWUSER'){
+        //   navigate('/dashboard');
+        //   window.location.reload();
+        // }else if(response.data.userType === 'ORGANIZATION'){
+        //     navigate('/');
+        //     window.location.reload();
+        // }else if(response.data.userType === 'INDIVIDUAL'){
+        //       navigate('/individual/dashboard');
+        //       window.location.reload();
+
+        // }else{
+        //   navigate('/organization/dashboard')
+        //   window.location.reload();
+        // }
+        navigate('/coming')
+      })
+      .catch(err => {
+        console.log(err.response)
+        setLoading(false);
+         Swal.fire({
+  title: 'Error',
+  text: err.response.message,
+  icon: 'error',
+  confirmButtonText: 'Cool'
+})
+      });
     }
 
   return (
@@ -33,11 +81,11 @@ const Login = () => {
             <Image src={scoutflair} alt='' />
             <Box p='2rem' w={['100%','75%']} m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
                 
-                <Input placeholder='Email' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'/>
-                <Input placeholder='Password' mt='5' type={handleType} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
+                <Input placeholder='Email' mt='5' color='#0C1017'  onChange={(e)=>setEmail(e.target.value)}  value={email}  border='1px solid #B0B0B0' bg='#FDFDFD'/>
+                <Input placeholder='Password' mt='5' type={handleType} color='#0C1017'  onChange={(e)=>setPassword(e.target.value)}  value={password}  border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input _hover={{
                 color:'#fff',
-                background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #6DB7C0 100%))',
+                background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))',
                 shadow:'-2px 8px 0px #232b30',
                 cursor: 'pointer'
             }} 
@@ -49,10 +97,10 @@ const Login = () => {
             fontWeight='700'
             textAlign='center'
             shadow='-2px 8px 0px #D4D6DB'
-            bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #6DB7C0 100%))'
+            bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))'
             p='1.5rem, 48px, 1.5rem, 48px'
             borderRadius='48px'
-            value='Login'
+            value={loading? 'loading...':'Login'}
             type='submit'
             onClick={handleSubmit}
             />
@@ -60,7 +108,7 @@ const Login = () => {
                <Checkbox mr='.3rem' borderColor='#0C1017' /> Remember me
             </Text>
             <Text fontSize='.85rem' fontWeight='400' textAlign='center' mt='1rem' >
-                Don’t have an account? <br/> <Link style={{color:'#6db7c0'}} to='/select-role'>
+                Don’t have an account? <br/> <Link style={{color:'#E5AA42'}} to='/select-role'>
 Create account</Link>.
             </Text>
             </Box>

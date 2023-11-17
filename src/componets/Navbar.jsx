@@ -22,8 +22,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons'
-import Logo from '../assets/ScoutFlair.svg'
-import { Link } from 'react-router-dom'
+import Logo from '../assets/logo.png'
+import { Link, } from 'react-router-dom'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -32,7 +32,7 @@ export default function WithSubnavigation() {
     <Box>
       <Flex
          bg='#1A1818'
-        color='#6DB7C0'
+        color='#E5AA42'
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
@@ -70,7 +70,7 @@ export default function WithSubnavigation() {
           spacing={6}>
             <Link to='/select-role' >
              <Button _hover={{
-                    color:'#6DB7C0',
+                    color:'#E5AA42',
                     background:'#232B35',
                     border: '1px solid #232b35',
                     shadow:'-2px 8px 0px #ddd'
@@ -79,7 +79,7 @@ export default function WithSubnavigation() {
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 shadow='-2px 8px 0px #ddd'
-                bg='#6DB7C0'
+                bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Sign up</Button>
             </Link>
@@ -94,7 +94,7 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = '#6DB7C0';
+  const linkColor = '#E5AA42';
   const linkHoverColor = useColorModeValue('gray.800', 'white')
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
 
