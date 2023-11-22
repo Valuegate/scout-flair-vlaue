@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Box,  Image, Input, Select, Text} from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png'
-import { Link,  } from 'react-router-dom';
+import { Link,useNavigate  } from 'react-router-dom';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
@@ -16,7 +16,7 @@ const Scout = () => {
   const [team, setTeam] = useState('');
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
-
+  const navigate = useNavigate();
 
 
   const validate = ( event) => {
@@ -27,7 +27,7 @@ const Scout = () => {
         dob: dob,
         licenseNumber: licenseNumber,
       experience: experience,
-      positionn: specialization,
+      position: specialization,
       currentTeam: team,
       email: email,
       password: password,
@@ -39,7 +39,7 @@ const Scout = () => {
     axios({
       method: 'post',
       responseType: 'json',
-      url: 'http://62.72.22.207:8080/scoutflair/v1/signup',
+      url: 'https://scoutflair.top:8080/scoutflair/v1/signin',
       data: input,
     })
       .then(response => {
@@ -55,7 +55,7 @@ const Scout = () => {
   confirmButtonText: 'Cool'
 })
         console.log(response);
-      //  navigate('/login');
+        navigate('/login');
       })
       .catch(err => {
        // toast.error(err.response.data);

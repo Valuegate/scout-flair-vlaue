@@ -42,7 +42,7 @@ const Services = () => {
                 <Box w='full' h='100%' alignItems='center' justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic4}zIndex='4' position='absolute'  />
-                        <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
+                        <Image src={pic5} position='absolute' display='none' transform='translate(15%,25%)'zIndex='2' />
                     </Box>
                     <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Player Metrics</Text>
                     <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Enhance Decision-Making:</Text>
@@ -51,7 +51,7 @@ const Services = () => {
                 <Box w='full' h='100%' alignItems='center' justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic6}zIndex='4' position='absolute'  />
-                        <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
+                        <Image src={pic5} position='absolute' display='none'  transform='translate(15%,25%)'zIndex='2' />
                     </Box>
                     <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Personalized Dashboards</Text>
                     <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Tailored Analysis:</Text>
@@ -60,7 +60,7 @@ const Services = () => {
                 <Box w='full' h='100%' alignItems='center' justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic7}zIndex='4' position='absolute'  />
-                        <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
+                        <Image src={pic5} position='absolute' display='none' transform='translate(15%,25%)'zIndex='2' />
                     </Box>
                     <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Real-Time Insights</Text>
                     <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Stay Informed Instantly:</Text>

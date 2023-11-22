@@ -28,7 +28,7 @@ const Login = () => {
     axios({
       method: 'post',
       responseType: 'json',
-      url: 'http://62.72.22.207:8080/scoutflair/v1/signin',
+      url: 'https://scoutflair.top:8080/scoutflair/v1/signin',
       data: input,
     })
       .then(response => {

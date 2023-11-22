@@ -7,7 +7,7 @@ import pic4 from '../assets/anyrgb 4.png'
 import pic5 from '../assets/Ellipse 75.png'
 import pic6 from '../assets/anyrgb 5.png'
 import pic7 from '../assets/anyrgb 6.png'
-import comma from '../assets/comma.png'
+import comma from '../assets/comma.svg'
 import cir from '../assets/whitecircle.png'
 import {StarIcon} from '@chakra-ui/icons'
 import chart from '../assets/chart.png'
@@ -20,6 +20,7 @@ import ronaldo from '../assets/ronaldo.png'
 import small from '../assets/smallchart.png'
 import Footer from '../componets/Footer'
 import Faq from '../componets/Faq'
+import bg from '../assets/bg.jpg'
 //import Navbar from '../componets/Navbar'
 
 const Home = () => {
@@ -96,10 +97,10 @@ const Home = () => {
         },
     ]
   return (
-    <Box w='full'h='100%' bg='#1A1818'>
+    <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} >
         <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['3.5rem','4rem']} fontWeight='700' color='#E5AA42' >Capturing <br/>
+                <Text fontSize={['2.75rem','4rem']} fontWeight='700' color='#E5AA42' >Capturing <br/>
                 Football <br/>
                 Performance</Text>
                 <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
@@ -126,12 +127,12 @@ const Home = () => {
                 <Image src={pic3} />
             </Box>
              <Box w={['full','full','full','50%']} mt={['2rem','']}  p={['0rem','2rem']}>
-                <Text fontSize='32px' fontWeight='700' color='#E5AA42' whitespace={['wrap','wrap','wrap','nowrap']} textAlign={['left','center']} >Limited Football Insights for Enthusiasts</Text>
-                <Text fontSize='22px' fontWeight={['400','700']} color='#fff' >Football enthusiasts lack access to comprehensive, in-depth game insights and advanced player statistics.</Text>
-                <Text fontSize='28px' mt='1rem' fontWeight='700' color='#E5AA42' >Football Fan's Dilemma</Text>
-                <Text fontSize='22px' fontWeight={['400','700']} color='#fff' >You love football, but the stats you see are as basic as they come. You want more than just goals and assists; you want to explore the intricacies of the game. It's like watching a thriller with missing chapters, and you're left craving the whole story.</Text>
-                <Text fontSize='28px' mt='1rem' fontWeight='700' color='#E5AA42' >Revolutionizing Football Analysis</Text>
-                <Text fontWeight={['400','700']} fontSize='22px' color='#fff'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
+                <Text fontSize='1.4rem' fontWeight='700' color='#E5AA42' >Limited Football Insights for Enthusiasts</Text>
+                <Text fontSize='1.2rem' fontWeight={['400','700']} color='#fff' >Football enthusiasts lack access to comprehensive, in-depth game insights and advanced player statistics.</Text>
+                <Text fontSize='1.4rem' mt='1rem' fontWeight='700' color='#E5AA42' >Football Fan's Dilemma</Text>
+                <Text fontSize='1.2rem' fontWeight={['400','700']} color='#fff' >You love football, but the stats you see are as basic as they come. You want more than just goals and assists; you want to explore the intricacies of the game. It's like watching a thriller with missing chapters, and you're left craving the whole story.</Text>
+                <Text fontSize='1.4rem' mt='1rem' fontWeight='700' color='#E5AA42' >Revolutionizing Football Analysis</Text>
+                <Text fontWeight={['400','700']} fontSize='1.2rem' color='#fff'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
                 
             </Box>
         </Box>
@@ -234,10 +235,10 @@ const Home = () => {
         <Box w='full'h={['100%','100%','100%']} bg='#1A1818' display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize='52px' mt='1rem' fontWeight='700' display={['none','inline-block']} color='#E5AA42' >Our Impact in Numbers</Text>
             <Text fontWeight='700' fontSize='25px' color='#E5AA42' textAlign='center'>See How ScoutFlair Is Changing Football Analysis</Text>
-            <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']}  templateColumns={['repeat(1,1fr)','repeat(2,1fr)']} gap='9'>
+            <Grid w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='2rem' p={['2rem','']}  templateColumns={['repeat(1,1fr)','repeat(2,1fr)']} gap='9'>
                 { detail.map((details)=>{
                 return(
-                <Box key={details.id} w={['full','402px']} h='287px' shadow='-9px 8px 0px #D0D3D8' borderRadius='12px' transform='skew(5deg,1deg)' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
+                <Box key={details.id} w={['full','402px']} h='287px' shadow='-9px 8px 0px #D0D3D8' borderRadius='12px'  transform={['none','skew(0deg,0deg)']} bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
                    <Image src={details?.img} alt=''/>
                    <Text fontSize='24px' fontWeight='700' color='#1A1818'>{details?.title}</Text>
                     <Text fontSize='18px' fontWeight='400' color='#1A1818'>{details?.text}</Text>
