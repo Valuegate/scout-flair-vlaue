@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Box,  Image, Input, Select, Text, useToast} from '@chakra-ui/react'
+import {Box,  Image, Input, Select, Text, } from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png'
 import { Link,useNavigate  } from 'react-router-dom';
@@ -12,7 +12,6 @@ const Coach = () => {
   const [dob, setDob] = useState('');
   const [licenseNumber, setLicenseNumber] = useState('');
   const [experience, setExperience]= useState('');
-  const [specialization, setSpecialization ] = useState('');
   const [team, setTeam] = useState('');
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
@@ -84,7 +83,7 @@ const Coach = () => {
                     <option>4</option>
                     <option>5</option>
                 </Select>
-                < <Input placeholder='Current Team or Club' mt='5' onChange={(e)=>setTeam(e.target.value)} value={team} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
+                <Input placeholder='Current Team or Club' mt='5' onChange={(e)=>setTeam(e.target.value)} value={team} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Email' mt='5' color='#0C1017' onChange={(e)=>setEmail(e.target.value)} value={email} border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Password' mt='5' color='#0C1017'onChange={(e)=>setPassword(e.target.value)} value={password} border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Confirm Password' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
