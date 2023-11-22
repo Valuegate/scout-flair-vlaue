@@ -7,11 +7,12 @@ import pic6 from '../assets/anyrgb 5.png'
 import pic7 from '../assets/anyrgb 6.png'
 import Cta from '../componets/Cta'
 import Footer from '../componets/Footer'
+import bg from '../assets/bg.jpg'
 
 const Services = () => {
   return (
-     <Box w='full'h='100%' bg='#1A1818'>
-        <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+     <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} >
+        <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontSize={['3.5rem','4rem']} fontWeight='700' color='#E5AA42' >Our Core Services</Text>
                 <Button _hover={{
@@ -35,10 +36,10 @@ const Services = () => {
                 <Image src={service} />
             </Box>
         </Box>
-        <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+        <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize='52px' mt='1rem' fontWeight='700' color='#E5AA42' >Our Services</Text>
             <Text fontWeight='400' fontSize='28px' textAlign='center' color='#E5AA42'>Explore our services</Text>
-             <Box w='full' h='100%' mt='5rem' bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+             <Box w='full' h='100%' mt='5rem'  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
                 <Box w='full' h='100%' alignItems='center' justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic4}zIndex='4' position='absolute'  />

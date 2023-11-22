@@ -13,6 +13,7 @@ import tripic from '../assets/tripic.png'
 import yellowcomma from '../assets/yellowcomma.png'
 import {StarIcon} from '@chakra-ui/icons'
 import Faq from '../componets/Faq'
+import bg from '../assets/bg.jpg'
 import Footer from '../componets/Footer'
 
 
@@ -57,8 +58,8 @@ const About = () => {
 
     ]
   return (
-    <Box w='full'h='100%' bg='#1A1818'>
-        <Box w='full'h={['100%','100%','100vh']} bg='#1A1818' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+    <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} >
+        <Box w='full'h={['100%','100%','100vh']}  style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontSize={['2.3rem','4rem']} mb={['1rem','']}  fontWeight='700' color='#E5AA42' >We are here to solve the football analytics problem</Text>
                 <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
@@ -80,12 +81,12 @@ const About = () => {
                 <Image src={pic} position='absolute'  />
             </Box>
         </Box>
-        <Box w='full'h={['100%','100%','100%']} bg='#1A1818' display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+        <Box w='full'h={['100%','100%','100%']}  display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700'  color='#E5AA42' >What We Do</Text>
             <Text fontWeight='400' fontSize='28px' color='#E5AA42' textAlign='center'>We solve the analytics problem</Text>
             <Image mt='1rem' src={tri} />
        </Box>
-       <Box w='full'h={['100%','100%','100%']} mt='1.5rem' bg='#1A1818' display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+       <Box w='full'h={['100%','100%','100%']} mt='1.5rem'  display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700' color='#E5AA42' >Analyze Us</Text>
             <Text fontWeight='400' fontSize='28px' color='#E5AA42' textAlign='center'>Our numbers</Text>
             <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']} templateColumns={['repeat(1,1fr)','repeat(1,1fr)','repeat(1,1fr)','repeat(3,1fr)']} gap='9'>
@@ -101,7 +102,7 @@ const About = () => {
                 }
             </Grid>
        </Box>
-       <Box w='full'h={['100%','100%','100%']} bg='#1A1818' mt={['','4rem']} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
+       <Box w='full'h={['100%','100%','100%']}  mt={['','4rem']} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontSize={['2rem','52px']} fontWeight='700' color='#E5AA42' >What We Do Different</Text>
                 <Text fontWeight='400' fontSize={['1.2rem','24px']} color='#E5AA42'>ScoutFlair stands out with detailed player data, personalized analysis, and real-time updates, empowering football enthusiasts, coaches, and analysts to gain a deeper understanding of the game and make informed decisions. 
@@ -112,7 +113,7 @@ We're your trusted source for next-level football insights.</Text>
                 <Image src={wwd}  />
             </Box>
         </Box>
-        <Box w='full'h={['100%','100%','100%']} bg='#1A1818' display='flex' p={['0','2rem']} alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+        <Box w='full'h={['100%','100%','100%']}  display='flex' p={['0','2rem']} alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
              <Box w={['full','50%']}  position='relative' alignItems='center' justifyContent='center' display={['block','flex']} flexDirection='column' >
                 <Image src={tripic} />
             </Box>

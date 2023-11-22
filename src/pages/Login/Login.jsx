@@ -44,7 +44,7 @@ const Login = () => {
   title: 'Success',
   text: 'Login successful',
   icon: 'sucess',
-  confirmButtonText: 'Cool'
+  confirmButtonText: 'Done 👍'
 })
         // if(response.data.userType === 'NEWUSER'){
         //   navigate('/dashboard');
@@ -67,7 +67,7 @@ const Login = () => {
         setLoading(false);
          Swal.fire({
   title: 'Error',
-  text: err.response.message,
+  text: err.response.data,
   icon: 'error',
   confirmButtonText: 'Cool'
 })

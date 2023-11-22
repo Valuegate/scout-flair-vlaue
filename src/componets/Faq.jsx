@@ -4,7 +4,7 @@ import quest from '../assets/Question.png'
 
 const Faq = () => {
   return (
-    <Box w='full'h={['100%','100%','100%']} marginBottom='4rem' bg='#1A1818' display='flex' p='1rem' mt='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+    <Box w='full'h={['100%','100%','100%']} marginBottom='4rem'  display='flex' p='1rem' mt='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize='52px' mt='1rem' fontWeight='700' color='#E5AA42' >FAQ</Text>
             <Text fontWeight='700' fontSize='25px' color='#E5AA42' textAlign='center'>Explore common queries about ScoutFlair. Get quick answers to enhance your experience</Text>
             <Box w='full' h='100%' display='flex' alignItems='center' flexDirection={['column','row']}  justifyContent='center' mt='2rem'>

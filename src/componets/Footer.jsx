@@ -19,17 +19,17 @@ const Footer = () => {
                 <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Resources</Text>
                 <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text>
             </Box>
-            <Box>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
+             <Box>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >About</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Services</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Resources</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text>
             </Box>
-            <Box>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
-                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Menu Item</Text>
+             <Box>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >About</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Services</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Resources</Text>
+                <Text fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text>
             </Box>
             <Box w={['full','253px']}>
                 <Text fontSize='16px' fontWeight='700' color='#E5AA42' >Sign up for our newsletters</Text>

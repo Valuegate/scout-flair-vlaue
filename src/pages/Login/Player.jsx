@@ -61,7 +61,7 @@ const Player = () => {
        // toast.error(err.response.data);
        Swal.fire({
   title: 'Error!',
-  text: err,
+  text: err.response.data,
   icon: 'error',
   confirmButtonText: 'Cool'
 })
