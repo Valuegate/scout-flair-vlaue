@@ -16,13 +16,14 @@ import Player from './pages/Login/Player';
 import Login from './pages/Login/Login';
 import ComingSoon from './pages/ComingSoon';
 import ErrorPage from './pages/404Page';
+import Dashboard from './dashboard/pages/Dashboard';
 
 function App() {
   return (
     <ChakraProvider>
       <Box bg='#1A1818'>
         <Router>
-          <Navbar/>
+           <Navbar/> 
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
@@ -35,6 +36,7 @@ function App() {
             <Route path='/login' element={<Login/>} />
             <Route path='/coming' element={<ComingSoon/>} />
             <Route path='*' element={<ErrorPage/>} />
+            <Route path='/dashboard' element={<Dashboard/>} />
           </Routes>
         </Router>
       </Box>

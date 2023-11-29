@@ -39,7 +39,7 @@ const Player = () => {
     axios({
       method: 'post',
       responseType: 'json',
-      url: 'https://scoutflair.top:8080/scoutflair/v1/signin',
+      url: 'https://scoutflair.top:8080/scoutflair/v1/signup',
       data: input,
     })
       .then(response => {
@@ -63,7 +63,6 @@ const Player = () => {
   title: 'Error!',
   text: err.response.data,
   icon: 'error',
-  confirmButtonText: 'Cool'
 })
         setLoading(false);
       });
