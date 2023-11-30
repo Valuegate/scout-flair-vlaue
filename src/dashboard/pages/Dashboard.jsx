@@ -1,9 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import OrderCard from '../../sellerdashboard/components/OrderCard';
-import SidebarWithHeader from '../components/NewSidebar';
-import ProductCard from '../components/ProductCard';
-import Order from '../components/Order';
+import SidebarWithHeader from '../components/SidebarContent';
+import NotificationCard from '../components/Notifiationomponnt';
 
 const Dashboard = () => {
   return (
@@ -48,7 +46,7 @@ const Dashboard = () => {
               </Text>
             </Box>
             <Box w="full">
-              <OrderCard />
+              <NotificationCard/>
             </Box>
           </Box>
           <Box
@@ -84,9 +82,7 @@ const Dashboard = () => {
             </Box>
 
             <Box display="flex" w="full" flexDirection="column">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
+              
             </Box>
           </Box>
         </Box>

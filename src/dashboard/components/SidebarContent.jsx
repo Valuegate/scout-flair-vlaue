@@ -9,15 +9,14 @@ import {
   Drawer,
   DrawerContent,
   useDisclosure,
-  Image,
+  //Image,
 } from '@chakra-ui/react';
-import MobileNav from './NewNavbar';
-import logo from '../../assets/yougo_logo.png';
+import MobileNav from './Navbar';
 import {
   FiHome,
   FiTrendingUp,
   FiBriefcase,
-  FiUsers,
+  //FiUsers,
   FiMessageSquare,
   FiSettings,
 } from 'react-icons/fi';
@@ -73,7 +72,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Image ml={['', '3rem']} objectFit="contain" src={logo} />
+        {/* <Image ml={['', '3rem']} objectFit="contain" src={logo} /> */}
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map(link => (
