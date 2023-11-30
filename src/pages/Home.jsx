@@ -21,6 +21,7 @@ import small from '../assets/smallchart.png'
 import Footer from '../componets/Footer'
 import Faq from '../componets/Faq'
 import bg from '../assets/bg.jpg'
+import { Link } from 'react-router-dom'
 //import Navbar from '../componets/Navbar'
 
 const Home = () => {
@@ -104,6 +105,7 @@ const Home = () => {
                 Football <br/>
                 Performance</Text>
                 <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
+               <Link to='/select-role'>
                 <Button _hover={{
                     color:'#E5AA42',
                     background:'#232B35',
@@ -115,7 +117,8 @@ const Home = () => {
                 shadow='-2px 8px 0px #ddd'
                 bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
-                borderRadius='48px'>Start Free Trial</Button>
+                borderRadius='48px'>Sign Up</Button>
+                </Link>
             </Box>
             <Box w={['full','50%']}  position='relative' alignItems='center' justifyContent='center' display={['none','flex']} flexDirection='column' >
                 <Image src={pic}zIndex='4' position='absolute'  />

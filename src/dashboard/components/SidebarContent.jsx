@@ -5,7 +5,7 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  Link,
+ // Link,
   Drawer,
   DrawerContent,
   useDisclosure,
@@ -20,9 +20,11 @@ import {
   FiMessageSquare,
   FiSettings,
 } from 'react-icons/fi';
+import { NavLink } from 'react-router-dom';
+import '../styles/sidebar.css'
 
 const LinkItems = [
-  { name: 'Dashboard', link: '/buyer/dashboard', icon: FiHome },
+  { name: 'Dashboard', link: '/dashboard', icon: FiHome },
   { name: 'Orders', link: '/buyer/orders', icon: FiTrendingUp },
   { name: 'Message', link: '/buyer/message', icon: FiMessageSquare },
   { name: 'Notifications', link: '/buyer/notification', icon: FiBriefcase },
@@ -63,7 +65,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
       transition="3s ease"
-      bg="rgba(73, 72, 72, 1)"
+      bg="#000"
+      borderTopRightRadius='16px'
+      borderBottomRightRadius='16px'
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
@@ -86,7 +90,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
 const NavItem = ({ icon, link, children, ...rest }) => {
   return (
-    <Link
+    <NavLink
       href={link}
       style={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}
@@ -94,20 +98,23 @@ const NavItem = ({ icon, link, children, ...rest }) => {
       p=".5rem"
       color="rgba(212, 20, 90, 1)"
       borderRadius="4px"
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "active" : ""
+      }
     >
       <Flex
         align="center"
-        p="4"
+        p="2"
         mx="4"
         borderRadius="lg"
         role="group"
         cursor="pointer"
-        color="rgba(212, 20, 90, 1)"
-        bg="#fff"
+        color="#C99C27"
+        bg="#000"
         mb=".5rem"
         _hover={{
-          bg: 'rgba(212, 20, 90, 1)',
-          color: '#fff',
+          bg: '#C99C27',
+          color: '#000',
         }}
         {...rest}
       >
@@ -123,6 +130,6 @@ const NavItem = ({ icon, link, children, ...rest }) => {
         )}
         {children}
       </Flex>
-    </Link>
+    </NavLink>
   );
 };

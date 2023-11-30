@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 const SelectRole = () => {
   return (
-    <Box w='full'h='100%' bg='#1A1818' position='relative' display='flex' p='2rem' alignItems='center' justifyContent='center' flexDirection={['column','column']}>
+    <Box w='full' h={['100%','100vh']} bg='#1A1818' position='relative' display='flex' p='2rem' alignItems='center' justifyContent='center' flexDirection={['column','column']}>
        <Image src={ball} alt='' position='absolute' zIndex='2' display={['none','block']}  mt='2rem' transform='translate(-300%,-150%)' />
         <Box w='75%'h={['100%','75%','75vh']} bg='#fff' zIndex='5' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text color='#0C1017' fontSize={['1.2rem','24px']} fontWeight='700' mb={['2rem','']} textAlign='center' >Choose Your Role</Text>

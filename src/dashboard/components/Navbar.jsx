@@ -8,16 +8,21 @@ import {
   VStack,
   useColorModeValue,
   Text,
+  Input,
   Menu,
   MenuButton,
   MenuDivider,
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-
-import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
+import {useNavigate} from 'react-router-dom'
+import { FiMenu,  FiChevronDown } from 'react-icons/fi';
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const navigate=useNavigate();
+  const logout = ()=>{
+    navigate('/login')
+  }
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -27,7 +32,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       bg={useColorModeValue('white', 'gray.900')}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-      justifyContent={{ base: 'space-between', md: 'flex-end' }}
+      justifyContent={{ base: 'space-between', md: 'space-between' }}
       {...rest}
     >
       <IconButton
@@ -46,14 +51,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       >
         Logo
       </Text>
+      <Input placeholder='Search' borderRadius='24px' bg='#e9e9e9' color='#b0b0b0' w='349px' float='left' />
 
       <HStack spacing={{ base: '0', md: '6' }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+        <Text fontSize='14px' fontWeight='700' color='#4F4545'>Welcome, Team ScoutFlair</Text>
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
@@ -82,7 +83,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                     Benjamin Achan
                   </Text>
                   <Text fontSize="xs" color="gray.600">
-                    Seller Account
+                    Player
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>
@@ -95,10 +96,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
               borderColor={useColorModeValue('gray.200', 'gray.700')}
             >
               <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem cursor='pointer' onClick={logout}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

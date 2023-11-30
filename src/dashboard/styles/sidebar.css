@@ -1,0 +1,18 @@
+.pending{
+    text-decoration: none;
+}
+.active{
+    text-decoration: none;
+    padding: .5rem;
+    color:rgba(212, 20, 90, 1) ;
+    border-radius: 4px;
+}
+
+.active:focus{
+    box-shadow: none;
+}
+
+.active:active {
+    background-color: #c99c27;
+    color: #000;
+}

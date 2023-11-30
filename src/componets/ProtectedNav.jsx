@@ -6,6 +6,7 @@ const ProtectedNav = () => {
   return (
     <div>
         <Navbar/>
+        <Outlet/>
     </div>
   )
 }

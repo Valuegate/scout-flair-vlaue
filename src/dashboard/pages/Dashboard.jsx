@@ -1,11 +1,12 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Image } from '@chakra-ui/react';
 import React from 'react';
-import SidebarWithHeader from '../components/SidebarContent';
-import NotificationCard from '../components/Notifiationomponnt';
+//import SidebarWithHeader from '../components/SidebarContent';
+//import NotificationCard from '../components/Notifiationomponnt';
+import img1 from '../../assets/arrowupgreen.svg'
+import img2 from '../../assets/arrowdownred.svg'
 
 const Dashboard = () => {
   return (
-    <SidebarWithHeader>
       <Box w="full" h="full">
         <Box
           display="flex"
@@ -14,6 +15,41 @@ const Dashboard = () => {
           alignItems={['center', 'center', 'center', 'flex-start']}
           w="full"
         >
+          <Box w='full' h='full' justifyContent='space-between' flexWrap={['wrap','wrap','wrap','']} display='flex'>
+            <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #C99C27' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
+              <Text fontSize='18px'>Wins</Text>
+              <Box display='flex' alignItems='center'>
+                <Image src={img1} alt='green' />&nbsp;&nbsp;
+                <Text fontSize='32px' color='#4f4545'>84</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+              </Box>
+            </Box>
+            <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #EF0107' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
+              <Text fontSize='18px'>Loses</Text>
+              <Box display='flex' alignItems='center'>
+                <Image src={img2} alt='green' />&nbsp;&nbsp;
+                <Text fontSize='32px' color='#4f4545'>84</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+              </Box>
+            </Box>
+            <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #4F4545' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
+              <Text fontSize='18px'>Skills</Text>
+              <Box display='flex' alignItems='center'>
+                <Image src={img1} alt='green' />&nbsp;&nbsp;
+                <Text fontSize='32px' color='#4f4545'>72</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+              </Box>
+            </Box>
+            <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #191818' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
+              <Text fontSize='18px'>Possession</Text>
+              <Box display='flex' alignItems='center'>
+                <Image src={img1} alt='green' />&nbsp;&nbsp;
+                <Text fontSize='32px' color='#4f4545'>64</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+              </Box>
+            </Box>
+          </Box>
+          {/* 
           <Box
             w={['full', 'full', 'full', '45%']}
             h="100%"
@@ -84,11 +120,10 @@ const Dashboard = () => {
             <Box display="flex" w="full" flexDirection="column">
               
             </Box>
-          </Box>
+          </Box> */}
         </Box>
         {/* ................................................. */}
       </Box>
-    </SidebarWithHeader>
   );
 };
 

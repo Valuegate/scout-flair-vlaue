@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
-import Navbar from './componets/Navbar'
+//import Navbar from './componets/Navbar'
 import SelectRole from './pages/SelectRole';
 import Coach from './pages/Login/Coach';
 import Scout from './pages/Login/Scout';
@@ -17,26 +17,33 @@ import Login from './pages/Login/Login';
 import ComingSoon from './pages/ComingSoon';
 import ErrorPage from './pages/404Page';
 import Dashboard from './dashboard/pages/Dashboard';
+import ProtectedNav from './componets/ProtectedNav';
+import ProtectedLayout from './dashboard/components/ProtectedLayout';
 
 function App() {
   return (
     <ChakraProvider>
       <Box bg='#1A1818'>
         <Router>
-           <Navbar/> 
+           {/* <Navbar/>  */}
           <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/contacts' element={<Contact/>} />
-            <Route path='/services' element={<Services/>} />
+            <Route element={<ProtectedNav/>}>
+              <Route path='/' element={<Home/>} />
+              <Route path='/about' element={<About/>} />
+              <Route path='/contacts' element={<Contact/>} />
+              <Route path='/services' element={<Services/>} />
+              <Route path='/login' element={<Login/>} />
+            </Route>
             <Route path='/select-role' element={<SelectRole/>} />
             <Route path='/coach-login' element={<Coach/>} />
             <Route path='/scout-login' element={<Scout/>} />
             <Route path='/player-login' element={<Player/>} />
-            <Route path='/login' element={<Login/>} />
+            
             <Route path='/coming' element={<ComingSoon/>} />
             <Route path='*' element={<ErrorPage/>} />
-            <Route path='/dashboard' element={<Dashboard/>} />
+            <Route element={<ProtectedLayout/>}>
+              <Route path='/dashboard' element={<Dashboard/>} />
+            </Route>
           </Routes>
         </Router>
       </Box>
