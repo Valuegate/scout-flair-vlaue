@@ -68,7 +68,7 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-            <Link to='/select-role' >
+            <Link to='/login' >
              <Button _hover={{
                     color:'#E5AA42',
                     background:'#232B35',
@@ -81,7 +81,7 @@ export default function WithSubnavigation() {
                 shadow='-2px 8px 0px #ddd'
                 bg='#E5AA42'
                 p='16px, 48px, 16px, 48px'
-                borderRadius='48px'>Sign up</Button>
+                borderRadius='48px'>Sign in</Button>
             </Link>
         </Stack>
       </Flex>

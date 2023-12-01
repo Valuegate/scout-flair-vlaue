@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Box,  Image, Input, Select, Text} from '@chakra-ui/react'
+import {Box,  Image, Input,Checkbox, Select, Text} from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,6 +17,11 @@ const Player = () => {
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
   const navigate = useNavigate();
+   const [showPwd, setShowPwd] = useState(false);
+
+    const togglePassword = () => {
+		setShowPwd((prev) => !prev);
+	};
 
 
   const validate = ( event) => {
@@ -82,8 +87,10 @@ const Player = () => {
                 <Input placeholder='Preferred Foot' onChange={(e)=>setSpecialization(e.target.value)} value={specialization} mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Current Team or Club' mt='5' onChange={(e)=>setTeam(e.target.value)} value={team} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Email' mt='5' color='#0C1017' onChange={(e)=>setEmail(e.target.value)} value={email} border='1px solid #B0B0B0' bg='#FDFDFD'/>
-                <Input placeholder='Password' mt='5' color='#0C1017'onChange={(e)=>setPassword(e.target.value)} value={password} border='1px solid #B0B0B0' bg='#FDFDFD' />
+                <Input placeholder='Password' type={showPwd ? "text" : "password"} mt='5' color='#0C1017'onChange={(e)=>setPassword(e.target.value)} value={password} border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Confirm Password' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
+                <Text as='div' display='flex' w='full' justifyContent='flex-start' onClick={togglePassword} alignItems='center' mt='.75rem'> <Checkbox onChange={togglePassword} /> &nbsp;Show password </Text>
+               
                 <Input _hover={{
                 color:'#fff',
                 background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))',

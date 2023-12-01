@@ -6,15 +6,18 @@ import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
-    const [textType, setTextType] = React.useState('password');
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPwd, setShowPwd] = useState(false);
+
+    const togglePassword = () => {
+		setShowPwd((prev) => !prev);
+	};
     const navigate = useNavigate();
-    const handleType =()=>{
-        setTextType(!textType)
-    }
+    
     const handleSubmit = (e)=>{
         e.preventDefault();
       
@@ -82,7 +85,10 @@ const Login = () => {
             <Box p='2rem' w={['100%','75%']} m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
                 
                 <Input placeholder='Email' mt='5' color='#0C1017'  onChange={(e)=>setEmail(e.target.value)}  value={email}  border='1px solid #B0B0B0' bg='#FDFDFD'/>
-                <Input placeholder='Password' mt='5' type={handleType} color='#0C1017'  onChange={(e)=>setPassword(e.target.value)}  value={password}  border='1px solid #B0B0B0' bg='#FDFDFD' />
+                
+                <Input placeholder='Password' mt='5' type={showPwd ? "text" : "password"} color='#0C1017' border='1px solid #B0B0B0'  onChange={(e)=>setPassword(e.target.value)}  value={password}   />
+                <Text as='div' display='flex' w='full' justifyContent='flex-start' onClick={togglePassword} alignItems='center' mt='.75rem'> <Checkbox onChange={togglePassword} /> &nbsp;Show password </Text>
+               
                 <Input _hover={{
                 color:'#fff',
                 background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))',
