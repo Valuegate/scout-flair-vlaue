@@ -20,7 +20,7 @@ import ronaldo from '../assets/ronaldo.png'
 import small from '../assets/smallchart.png'
 import Footer from '../componets/Footer'
 import Faq from '../componets/Faq'
-import bg from '../assets/bg.jpg'
+//import bg from '../assets/bg.jpg'
 import { Link } from 'react-router-dom'
 //import Navbar from '../componets/Navbar'
 
@@ -98,7 +98,7 @@ const Home = () => {
         },
     ]
   return (
-    <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} >
+    <Box w='full'h='100%' style={{ backgroundImage: `transparent`,backgroundRepeat:'' }} >
         <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontSize={['2.75rem','4rem']} fontWeight='700' color='#E5AA42' >Capturing <br/>
@@ -108,15 +108,16 @@ const Home = () => {
                <Link to='/select-role'>
                 <Button _hover={{
                     color:'#E5AA42',
-                    background:'#232B35',
+                    background:'var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))',
                     shadow:'-2px 8px 0px #ddd'
                 }} 
-                color='#232B35'
+                color='#fff'
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 shadow='-2px 8px 0px #ddd'
-                bg='#E5AA42'
+                bg='var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))'
                 p='16px, 48px, 16px, 48px'
+                width='200px'
                 borderRadius='48px'>Sign Up</Button>
                 </Link>
             </Box>

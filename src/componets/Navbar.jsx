@@ -31,7 +31,7 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-         bg='#1A1818'
+         bg='transparent'
         color='#E5AA42'
         minH={'60px'}
         py={{ base: 2 }}
@@ -40,7 +40,7 @@ export default function WithSubnavigation() {
         //borderBottom={1}
         //borderStyle={'solid'}
        // borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        alignItems={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
@@ -52,7 +52,7 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} alignItems='baseline' justify={{ base: 'space-between', md: 'start' }}>
+        <Flex flex={{ base: 1 }} alignItems='baseline' justify={{ base: 'space-between', md: 'space-between' }}>
           <Link to='/'>
             <Image src={Logo} alt='' mr={['4rem','']} />
           </Link>
@@ -64,22 +64,23 @@ export default function WithSubnavigation() {
         </Flex>
 
         <Stack
-          flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
+          alignItems='center'
           direction={'row'}
           spacing={6}>
             <Link to='/login' >
              <Button _hover={{
                     color:'#E5AA42',
-                    background:'#232B35',
+                    background:'var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))',
                     border: '1px solid #232b35',
                     shadow:'-2px 8px 0px #ddd'
                 }} 
-                color='#232B35'
+                color='#fff'
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 shadow='-2px 8px 0px #ddd'
-                bg='#E5AA42'
+                bg='var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))'
+                width='200px'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Sign in</Button>
             </Link>
