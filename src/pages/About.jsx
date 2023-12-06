@@ -13,7 +13,6 @@ import tripic from '../assets/tripic.png'
 import yellowcomma from '../assets/yellowcomma.png'
 import {StarIcon} from '@chakra-ui/icons'
 import Faq from '../componets/Faq'
-import bg from '../assets/bg.jpg'
 import Footer from '../componets/Footer'
 
 
@@ -58,22 +57,22 @@ const About = () => {
 
     ]
   return (
-    <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} >
-        <Box w='full'h={['100%','100%','100vh']}  style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+    <Box w='full'h='100%' style={{ backgroundImage: `transparent`,backgroundRepeat:'' }} >
+        <Box w='full'h={['100%','100%','100vh']}   display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontSize={['2.3rem','4rem']} mb={['1rem','']}  fontWeight='700' color='#E5AA42' >We are here to solve the football analytics problem</Text>
                 <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
                 <Button _hover={{
                     color:'#E5AA42',
-                    background:'#232B35',
+                    background:'var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))',
                     shadow:'-2px 8px 0px #232b30'
                 }} 
-                color='#232B35'
+                color='#fff'
                 border='1px solid rgba(0,0,0,.15)'
                 mt='1rem'
                 w='150px'
                 shadow='-2px 8px 0px #ddd'
-                bg='#E5AA42'
+                bg='var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))'
                 p='16px, 48px, 16px, 48px'
                 borderRadius='48px'>Contact</Button>
             </Box>
@@ -92,7 +91,7 @@ const About = () => {
             <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']} templateColumns={['repeat(1,1fr)','repeat(1,1fr)','repeat(1,1fr)','repeat(3,1fr)']} gap='9'>
                 { detail.map((details)=>{
                 return(
-                <Box key={details.id} w={['full','402px']} h='207px' shadow='-9px 8px 0px #ddd' borderRadius='12px' transform='skew(2deg,-2deg)' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
+                <Box key={details.id} w={['full','402px']} h='207px' shadow='-9px 8px 0px #ddd' borderRadius='12px' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
                    <Image src={details?.img} alt=''/>
                    <Text fontSize='24px' fontWeight='700' color='#1A1818'>{details?.title}</Text>
                     <Text fontSize='18px' fontWeight='400' color='#1A1818'>{details?.text}</Text>

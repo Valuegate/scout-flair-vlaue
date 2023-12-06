@@ -5,7 +5,7 @@ import bg from '../assets/bg.jpg'
 
 const ProtectedNav = () => {
   return (
-    <div style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }}>
+    <div style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'no-repeat' }}>
         <Navbar/>
         <Outlet/>
     </div>
