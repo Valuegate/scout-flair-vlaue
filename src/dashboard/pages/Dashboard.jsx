@@ -1,7 +1,5 @@
 import { Box, Text, Image } from '@chakra-ui/react';
 import React from 'react';
-//import SidebarWithHeader from '../components/SidebarContent';
-//import NotificationCard from '../components/Notifiationomponnt';
 import img1 from '../../assets/arrowupgreen.svg'
 import img2 from '../../assets/arrowdownred.svg'
 
