@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom'
 //import Navbar from '../componets/Navbar'
 
 const Home = () => {
-    const text = ['Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo']
+    // const text = ['Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo','Logo']
     const detail = [
         {
             img: users,
@@ -252,7 +252,7 @@ const Home = () => {
                 }
             </Grid>
         </Box>
-        <Box w='full'h={['100%','100%','100%']}  display='flex' p='1rem' mt='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+        {/* <Box w='full'h={['100%','100%','100%']}  display='flex' p='1rem' mt='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize='52px' mt='1rem' fontWeight='700' display={['none','inline-block']} color='#E5AA42' >Covered By The Media </Text>
             <Text fontWeight='700' fontSize='25px'  color='#E5AA42' textAlign='center'>See What the Media Is Saying About ScoutFlair</Text>
             <Grid w='full' h='100%' placeItems='center' mt='1rem' templateColumns={['repeat(3,1fr)','repeat(5,1fr)']} gap='6'>
@@ -263,7 +263,7 @@ const Home = () => {
                 })}
                 
             </Grid>
-        </Box>
+        </Box> */}
         <Box w='full'h={['100%','100%','100%']}  display='flex' p='1rem' mt='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontSize='52px' mt='1rem' fontWeight='700' display={['none','inline-block']} color='#E5AA42' >Discover Our Key Features</Text>
             <Text fontWeight='700' fontSize='25px' color='#E5AA42' textAlign='center'>Unlock the Power of ScoutFlair for a Deeper Football Experience</Text>

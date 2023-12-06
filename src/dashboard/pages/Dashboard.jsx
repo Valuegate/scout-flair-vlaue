@@ -47,6 +47,7 @@ const Dashboard = () => {
               </Box>
             </Box>
           </Box>
+          
           {/* 
           <Box
             w={['full', 'full', 'full', '45%']}
@@ -121,6 +122,17 @@ const Dashboard = () => {
           </Box> */}
         </Box>
         {/* ................................................. */}
+        <Box display='flex' mt='1.5rem'> 
+            <Box w={['full','60%']}>
+              <Text fontWeight='700' fontSize='18px'>Player Performance Metrics</Text>
+              <Box bg='#fff' p='1rem' borderRadius='4px' mt='.5rem' >
+                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
+                  <Text>Player 1</Text>
+                  <Box></Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
       </Box>
   );
 };
