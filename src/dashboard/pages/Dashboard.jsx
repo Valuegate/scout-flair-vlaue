@@ -2,6 +2,8 @@ import { Box, Text, Image } from '@chakra-ui/react';
 import React from 'react';
 import img1 from '../../assets/arrowupgreen.svg'
 import img2 from '../../assets/arrowdownred.svg'
+import teama from '../../assets/a.png'
+import teamb from '../../assets/b.png'
 
 const Dashboard = () => {
   return (
@@ -122,14 +124,92 @@ const Dashboard = () => {
           </Box> */}
         </Box>
         {/* ................................................. */}
-        <Box display='flex' mt='1.5rem'> 
-            <Box w={['full','60%']}>
-              <Text fontWeight='700' fontSize='18px'>Player Performance Metrics</Text>
+        <Box display='flex' justifyContent='space-between' flexDirection={['column', 'row']} mt='2.5rem'> 
+            <Box bg='#fff' p='1rem' borderRadius='4px' w={['full','50%']}>
+              <Text fontWeight='700' mb='1rem' fontSize='18px'>Player Performance Metrics</Text>
               <Box bg='#fff' p='1rem' borderRadius='4px' mt='.5rem' >
                 <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
                   <Text>Player 1</Text>
-                  <Box></Box>
+                  <Box>
+                    <Text>Goals</Text>
+                    <Text textAlign='center'>1</Text>
+                  </Box>
+
+                  <Box>
+                    <Text>Assists</Text>
+                    <Text textAlign='center'>5</Text>
+                  </Box>
+                  <Box>
+                    <Text>Pass Accuracy</Text>
+                    <Text textAlign='center'>86%</Text>
+                  </Box>
                 </Box>
+                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
+                  <Text>Player 1</Text>
+                  <Box>
+                    <Text>Goals</Text>
+                    <Text textAlign='center'>1</Text>
+                  </Box>
+
+                  <Box p='.5rem'>
+                    <Text>Assists</Text>
+                    <Text textAlign='center'>5</Text>
+                  </Box>
+                  <Box p='.5rem' >
+                    <Text>Pass Accuracy</Text>
+                    <Text textAlign='center'>86%</Text>
+                  </Box>
+                </Box>
+
+                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
+                  <Text>Player 1</Text>
+                  <Box >
+                    <Text>Goals</Text>
+                    <Text textAlign='center'>1</Text>
+                  </Box>
+
+                  <Box p='.5rem' >
+                    <Text>Assists</Text>
+                    <Text textAlign='center'>5</Text>
+                  </Box>
+                  <Box p='.5rem'>
+                    <Text>Pass Accuracy</Text>
+                    <Text textAlign='center'>86%</Text>
+                  </Box>
+                </Box>
+              </Box>
+
+            </Box>
+            <Box display='flex' w={['full','40%']} justifyContent='space-between' flexDirection='column' p='1.5rem' bg='#fff' borderRadius='4px'  >
+              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
+              <Box>
+                <img src={teama} alt='team a' />
+                <Text>Team A</Text>
+              </Box>
+              <Box>
+                  <img src={teamb} alt='team a' />
+                  <Text>Team B</Text>
+              </Box>
+              </Box>
+              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
+              <Box>
+                <img src={teama} alt='team a' />
+                <Text>Team A</Text>
+              </Box>
+              <Box>
+                  <img src={teamb} alt='team a' />
+                  <Text>Team B</Text>
+              </Box>
+              </Box>
+              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
+              <Box>
+                <img src={teama} alt='team a' />
+                <Text>Team A</Text>
+              </Box>
+              <Box>
+                  <img src={teamb} alt='team a' />
+                  <Text>Team B</Text>
+              </Box>
               </Box>
             </Box>
           </Box>

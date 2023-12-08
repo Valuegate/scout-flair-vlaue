@@ -9,9 +9,11 @@ import {
   Drawer,
   DrawerContent,
   useDisclosure,
+  Image,
   //Image,
 } from '@chakra-ui/react';
 import MobileNav from './Navbar';
+import logo from '../../assets/White Logo.png'
 import {
   FiHome,
   FiTrendingUp,
@@ -25,7 +27,7 @@ import '../styles/sidebar.css'
 
 const LinkItems = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
-  { name: 'Players', link: '/buyer/orders', icon: FiTrendingUp },
+  { name: 'Players', link: '/player', icon: FiTrendingUp },
   { name: 'Matches', link: '/buyer/message', icon: FiMessageSquare },
   { name: 'Local Pitches', link: '/buyer/notification', icon: FiBriefcase },
   { name: 'Academics', link: '/buyer/settings', icon: FiSettings },
@@ -82,6 +84,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         {/* <Image ml={['', '3rem']} objectFit="contain" src={logo} /> */}
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
+      <Image ml='2rem' mb='1rem' src={logo} alt=''/>
       {LinkItems.map(link => (
         <NavItem key={link.name} link={link.link} icon={link.icon}>
           {link.name}
@@ -94,7 +97,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 const NavItem = ({ icon, link, children, ...rest }) => {
   return (
     <NavLink
-      href={link}
+      to={link}
       style={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}
       _hover={{ color: '#fff' }}
@@ -117,7 +120,7 @@ const NavItem = ({ icon, link, children, ...rest }) => {
         mb=".5rem"
         _hover={{
           bg: '#C99C27',
-          color: '#000',
+          color: '#fff',
         }}
         {...rest}
       >

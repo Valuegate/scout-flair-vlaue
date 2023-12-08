@@ -23,6 +23,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const logout = ()=>{
     navigate('/login')
   }
+  const value = JSON.parse(localStorage.getItem('userType'))
+  const name = JSON.parse(localStorage.getItem('firstName'))
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -80,10 +82,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
                     fontSize="sm"
                     color="rgba(212, 20, 90, 1)"
                   >
-                    Benjamin Achan
+                    {name}
                   </Text>
                   <Text fontSize="xs" color="gray.600">
-                    Player
+                   {value}
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>

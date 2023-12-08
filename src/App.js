@@ -17,6 +17,7 @@ import Login from './pages/Login/Login';
 import ComingSoon from './pages/ComingSoon';
 import ErrorPage from './pages/404Page';
 import Dashboard from './dashboard/pages/Dashboard';
+import Players from './dashboard/pages/Player'
 import ProtectedNav from './componets/ProtectedNav';
 import ProtectedLayout from './dashboard/components/ProtectedLayout';
 
@@ -43,6 +44,7 @@ function App() {
             <Route path='*' element={<ErrorPage/>} />
             <Route element={<ProtectedLayout/>}>
               <Route path='/dashboard' element={<Dashboard/>} />
+              <Route path='/player' element={<Players/>} />
             </Route>
           </Routes>
         </Router>
