@@ -123,64 +123,7 @@ const Login = () => {
       });
     }
 
-     const handleVerification = (e)=>{
-        e.preventDefault();
-      
-   const input = {
-    email: email,
-    };
-
-    setLoading(true);
-
-    axios({
-      method: 'post',
-      responseType: 'json',
-      url: `https://scoutflair.top:8080/scoutflair/v1/signup/reSendVerificationMail?email=${email}`,
-      data: input,
-    })
-      .then(response => {
-        setLoading(false);
-        sessionStorage.setItem(
-          'token',
-          JSON.stringify(response?.data?.jwtToken)
-
-        );
-        localStorage.setItem('userType',JSON.stringify(response?.data?.userType))
-         localStorage.setItem('login', JSON.stringify('true')) 
-         localStorage.setItem('firstName', JSON.stringify(response?.data?.firstName))
-           Swal.fire({
-  title: 'Success',
-  text: 'Verify your email',
-  icon: 'success',
-  confirmButtonText: 'Done 👍'
-})
-        // if(response.data.userType === 'NEWUSER'){
-        //   navigate('/dashboard');
-        //   window.location.reload();
-        // }else if(response.data.userType === 'ORGANIZATION'){
-        //     navigate('/');
-        //     window.location.reload();
-        // }else if(response.data.userType === 'INDIVIDUAL'){
-        //       navigate('/individual/dashboard');
-        //       window.location.reload();
-
-        // }else{
-        //   navigate('/organization/dashboard')
-        //   window.location.reload();
-        // }
-        navigate('/dashboard')
-      })
-      .catch(err => {
-        console.log(err.response)
-        setLoading(false);
-         Swal.fire({
-  title: 'Error',
-  text: err.response.data,
-  icon: 'error',
-  confirmButtonText: 'Cool'
-})
-      });
-    }
+     
 
   return (
     <Box w='full' h={['100%','100vh']} bg='#1A1818' position='relative' display='flex' p='2rem' alignItems='center' justifyContent='center' flexDirection={['column','column']}>
