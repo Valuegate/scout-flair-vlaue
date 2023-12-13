@@ -44,10 +44,114 @@ const Login = () => {
         localStorage.setItem('userType',JSON.stringify(response?.data?.userType))
          localStorage.setItem('login', JSON.stringify('true')) 
          localStorage.setItem('firstName', JSON.stringify(response?.data?.firstName))
+         Swal.fire({
+  title: "Verify your email",
+  //input: "text",
+  inputAttributes: {
+    autocapitalize: "off"
+  },
+  showCancelButton: false,
+  confirmButtonText: "Verify",
+  showLoaderOnConfirm: true,
+  preConfirm: async (login) => {
+    try {
+      const githubUrl = `
+        https://scoutflair.top:8080/scoutflair/v1/signup/reSendVerificationMail?email=${email}
+      `;
+      const response = await fetch(githubUrl);
+      if (!response.ok) {
+        return Swal.showValidationMessage(`
+          ${JSON.stringify(await response.json())}
+        `);
+      }
+      return response.json();
+    } catch (error) {
+      Swal.showValidationMessage(`
+        Request failed: ${error}
+      `);
+    }
+  },
+  allowOutsideClick: () => !Swal.isLoading()
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: 'Success',
+      text: 'email Verified',
+   icon: 'success',
+    });
+  }
+});
+//            Swal.fire({
+//   title: 'Success',
+//   text: 'Verify your email',
+//   icon: 'success',
+//   confirmButtonText: '<button onClick={handleVerification}>Vrify</button>'
+// }).then((result) => {
+//   if (result.isConfirmed) {
+//     Swal.fire({
+//       title: "Deleted!",
+//       text: "Your file has been deleted.",
+//       icon: "success"
+//     });
+//   }
+// });
+        // if(response.data.userType === 'NEWUSER'){
+        //   navigate('/dashboard');
+        //   window.location.reload();
+        // }else if(response.data.userType === 'ORGANIZATION'){
+        //     navigate('/');
+        //     window.location.reload();
+        // }else if(response.data.userType === 'INDIVIDUAL'){
+        //       navigate('/individual/dashboard');
+        //       window.location.reload();
+
+        // }else{
+        //   navigate('/organization/dashboard')
+        //   window.location.reload();
+        // }
+        navigate('/dashboard')
+      })
+      .catch(err => {
+        console.log(err.response)
+        setLoading(false);
+         Swal.fire({
+  title: 'Error',
+  text: err.response.data,
+  icon: 'error',
+  confirmButtonText: 'Cool'
+})
+      });
+    }
+
+     const handleVerification = (e)=>{
+        e.preventDefault();
+      
+   const input = {
+    email: email,
+    };
+
+    setLoading(true);
+
+    axios({
+      method: 'post',
+      responseType: 'json',
+      url: `https://scoutflair.top:8080/scoutflair/v1/signup/reSendVerificationMail?email=${email}`,
+      data: input,
+    })
+      .then(response => {
+        setLoading(false);
+        sessionStorage.setItem(
+          'token',
+          JSON.stringify(response?.data?.jwtToken)
+
+        );
+        localStorage.setItem('userType',JSON.stringify(response?.data?.userType))
+         localStorage.setItem('login', JSON.stringify('true')) 
+         localStorage.setItem('firstName', JSON.stringify(response?.data?.firstName))
            Swal.fire({
   title: 'Success',
-  text: 'Login successful',
-  icon: 'sucess',
+  text: 'Verify your email',
+  icon: 'success',
   confirmButtonText: 'Done 👍'
 })
         // if(response.data.userType === 'NEWUSER'){
