@@ -28,8 +28,8 @@ import '../styles/sidebar.css'
 const LinkItems = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
   { name: 'Players', link: '/player', icon: FiTrendingUp },
-  { name: 'Matches', link: '/buyer/message', icon: FiMessageSquare },
-  { name: 'Local Pitches', link: '/buyer/notification', icon: FiBriefcase },
+  { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
+  { name: 'Match', link: '/matches', icon: FiBriefcase },
   { name: 'Academics', link: '/buyer/settings', icon: FiSettings },
    { name: 'Football Club', link: '/buyer/message', icon: FiMessageSquare },
   { name: 'Notifications', link: '/buyer/notification', icon: FiBriefcase },

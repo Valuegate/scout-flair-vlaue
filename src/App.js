@@ -20,6 +20,8 @@ import Dashboard from './dashboard/pages/Dashboard';
 import Players from './dashboard/pages/Player'
 import ProtectedNav from './componets/ProtectedNav';
 import ProtectedLayout from './dashboard/components/ProtectedLayout';
+import Tatics from './dashboard/pages/Tatics';
+import Matches from './dashboard/pages/Matches';
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
             <Route element={<ProtectedLayout/>}>
               <Route path='/dashboard' element={<Dashboard/>} />
               <Route path='/player' element={<Players/>} />
+              <Route path='/tactics' element={<Tatics/>} />
+              <Route path='/matches' element={<Matches/>} />
             </Route>
           </Routes>
         </Router>
