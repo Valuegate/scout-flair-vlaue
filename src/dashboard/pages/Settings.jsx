@@ -59,7 +59,7 @@ const Settings = () => {
                 </Box>
             </Box>
             <Box w='full' display='flex' mt='1rem' justifyContent='flex-end'>
-                <Button bg='#E5AA42' color='#fff' p='.75rem' cursor='pointer' >Save</Button>
+                <Button bg='#E5AA42' color='#fff' p='.75rem' cursor='pointer' _hover={{color:'#000'}} >Save</Button>
             </Box>
         </Box>
 
