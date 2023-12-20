@@ -32,8 +32,8 @@ const LinkItems = [
   { name: 'Match', link: '/matches', icon: FiBriefcase },
   { name: 'Academics', link: '/buyer/settings', icon: FiSettings },
    { name: 'Football Club', link: '/buyer/message', icon: FiMessageSquare },
-  { name: 'Notifications', link: '/buyer/notification', icon: FiBriefcase },
-  { name: 'Settings', link: '/buyer/settings', icon: FiSettings },
+  { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
+  { name: 'Settings', link: '/settings', icon: FiSettings },
 ];
 
 export default function SidebarWithHeader({ children }) {

@@ -22,6 +22,8 @@ import ProtectedNav from './componets/ProtectedNav';
 import ProtectedLayout from './dashboard/components/ProtectedLayout';
 import Tatics from './dashboard/pages/Tatics';
 import Matches from './dashboard/pages/Matches';
+import Notifications from './dashboard/pages/Notifications';
+import Settings from './dashboard/pages/Settings';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
               <Route path='/player' element={<Players/>} />
               <Route path='/tactics' element={<Tatics/>} />
               <Route path='/matches' element={<Matches/>} />
+              <Route path='/notifications' element={<Notifications/>} />
+              <Route path='/settings' element={<Settings/>} />
             </Route>
           </Routes>
         </Router>
