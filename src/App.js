@@ -24,6 +24,8 @@ import Tatics from './dashboard/pages/Tatics';
 import Matches from './dashboard/pages/Matches';
 import Notifications from './dashboard/pages/Notifications';
 import Settings from './dashboard/pages/Settings';
+import Profile from './dashboard/pages/Profile';
+import EditProfile from './dashboard/pages/EditProfile';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
             <Route element={<ProtectedLayout/>}>
               <Route path='/dashboard' element={<Dashboard/>} />
               <Route path='/player' element={<Players/>} />
+              <Route path='/profile' element={<Profile/>} />
+              <Route path='/edit-profile' element={<EditProfile/>} />
               <Route path='/tactics' element={<Tatics/>} />
               <Route path='/matches' element={<Matches/>} />
               <Route path='/notifications' element={<Notifications/>} />

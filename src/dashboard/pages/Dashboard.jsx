@@ -17,7 +17,7 @@ const Dashboard = () => {
         >
           <Box w='full' h='full' justifyContent='space-between' flexWrap={['wrap','wrap','wrap','']} display='flex'>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #C99C27' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
-              <Text fontSize='18px'>Wins</Text>
+              <Text fontSize='18px'>Upcoming matches</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
                 <Text fontSize='32px' color='#4f4545'>84</Text>
@@ -25,7 +25,7 @@ const Dashboard = () => {
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #EF0107' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
-              <Text fontSize='18px'>Loses</Text>
+              <Text fontSize='18px'>Local Pitches</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img2} alt='green' />&nbsp;&nbsp;
                 <Text fontSize='32px' color='#4f4545'>84</Text>
@@ -33,7 +33,7 @@ const Dashboard = () => {
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #4F4545' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
-              <Text fontSize='18px'>Skills</Text>
+              <Text fontSize='18px'>Football Academies</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
                 <Text fontSize='32px' color='#4f4545'>72</Text>
@@ -41,7 +41,7 @@ const Dashboard = () => {
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #191818' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
-              <Text fontSize='18px'>Possession</Text>
+              <Text fontSize='18px'>Football Clubs</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
                 <Text fontSize='32px' color='#4f4545'>64</Text>
@@ -181,10 +181,11 @@ const Dashboard = () => {
 
             </Box>
             <Box display='flex' w={['full','40%']} justifyContent='space-between' flexDirection='column' p='1.5rem' bg='#fff' borderRadius='4px'  >
+              
               <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
               <Box>
                 <img src={teama} alt='team a' />
-                <Text>Team A</Text>
+              <Text fontWeight='700' mb='1rem' fontSize='18px'>Upcoming Matches</Text>  <Text>Team A</Text>
               </Box>
               <Box>
                   <img src={teamb} alt='team a' />

@@ -92,7 +92,7 @@ const Coach = () => {
                 <Input placeholder='Email' mt='5' color='#0C1017' onChange={(e)=>setEmail(e.target.value)} value={email} border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Password'type={showPwd ? "text" : "password"} mt='5' color='#0C1017'onChange={(e)=>setPassword(e.target.value)} value={password} border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Confirm Password' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
-               <Text as='div' display='flex' w='full' justifyContent='flex-start' onClick={togglePassword} alignItems='center' mt='.75rem'> <Checkbox onChange={togglePassword} /> &nbsp;Show password </Text>
+               <Text as='div' display='flex' w='full' justifyContent='flex-start'  alignItems='center' mt='.75rem'> <Checkbox onChange={togglePassword} /> &nbsp;Show password </Text>
                
                 <Input _hover={{
                 color:'#fff',

@@ -27,6 +27,7 @@ import '../styles/sidebar.css'
 
 const LinkItems = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
+    { name: 'Profile', link: '/profile', icon: FiTrendingUp },
   { name: 'Players', link: '/player', icon: FiTrendingUp },
   { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
   { name: 'Match', link: '/matches', icon: FiBriefcase },
