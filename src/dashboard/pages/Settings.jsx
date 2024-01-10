@@ -11,15 +11,12 @@ const Settings = () => {
                 <Text>Profile &nbsp;</Text>
                 <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Settings</Text>
             </Box>
-            <Box border='none' w='189px' display='flex' bg='#ff1818' color='#fff' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
-                <DeleteIcon/>
-                <Text fontWeight='700'>Delete Account</Text>
-            </Box>
+            
         </Box>
     
-    <Box w='full' display='flex' flexDir={['column','row']} p='1rem' justifyContent='space-between' >        
+    <Box w='full' display='flex' flexDir={['column','row']}  justifyContent='space-between' >        
         
-        <Box w={['full','50%']}  p='1rem 2rem' mt='1rem' >
+        <Box w={['full','50%']}  p='1rem' mt='1rem' >
             <Text fontWeight='700'>Change Password</Text>
             <Box  borderRadius='8px' mt='.5rem' p='.5rem' bg='#fff'>
                 <InputValue placeholder='********' type='password' text='Current Password'/>
@@ -29,7 +26,7 @@ const Settings = () => {
 
            
         </Box>
-        <Box w={['full','50%']}  p='1rem 2rem' mt='1rem' >
+        <Box w={['full','50%']}  p='1rem' mt='1rem' >
              <Text  fontWeight='700'>Change Settings</Text>
              <Box  borderRadius='8px' mt='.5rem' p='1rem ' bg='#fff'>
                 <Box display='flex' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
@@ -63,6 +60,10 @@ const Settings = () => {
             </Box>
             <Box w='full' display='flex' mt='1rem' justifyContent='flex-end'>
                 <Button bg='#E5AA42' color='#fff' p='.75rem' w='30%' cursor='pointer' _hover={{color:'#000'}} >Save</Button>
+            </Box>
+            <Box border='1px solid #ff1818' w='189px' display='flex' bg='none' color='#ff1818' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                <DeleteIcon/>
+                <Text fontWeight='700'>Delete Account</Text>
             </Box>
         </Box>
 
