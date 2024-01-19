@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Box,  Checkbox,  Image, Input, Text, } from '@chakra-ui/react'
+import {Box,  Checkbox,  Image, Input, Spinner, Text, } from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png'
 import { Link,useNavigate } from 'react-router-dom';
@@ -20,6 +20,12 @@ const Login = () => {
     
     const handleSubmit = (e)=>{
         e.preventDefault();
+
+        sessionStorage.setItem(
+          'email',
+          JSON.stringify(email)
+
+        );
       
    const input = {
     username: email,
@@ -39,79 +45,24 @@ const Login = () => {
         sessionStorage.setItem(
           'token',
           JSON.stringify(response?.data?.jwtToken)
+        );
+        sessionStorage.setItem(
+          'verify',
+          JSON.stringify(response?.data?.emailConfirmed)
 
         );
-        console.log(response.data.jwtToken)
+        console.log(response?.data?.emailConfirmed)
 
         localStorage.setItem('userType',JSON.stringify(response?.data?.userType))
          localStorage.setItem('login', JSON.stringify('true')) 
          localStorage.setItem('firstName', JSON.stringify(response?.data?.firstName))
-         Swal.fire({
-  title: "Verify your email",
-  //input: "text",
-  inputAttributes: {
-    autocapitalize: "off"
-  },
-  showCancelButton: false,
-  confirmButtonText: "Verify",
-  showLoaderOnConfirm: true,
-  preConfirm: async (login) => {
-    try {
-      const githubUrl = `
-        https://scoutflair.top:8080/scoutflair/v1/signup/reSendVerificationMail?email=${email}
-      `;
-      const response = await fetch(githubUrl);
-      if (!response.ok) {
-        return Swal.showValidationMessage(`
-          ${JSON.stringify(await response.json())}
-        `);
-      }
-      return response.json();
-    } catch (error) {
-      Swal.showValidationMessage(`
-        Request failed: ${error}
-      `);
-    }
-  },
-  allowOutsideClick: () => !Swal.isLoading()
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-      title: 'Success',
-      text: 'email Verified',
-   icon: 'success',
-    });
-  }
-});
-//            Swal.fire({
-//   title: 'Success',
-//   text: 'Verify your email',
-//   icon: 'success',
-//   confirmButtonText: '<button onClick={handleVerification}>Vrify</button>'
-// }).then((result) => {
-//   if (result.isConfirmed) {
-//     Swal.fire({
-//       title: "Deleted!",
-//       text: "Your file has been deleted.",
-//       icon: "success"
-//     });
-//   }
-// });
-        // if(response.data.userType === 'NEWUSER'){
-        //   navigate('/dashboard');
-        //   window.location.reload();
-        // }else if(response.data.userType === 'ORGANIZATION'){
-        //     navigate('/');
-        //     window.location.reload();
-        // }else if(response.data.userType === 'INDIVIDUAL'){
-        //       navigate('/individual/dashboard');
-        //       window.location.reload();
-
-        // }else{
-        //   navigate('/organization/dashboard')
-        //   window.location.reload();
-        // }
-        navigate('/dashboard')
+         const status=JSON.parse(sessionStorage.getItem('verify'));
+         if (status===true){
+          navigate('/dashboard')
+         }else{
+          navigate('/verify')
+         }
+   
       })
       .catch(err => {
         console.log(err.response)
@@ -120,7 +71,7 @@ const Login = () => {
   title: 'Error',
   text: err.response.data,
   icon: 'error',
-  confirmButtonText: 'Cool'
+  confirmButtonText: 'Okay'
 })
       });
     }
@@ -156,7 +107,7 @@ const Login = () => {
             bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))'
             p='1.5rem, 48px, 1.5rem, 48px'
             borderRadius='48px'
-            value={loading? 'loading...':'Login'}
+            value={loading? <Spinner/>:'Login'}
             type='submit'
             onClick={handleSubmit}
             />

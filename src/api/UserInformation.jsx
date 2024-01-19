@@ -20,6 +20,12 @@ export const Signin = async () => {
   return response.data;
 };
 
+export const Verify = async (mail) => {
+  const response = await userInformationApi.get(`/signup/recover/first/${mail}`);
+  return response.data;
+};
+
+
 export const GetProfile = async () => {
   const response = await userInformationApi.get(`/profile/getProfile`);
   return response.data;
@@ -31,31 +37,9 @@ export const EditProfiles = async (newProfile) => {
   );
   return response.data;
 };
-
-export const Exvolunter = async () => {
+export const AddTactics = async (uploadTactics) => {
   const response = await userInformationApi.post(
-    '/api/v1/profile/exVolunteer/add'
-  );
-  return response.data;
-};
-
-export const terminalAnalytics = async () => {
-  const response = await userInformationApi.get(
-    '/apis/v1/bizzdesk/terminals/merchants/analytics'
-  );
-  return response.data;
-};
-
-export const terminalList = async () => {
-  const response = await userInformationApi.get(
-    '/apis/v1/bizzdesk/terminals/admin/getTerminalsByMerchant?limit=10&offset=0'
-  );
-  return response.data;
-};
-
-export const terminalAllList = async () => {
-  const response = await userInformationApi.get(
-    '/apis/v1/bizzdesk/terminals/admin/getTerminalsByMerchant?limit=30000&offset=0'
+    'tactics/uploadTactics',uploadTactics
   );
   return response.data;
 };

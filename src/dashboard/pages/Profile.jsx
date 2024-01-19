@@ -64,7 +64,7 @@ const Profile = () => {
                         <Text>
                             Biography:
                         </Text>
-                        <Text  width='50%'>{data?.biography || 'Player one is an experienced forward known for his goal-scoring abilities'} </Text>
+                        <Text overflowY='scroll' maxH='2rem' width='50%'>{data?.biography || 'Player one is an experienced forward known for his goal-scoring abilities'} </Text>
                     </Box>
                     <Box w='full' display='flex' justifyContent='space-between' bg='#e9e9e9' mb='.5rem' p='.5rem'>
                         <Text>

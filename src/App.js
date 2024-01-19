@@ -26,6 +26,7 @@ import Notifications from './dashboard/pages/Notifications';
 import Settings from './dashboard/pages/Settings';
 import Profile from './dashboard/pages/Profile';
 import EditProfile from './dashboard/pages/EditProfile';
+import VerifyEmail from './pages/Login/VerifyEmail';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path='/coach-login' element={<Coach/>} />
             <Route path='/scout-login' element={<Scout/>} />
             <Route path='/player-login' element={<Player/>} />
+            <Route path='/verify' element={<VerifyEmail/>}/>
             
             <Route path='/coming' element={<ComingSoon/>} />
             <Route path='*' element={<ErrorPage/>} />

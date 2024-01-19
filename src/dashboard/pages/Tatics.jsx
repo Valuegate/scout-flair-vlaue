@@ -1,9 +1,10 @@
-import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList } from '@chakra-ui/react'
+import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody, } from '@chakra-ui/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
 import per from '../../assets/performance.png'
 import square from '../../assets/Square.png'
+import VideoUpload from '../components/VideoUpload'
 
 const Tatics = () => {
     const data=[
@@ -72,6 +73,7 @@ const Tatics = () => {
             date:'12/09/2023'
         }
     ]
+    const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box>
          <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
@@ -79,9 +81,9 @@ const Tatics = () => {
                 <Text>Profile &nbsp;</Text>
                 <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Tatics</Text>
             </Box>
-            <Box border='1px solid #333' w='130px' display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+            <Box border='1px solid #333' cursor='pointer' w='130px' onClick={onOpen} display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                 <AddIcon />
-                <Link to='/edit-profile'>Add Tatics</Link>
+                <Text >Add Tatics</Text>
             </Box>
         </Box>
         <Box w={['full','full']} mt='1rem' display='flex' justifyContent='space-between' flexDir={['column','column']}>
@@ -123,6 +125,15 @@ const Tatics = () => {
                 </Box>
             </Box>
         </Box>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody w='full'>
+                <VideoUpload />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }

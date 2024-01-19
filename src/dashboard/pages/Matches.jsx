@@ -1,6 +1,5 @@
 import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const Matches = () => {
   return (
@@ -10,20 +9,19 @@ const Matches = () => {
                 <Text>Dashboard &nbsp;</Text>
                 <Text display='inline-block' borderLeft='1px solid #333'>&nbsp;Matches</Text>
             </Box>
-            <Box border='1px solid #333' w='130px' display='flex' alignItms='center' p='.25rem' borderRadius='.5rem'>
-                <Link to=''>Edit</Link>
-            </Box>
         </Box>
-        <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','row']}>
-            <Box w={['full','50%']} display='flex' flexDir='column'>
+        <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','column']}>
+            <Box w={['full','full']} display='flex' flexDir='column'>
                 <Text>Match Result</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     <Box p='1rem' borderRadius='8px'color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text>Match</Text>
+                        <Text>Home Team</Text>
+                        <Text>Away Team</Text>
+                        <Text>Time</Text>
                         <Text>Date</Text>
-                        <Text>Opponent </Text>
-                        <Text>Result</Text>
-                        <Text>Score</Text>
+                        <Text>Competition</Text>
+                        <Text>Refree</Text>
+                        <Text>Stadium/Pitch</Text>
                     </Box>
                     <Box p='1rem' borderRadius='8px'color='#fff' bg='#000' mt='.5rem' display='flex' justifyContent='space-between'>
                         <Text textAlign='center'>Match 1</Text>
@@ -85,7 +83,7 @@ const Matches = () => {
                 </Box>
             </Box>
             </Box>
-            <Box w={['full','40%']} display='flex' flexDir='column'>
+            <Box w={['full','full']} display='flex' flexDir='column'>
                 <Text>Passing Networks</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     <Box p='1rem' borderRadius='8px'color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
