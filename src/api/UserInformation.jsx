@@ -28,7 +28,12 @@ export const Verify = async (mail) => {
 
 export const GetProfile = async () => {
   const response = await userInformationApi.get(`/profile/getProfile`);
-  return response.data;
+  return response?.data;
+};
+
+export const GetTatics = async () => {
+  const response = await userInformationApi.get(`/tactics/getUserTactics?limit=10&offset=0`);
+  return response?.data;
 };
 
 export const EditProfiles = async (newProfile) => {
@@ -40,6 +45,13 @@ export const EditProfiles = async (newProfile) => {
 export const AddTactics = async (uploadTactics) => {
   const response = await userInformationApi.post(
     'tactics/uploadTactics',uploadTactics
+  );
+  return response.data;
+};
+
+export const DeleteTactics = async (tacticsId) => {
+  const response = await userInformationApi.delete(
+    `/tactics/deleteTactics?tacticsId=${tacticsId}`
   );
   return response.data;
 };

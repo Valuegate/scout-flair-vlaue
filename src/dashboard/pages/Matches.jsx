@@ -1,5 +1,6 @@
 import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
+import teamb from '../../assets/b.png'
 
 const Matches = () => {
   return (
@@ -14,7 +15,7 @@ const Matches = () => {
             <Box w={['full','full']} display='flex' flexDir='column'>
                 <Text>Match Result</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='1rem' borderRadius='8px'color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
+                    <Box p='1rem' borderRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
                         <Text>Home Team</Text>
                         <Text>Away Team</Text>
                         <Text>Time</Text>
@@ -24,6 +25,10 @@ const Matches = () => {
                         <Text>Stadium/Pitch</Text>
                     </Box>
                     <Box p='1rem' borderRadius='8px'color='#fff' bg='#000' mt='.5rem' display='flex' justifyContent='space-between'>
+                         <Box display='flex'>
+                            <img src={teamb} alt='team a' />
+                            <Text marginLeft='.5rem'>Team B</Text>
+                        </Box>
                         <Text textAlign='center'>Match 1</Text>
                         <Text textAlign='center'>11-09-23</Text>
                         <Text textAlign='center'>Rival FC</Text>

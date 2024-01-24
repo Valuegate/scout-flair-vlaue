@@ -43,6 +43,7 @@ function handleOnChange(e) {
             category:category,
             description:description,
             date:date,
+            fileName: title,
             videoUrl:vidUrl
         }
 

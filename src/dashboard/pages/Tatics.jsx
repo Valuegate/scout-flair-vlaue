@@ -1,79 +1,48 @@
-import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody, } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody, Spinner, } from '@chakra-ui/react'
+import React, {useState, } from 'react'
 //import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
-import per from '../../assets/performance.png'
 import square from '../../assets/Square.png'
 import VideoUpload from '../components/VideoUpload'
+import { useQuery, useMutation,useQueryClient } from 'react-query';
+import { GetTatics,DeleteTactics } from '../../api/UserInformation'
 
 const Tatics = () => {
-    const data=[
-        {
-            img:per,
-            id:1,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:2,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:3,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:4,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        }
-        ,
-        {
-            img:per,
-            id:5,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:6,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:7,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:8,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        },
-        {
-            img:per,
-            id:9,
-            text:'Goal at Last match with Team  A',
-            category:'Category: Goals',
-            date:'12/09/2023'
-        }
-    ]
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [isPlaying, setIsPlaying] = useState(false);
+
+
+  
+  const handleVideoClick = () => {
+    const video = document.getElementById('video');
+
+    if (isPlaying) {
+      video.pause();
+    } else {
+      video.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  };
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(DeleteTactics, {
+    onSuccess: (data) => {
+      // Invalidate and refetch the video list query after successful deletion
+      alert('Video Deleted')
+      queryClient.invalidateQueries('videoList');
+      console.log(`Video with ID ${data} deleted successfully`);
+    },
+  });
+
+  const handleDelete = (tacticsId) => {
+    // Call the mutation function with the tacticsId
+    mutation.mutate(tacticsId);
+  };
+    const { data, isLoading} = useQuery('myData', GetTatics);
+
+  
   return (
     <Box>
          <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
@@ -90,12 +59,20 @@ const Tatics = () => {
             <Box w={['full','100%']} display='flex' flexDir='column'>
                 <Text fontWeight='700' mt='.75rem' mb='.5rem' fontSize=''>Performance Videos</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
+                    { isLoading?
+                    <Box w='100%' h='100%' display='flex' alignItems='center' justifyContent='center'>
+                    <Spinner/>
+                    </Box>
+                    :
                     <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(4,1fr)']} gap='9'>
                         {
-                        data.map((datas)=>{
+                        data?.map((datas)=>{
                             return(
-                                <Box w='229px' position='relative'>
-                            <img  src={datas.img} alt='' />
+                            <Box key={data.id} w='229px' position='relative'>
+                            <video width="229" height="139" id="video" controls>
+                                <source src={datas.videoUrl} />
+                            </video>
+                            
                             <Box  position='absolute' top='0px' right='0' zIndex='1000'>
                                  <Menu>
                                 <MenuButton
@@ -106,9 +83,9 @@ const Tatics = () => {
                                 />
                                 <MenuList>
                                     {/* MenuItems are not rendered unless Menu is open */}
-                                    <MenuItem>Play Video</MenuItem>
-                                    <MenuItem>Download Video</MenuItem>
-                                    <MenuItem color='#e72422'>Delete Video</MenuItem>
+                                    <MenuItem  onClick={handleVideoClick}>{isPlaying? 'Pause Video':'Play Video'}</MenuItem>
+                                    <MenuItem > <a href={datas?.videoUrl} target='_blank' rel="noreferrer" download> Download Video </a></MenuItem>
+                                    <MenuItem color='#e72422' onClick={(tacticsId)=>handleDelete(tacticsId=datas?.id)} >Delete Video</MenuItem>
                                 </MenuList>
                             </Menu>
                             </Box>
@@ -122,6 +99,7 @@ const Tatics = () => {
                         })
 }
                     </Grid>
+                    }
                 </Box>
             </Box>
         </Box>
