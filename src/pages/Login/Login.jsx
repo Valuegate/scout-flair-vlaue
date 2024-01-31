@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Box,  Checkbox,  Image, Input, Spinner, Text, } from '@chakra-ui/react'
+import {Box,  Checkbox,  Image, Input, Spinner, Text,Button } from '@chakra-ui/react'
 import scoutflair from '../../assets/scoutflair.png';
 import ball from '../../assets/football.png'
 import { Link,useNavigate } from 'react-router-dom';
@@ -90,7 +90,7 @@ const Login = () => {
                 <Input placeholder='Password' mt='5' type={showPwd ? "text" : "password"} color='#0C1017' border='1px solid #B0B0B0'  onChange={(e)=>setPassword(e.target.value)}  value={password}   />
                 <Text as='div' display='flex' w='full' justifyContent='flex-start'  alignItems='center' mt='.75rem'> <Checkbox onChange={togglePassword} /> &nbsp;Show password </Text>
                
-                <Input _hover={{
+                <Button _hover={{
                 color:'#fff',
                 background:'var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))',
                 shadow:'-2px 8px 0px #232b30',
@@ -99,7 +99,7 @@ const Login = () => {
             color='#fff'
             border='1px solid rgba(0,0,0,.15)'
             mt='1rem'
-            //w='330px'
+            w='330px'
             fontSize='24px'
             fontWeight='700'
             textAlign='center'
@@ -107,10 +107,12 @@ const Login = () => {
             bg='var(--Blue-Gradient, linear-gradient(270deg, #1B2B4C -0.67%, #345670 30.6%, #558F9F 63.72%, #E5AA42 100%))'
             p='1.5rem, 48px, 1.5rem, 48px'
             borderRadius='48px'
-            value={loading? <Spinner/>:'Login'}
+            
             type='submit'
             onClick={handleSubmit}
-            />
+            >
+              {loading? <Spinner  color='white' />:'Login'}
+            </Button>
               <Text fontSize='.85rem' fontWeight='400' textAlign='center' display='flex' alignItems='center' justifyContent='center' mt='2rem' >
                <Checkbox mr='.3rem' borderColor='#0C1017' /> Remember me
             </Text>

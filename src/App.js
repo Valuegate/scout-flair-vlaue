@@ -27,6 +27,9 @@ import Settings from './dashboard/pages/Settings';
 import Profile from './dashboard/pages/Profile';
 import EditProfile from './dashboard/pages/EditProfile';
 import VerifyEmail from './pages/Login/VerifyEmail';
+import LocalPitches from './dashboard/pages/LocalPitches';
+import Academy from './dashboard/pages/Academy';
+import FootballClub from './dashboard/pages/FootballClub';
 
 function App() {
   return (
@@ -46,8 +49,7 @@ function App() {
             <Route path='/coach-login' element={<Coach/>} />
             <Route path='/scout-login' element={<Scout/>} />
             <Route path='/player-login' element={<Player/>} />
-            <Route path='/verify' element={<VerifyEmail/>}/>
-            
+            <Route path='/verify' element={<VerifyEmail/>}/>            
             <Route path='/coming' element={<ComingSoon/>} />
             <Route path='*' element={<ErrorPage/>} />
             <Route element={<ProtectedLayout/>}>
@@ -59,6 +61,9 @@ function App() {
               <Route path='/matches' element={<Matches/>} />
               <Route path='/notifications' element={<Notifications/>} />
               <Route path='/settings' element={<Settings/>} />
+              <Route path='/local-pitches' element={<LocalPitches/>} />
+              <Route path='/academy' element={<Academy/>} />
+              <Route path='/football-club' element={<FootballClub/>}/>
             </Route>
           </Routes>
         </Router>

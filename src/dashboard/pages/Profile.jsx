@@ -8,6 +8,7 @@ import { GetProfile } from '../../api/UserInformation'
 
 
 const Profile = () => {
+    // eslint-disable-next-line
      const { data, isLoading} = useQuery('myData', GetProfile);
       
     

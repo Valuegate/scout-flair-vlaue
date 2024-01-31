@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box,Text } from '@chakra-ui/react';
+import { Box,Text,Menu, MenuItem, MenuButton, IconButton, MenuList,useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody, } from '@chakra-ui/react';
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
+import Notificationdetails from '../components/Notificationdetails';
 
 const Notifications = () => {
+   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box>
         <Box p='1rem' borderRadius='8px' bg='white' display='flex' justifyContent='space-between' >
@@ -17,7 +19,19 @@ const Notifications = () => {
                 <Text w='40px' h='40px' borderRadius='50px' bg='#000' ></Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>Match vs. Strikers Utd is rescheduled to 21-01-2024</Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>20-03-2023</Text>
-                <Text><IoEllipsisVerticalSharp /></Text>
+                <Text><Menu>
+                                        <MenuButton
+                                            as={IconButton}
+                                            aria-label='Options'
+                                            icon={<IoEllipsisVerticalSharp/>}
+                                            variant='black'
+                                        />
+                                        <MenuList>
+                                            {/* MenuItems are not rendered unless Menu is open */}
+                                            <MenuItem onClick={onOpen} >Read notifications </MenuItem>
+                                            <MenuItem >Unread notifications </MenuItem>
+                                        </MenuList>
+                                        </Menu></Text>
             </Box>
           </Box>
           <Box bg='#e9e9e9' p='1.5rem' w='full' mt='1rem'>
@@ -25,7 +39,19 @@ const Notifications = () => {
                 <Text w='40px' h='40px' borderRadius='50px' bg='#000' ></Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>Match vs. Strikers Utd is rescheduled to 21-01-2024</Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>20-03-2023</Text>
-                <Text><IoEllipsisVerticalSharp /></Text>
+                <Text><Menu>
+                                        <MenuButton
+                                            as={IconButton}
+                                            aria-label='Options'
+                                            icon={<IoEllipsisVerticalSharp/>}
+                                            variant='black'
+                                        />
+                                        <MenuList>
+                                            {/* MenuItems are not rendered unless Menu is open */}
+                                            <MenuItem onClick={onOpen} >Read notifications </MenuItem>
+                                            <MenuItem >Unread notifications </MenuItem>
+                                        </MenuList>
+                                        </Menu></Text>
             </Box>
           </Box>
           <Box bg='#e9e9e9' p='1.5rem' w='full' mt='1rem'>
@@ -33,7 +59,19 @@ const Notifications = () => {
                 <Text w='40px' h='40px' borderRadius='50px' bg='#000' ></Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>Match vs. Strikers Utd is rescheduled to 21-01-2024</Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>20-03-2023</Text>
-                <Text><IoEllipsisVerticalSharp /></Text>
+                <Text><Menu>
+                                        <MenuButton
+                                            as={IconButton}
+                                            aria-label='Options'
+                                            icon={<IoEllipsisVerticalSharp/>}
+                                            variant='black'
+                                        />
+                                        <MenuList>
+                                            {/* MenuItems are not rendered unless Menu is open */}
+                                            <MenuItem onClick={onOpen} >Read notifications </MenuItem>
+                                            <MenuItem >Unread notifications </MenuItem>
+                                        </MenuList>
+                                        </Menu></Text>
             </Box>
           </Box>
              <Box bg='#e9e9e9' p='1.5rem' w='full' mt='1rem'>
@@ -41,10 +79,31 @@ const Notifications = () => {
                 <Text w='40px' h='40px' borderRadius='50px' bg='#000' ></Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>Match vs. Strikers Utd is rescheduled to 21-01-2024</Text>
                 <Text fontWeight='400' color='#4F4545' textAlign='left'>20-03-2023</Text>
-                <Text><IoEllipsisVerticalSharp /></Text>
+                <Text><Menu>
+                                        <MenuButton
+                                            as={IconButton}
+                                            aria-label='Options'
+                                            icon={<IoEllipsisVerticalSharp/>}
+                                            variant='black'
+                                        />
+                                        <MenuList>
+                                            {/* MenuItems are not rendered unless Menu is open */}
+                                            <MenuItem onClick={onOpen} >Read notifications </MenuItem>
+                                            <MenuItem >Unread notifications </MenuItem>
+                                        </MenuList>
+                                        </Menu></Text>
             </Box>
           </Box>
         </Box>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody >
+                <Notificationdetails/>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }

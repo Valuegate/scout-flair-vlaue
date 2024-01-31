@@ -30,9 +30,10 @@ const LinkItems = [
     { name: 'Profile', link: '/profile', icon: FiTrendingUp },
   { name: 'Players', link: '/player', icon: FiTrendingUp },
   { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
-  { name: 'Match', link: '/matches', icon: FiBriefcase },
-  { name: 'Academics', link: '/buyer/settings', icon: FiSettings },
-   { name: 'Football Club', link: '/buyer/message', icon: FiMessageSquare },
+  { name: 'Matches', link: '/matches', icon: FiBriefcase },
+   { name: 'Local Pitches', link: '/local-pitches', icon: FiBriefcase },
+  { name: 'Academics', link: '/academy', icon: FiSettings },
+   { name: 'Football Club', link: '/football-club', icon: FiMessageSquare },
   { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
   { name: 'Settings', link: '/settings', icon: FiSettings },
 ];
