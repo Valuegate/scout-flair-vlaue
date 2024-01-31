@@ -25,9 +25,9 @@ const mail = email.replace('@','%40')
       method: 'get',
       responseType: 'json', 
       url: `https://scoutflair.top:8080/scoutflair/v1/signup/reSendVerificationMail?email=${mail}`,
-      headers:{
-        Authorization: `Bearer ${JSON.parse(sessionStorage.getItem('token'))}`
-      },
+      // headers:{
+      //   Authorization: `Bearer ${JSON.parse(sessionStorage.getItem('token'))}`
+      // },
      data: input,
     })
       .then(response => {

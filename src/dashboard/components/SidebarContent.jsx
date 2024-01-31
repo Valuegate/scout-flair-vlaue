@@ -25,7 +25,19 @@ import {
 import { NavLink } from 'react-router-dom';
 import '../styles/sidebar.css'
 
-const LinkItems = [
+const LinkPlayers = [
+  { name: 'Dashboard', link: '/dashboard', icon: FiHome },
+    { name: 'Profile', link: '/profile', icon: FiTrendingUp },
+  { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
+  { name: 'Matches', link: '/matches', icon: FiBriefcase },
+   { name: 'Local Pitches', link: '/local-pitches', icon: FiBriefcase },
+  { name: 'Academics', link: '/academy', icon: FiSettings },
+   { name: 'Football Club', link: '/football-club', icon: FiMessageSquare },
+  { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
+  { name: 'Settings', link: '/settings', icon: FiSettings },
+];
+
+const LinkCoach = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
     { name: 'Profile', link: '/profile', icon: FiTrendingUp },
   { name: 'Players', link: '/player', icon: FiTrendingUp },
@@ -40,6 +52,7 @@ const LinkItems = [
 
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
@@ -69,6 +82,7 @@ export default function SidebarWithHeader({ children }) {
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
+  const userType = JSON.parse(localStorage.getItem('userType'));
   return (
     <Box
       transition="3s ease"
@@ -87,7 +101,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       <Image ml='2rem' mb='1rem' src={logo} alt=''/>
-      {LinkItems.map(link => (
+      { userType === 'coach'? LinkCoach.map(link => (
+        <NavItem key={link.name} link={link.link} icon={link.icon}>
+          {link.name}
+        </NavItem>
+      )) : LinkPlayers.map(link => (
         <NavItem key={link.name} link={link.link} icon={link.icon}>
           {link.name}
         </NavItem>
