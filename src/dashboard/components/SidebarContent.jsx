@@ -14,16 +14,19 @@ import {
 } from '@chakra-ui/react';
 import MobileNav from './Navbar';
 import logo from '../../assets/White Logo.png'
+import styles from '../../styles/Sidebar.module.css'
 import {
   FiHome,
   FiTrendingUp,
   FiBriefcase,
-  //FiUsers,
+  FiUsers,
   FiMessageSquare,
   FiSettings,
+  FiFilePlus,
 } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 import '../styles/sidebar.css'
+import { IoBasketball, IoSchool } from 'react-icons/io5';
 
 const LinkPlayers = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
@@ -46,6 +49,19 @@ const LinkCoach = [
    { name: 'Local Pitches', link: '/local-pitches', icon: FiBriefcase },
   { name: 'Academics', link: '/academy', icon: FiSettings },
    { name: 'Football Club', link: '/football-club', icon: FiMessageSquare },
+  { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
+  { name: 'Settings', link: '/settings', icon: FiSettings },
+];
+const LinkAdmin = [
+  { name: 'Dashboard', link: '/dashboard', icon: FiHome },
+  {name: 'users', link: '/users', icon: FiUsers},
+    { name: 'Profile', link: '/profile', icon: FiFilePlus },
+  { name: 'Players', link: '/player', icon: FiTrendingUp },
+  { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
+  { name: 'Matches', link: '/matches', icon: FiBriefcase },
+   { name: 'Local Pitches', link: '/local-pitches', icon: IoBasketball },
+  { name: 'Academics', link: '/academy', icon: IoSchool },
+   { name: 'Football Club', link: '/football-club', icon: IoBasketball},
   { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
   { name: 'Settings', link: '/settings', icon: FiSettings },
 ];
@@ -101,32 +117,53 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       <Image ml='2rem' mb='1rem' src={logo} alt=''/>
-      { userType === 'coach'? LinkCoach.map(link => (
-        <NavItem key={link.name} link={link.link} icon={link.icon}>
+      
+   {
+  userType === 'COACH'
+    ? LinkCoach.map(link => (
+        <NavItem key={link.name} link={link.link}  icon={link.icon}>
           {link.name}
         </NavItem>
-      )) : LinkPlayers.map(link => (
-        <NavItem key={link.name} link={link.link} icon={link.icon}>
+      ))
+    : userType === 'Admin'
+    ? LinkAdmin.map(link => (
+        <NavItem key={link.name}  link={link.link} icon={link.icon}>
           {link.name}
         </NavItem>
-      ))}
+      ))
+    : userType === 'SCOUT'
+    ? LinkCoach.map(link => (
+        <NavItem key={link.name}  link={link.link} icon={link.icon}>
+          {link.name}
+        </NavItem>
+      ))
+    : LinkPlayers.map(link => (
+        <NavItem key={link.name}  link={link.link} icon={link.icon}>
+          {link.name}
+        </NavItem>
+      ))
+}
     </Box>
   );
 };
 
 const NavItem = ({ icon, link, children, ...rest }) => {
+    const [activeLink, setActiveLink] = React.useState(link);
+
+  const handleNavLinkClick = (link) => {
+    setActiveLink(link);
+  };
   return (
     <NavLink
       to={link}
       style={{ textDecoration: 'none' }}
-      _focus={{ boxShadow: 'none' }}
-      _hover={{ color: '#fff' }}
-      p=".5rem"
-      color="rgba(212, 20, 90, 1)"
+      activeClassName={styles.active}
+       className={activeLink && styles.active}
+        onClick={() => handleNavLinkClick('dashboard')}
       borderRadius="4px"
-      className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "active" : ""
-      }
+      // className={({ isActive, isPending }) =>
+      //   isPending ? "pending" : isActive ? "active" : styles.NavLink
+      // }
     >
       <Flex
         align="center"
@@ -139,6 +176,18 @@ const NavItem = ({ icon, link, children, ...rest }) => {
         bg="#000"
         mb=".5rem"
         _hover={{
+          bg: '#C99C27',
+          color: '#fff',
+        }}
+        _active={{
+          bg: '#C99C27',
+          color: '#fff',
+        }}
+        _activeLink={{
+          bg: '#C99C27',
+          color: '#fff',
+        }}
+        _focus={{
           bg: '#C99C27',
           color: '#fff',
         }}

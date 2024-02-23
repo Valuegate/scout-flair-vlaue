@@ -148,7 +148,7 @@ function handleOnChange(e) {
         {preview && (
   <Box shadow='md' mt='1rem'  ><img src={preview} alt="Upload preview" /></Box>
 )}
-    <Button type='submit' onClick={handleSubmit} >{loading? <Spinner/>:'Submit'}</Button>
+    <Button type='submit' onClick={handleSubmit} mt='1rem' >{loading? <Spinner/>:'Submit'}</Button>
     </Box>
   )
 }

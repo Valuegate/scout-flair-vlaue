@@ -65,11 +65,11 @@ const Login = () => {
    
       })
       .catch(err => {
-        console.log(err.response)
+        console.log(err?.response)
         setLoading(false);
          Swal.fire({
   title: 'Error',
-  text: err.response.data,
+  text: err.response?.data,
   icon: 'error',
   confirmButtonText: 'Okay'
 })

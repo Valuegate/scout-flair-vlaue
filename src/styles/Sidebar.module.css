@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.active{
+ background-color: #E5AA42;
+ color: #000;
+}

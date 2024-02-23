@@ -1,67 +1,225 @@
-import React from 'react'
-import {Box,Text } from '@chakra-ui/react'
-import { IoEllipsisVerticalSharp } from "react-icons/io5";
+import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList,  } from '@chakra-ui/react'
+import React, {useState, } from 'react'
+//import { Link } from 'react-router-dom'
+import {AddIcon } from '@chakra-ui/icons'
+import square from '../../assets/blackSquare.png'
+import player from '../../assets/player.svg'
+import teamb from '../../assets/b.png'
+import { Link } from 'react-router-dom'
 
-const Players = () => {
+const Player = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+
+
+  
+  const handleVideoClick = () => {
+    const video = document.getElementById('video');
+
+    if (isPlaying) {
+      video.pause();
+    } else {
+      video.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  };
+
+  
+  const handleDelete = () => {
+    // Call the mutation function with the tacticsId
+   
+  };
+
+  
   return (
     <Box>
-    <Box bg='none' p='0' w='full' >
-        <Box w='full' display='flex' justifyContent='space-evenly' >
-            <Text></Text>
-            <Text fontWeight='700' textAlign='left'>Username</Text>
-            <Text fontWeight='700' textAlign='left' >Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Text>
-            <Text fontWeight='700' textAlign='left'>Jersery Number</Text>
-            <Text fontWeight='700' textAlign='left'>Position</Text>
-            <Text>&nbsp; &nbsp;&nbsp;</Text>
-            <Text>&nbsp;&nbsp;&nbsp;&nbsp;</Text>
+         <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
+            <Box border='1px solid #333' p='.5rem' alignItems='center' display='flex'>
+                <Text>Profile &nbsp;</Text>
+                <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Player</Text>
+            </Box>
+            <Box border='1px solid #333' cursor='pointer' w='130px'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                <AddIcon />
+                <Link to='/add-player'><Text >Add Player</Text></Link>
+            </Box>
         </Box>
-    </Box>
-    <Box bg='#fff' p='1.5rem' w='full' mt='1rem'>
-        <Box w='full' display='flex' justifyContent='space-evenly' >
-            <Text w='20px' h='20px' borderRadius='16px' bg='#000' ></Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Username</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Player Name</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>1</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Goal Keeper</Text>
-            <Text bg='#c99c27' borderRadius='8px' textAlign='left' p='.25rem' color='#000'>View Profile</Text>
-            <Text><IoEllipsisVerticalSharp /></Text>
+        <Box w={['full','full']} mt='1rem' display='flex' justifyContent='space-between' flexDir={['column','column']}>
+            <Box w={['full','100%']} display='flex' flexDir='column'>
+                <Text fontWeight='700' mt='.75rem' mb='.5rem' fontSize=''>Performance Videos</Text>
+                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
+                    {/* { isLoading?
+                    <Box w='100%' h='100%' display='flex' alignItems='center' justifyContent='center'>
+                    <Spinner/>
+                    </Box>
+                    : */}
+                    <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(4,1fr)']} gap='9'>
+                         <Box  w='229px' position='relative'>
+                            <img width="229" height="139"  src={player} alt="video" />
+                               
+                            
+                            <Box  position='absolute' width='100%'  display='flex' alignItems='center' justifyContent='space-between' top='0px' right='0' zIndex='1000'>
+                               <Box display='flex' alignItems='baseline' justifyContent='center' marginTop='.75rem' flexDir='column'>
+                                    <Text fontWeight='700' fontSize='12px'>2022-24</Text>
+                                    <img width='20px' height='20px' src={teamb} alt='team a' />
+                               </Box>
+                                 <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    aria-label='Options'
+                                    icon={<img src={square} alt='' />}
+                                    variant='none'
+                                />
+                                <MenuList>
+                                    {/* MenuItems are not rendered unless Menu is open */}
+                                    <MenuItem  onClick={handleVideoClick}>View Player Profile</MenuItem>
+                                    <MenuItem >Update Player Data</MenuItem>
+                                    <MenuItem color='#e72422' onClick={()=>handleDelete()} >Remove Player</MenuItem>
+                                </MenuList>
+                            </Menu>
+                            </Box>
+                           <Text fontWeight='700'  p='10px' textAlign='center' fontSize='20px'  background='#e8e8e8' mt='.5rem' >Name Surname</Text>
+                           <Box w='full' display='flex' borderBottomLeftRadius='8px' borderBottomRightRadius='8px' background='#0C1017BF' p='.75rem' justifyContent='space-between' flexDir={['column','row']}>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Age</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>16</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Position</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>Forwar</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='fff'>country</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>NgN</Text> 
+                            </Box>
+                           </Box>
+                        </Box>
+                        <Box  w='229px' position='relative'>
+                            <img width="229" height="139"  src={player} alt="video" />
+                               
+                            
+                            <Box  position='absolute' width='100%'  display='flex' alignItems='center' justifyContent='space-between' top='0px' right='0' zIndex='1000'>
+                               <Box display='flex' alignItems='baseline' justifyContent='center' marginTop='.75rem' flexDir='column'>
+                                    <Text fontWeight='700' fontSize='12px'>2022-24</Text>
+                                    <img width='20px' height='20px' src={teamb} alt='team a' />
+                               </Box>
+                                 <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    aria-label='Options'
+                                    icon={<img src={square} alt='' />}
+                                    variant='none'
+                                />
+                                <MenuList>
+                                    {/* MenuItems are not rendered unless Menu is open */}
+                                    <MenuItem  onClick={handleVideoClick}>View Player Profile</MenuItem>
+                                    <MenuItem >Update Player Data</MenuItem>
+                                    <MenuItem color='#e72422' onClick={()=>handleDelete()} >Remove Player</MenuItem>
+                                </MenuList>
+                            </Menu>
+                            </Box>
+                           <Text fontWeight='700'  p='10px' textAlign='center' fontSize='20px' background='#e8e8e8' mt='.5rem' >Name Surname</Text>
+                           <Box w='full' display='flex' borderBottomLeftRadius='8px' borderBottomRightRadius='8px' background='#0C1017BF' p='.75rem' justifyContent='space-between' flexDir={['column','row']}>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Age</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>16</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Position</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>Forwar</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='fff'>country</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>NgN</Text> 
+                            </Box>
+                           </Box>
+                        </Box>
+                        <Box  w='229px' position='relative'>
+                            <img width="229" height="139"  src={player} alt="video" />
+                               
+                            
+                            <Box  position='absolute' width='100%'  display='flex' alignItems='center' justifyContent='space-between' top='0px' right='0' zIndex='1000'>
+                               <Box display='flex' alignItems='baseline' justifyContent='center' marginTop='.75rem' flexDir='column'>
+                                    <Text fontWeight='700' fontSize='12px'>2022-24</Text>
+                                    <img width='20px' height='20px' src={teamb} alt='team a' />
+                               </Box>
+                                 <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    aria-label='Options'
+                                    icon={<img src={square} alt='' />}
+                                    variant='none'
+                                />
+                                 <MenuList>
+                                    {/* MenuItems are not rendered unless Menu is open */}
+                                    <MenuItem  onClick={handleVideoClick}>View Player Profile</MenuItem>
+                                    <MenuItem >Update Player Data</MenuItem>
+                                    <MenuItem color='#e72422' onClick={()=>handleDelete()} >Remove Player</MenuItem>
+                                </MenuList>
+                            </Menu>
+                            </Box>
+                           <Text fontWeight='700'  p='10px' textAlign='center' fontSize='20px' background='#e8e8e8' mt='.5rem' >Name Surname</Text>
+                           <Box w='full' display='flex' borderBottomLeftRadius='8px' borderBottomRightRadius='8px' background='#0C1017BF' p='.75rem' justifyContent='space-between' flexDir={['column','row']}>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Age</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>16</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Position</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>Forwar</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='fff'>country</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>NgN</Text> 
+                            </Box>
+                           </Box>
+                        </Box>
+                        <Box  w='229px' position='relative'>
+                            <img width="229" height="139"  src={player} alt="video" />
+                               
+                            
+                            <Box  position='absolute' width='100%'  display='flex' alignItems='center' justifyContent='space-between' top='0px' right='0' zIndex='1000'>
+                               <Box display='flex' alignItems='baseline' justifyContent='center' marginTop='.75rem' flexDir='column'>
+                                    <Text fontWeight='700' fontSize='12px'>2022-24</Text>
+                                    <img width='20px' height='20px' src={teamb} alt='team a' />
+                               </Box>
+                                 <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    aria-label='Options'
+                                    icon={<img src={square} alt='' />}
+                                    variant='none'
+                                />
+                                 <MenuList>
+                                    {/* MenuItems are not rendered unless Menu is open */}
+                                    <MenuItem  onClick={handleVideoClick}>View Player Profile</MenuItem>
+                                    <MenuItem >Update Player Data</MenuItem>
+                                    <MenuItem color='#e72422' onClick={()=>handleDelete()} >Remove Player</MenuItem>
+                                </MenuList>
+                            </Menu>
+                            </Box>
+                           <Text fontWeight='700' p='10px' textAlign='center' fontSize='20px' background='#e8e8e8' mt='.5rem' >Name Surname</Text>
+                           <Box w='full' display='flex' borderBottomLeftRadius='8px' borderBottomRightRadius='8px' background='#0C1017BF' p='.75rem' justifyContent='space-between' flexDir={['column','row']}>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Age</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>16</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='#fff'>Position</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>Forwar</Text> 
+                            </Box>
+                            <Box>
+                               <Text fontSize='12px' fontFamily='Inter' color='fff'>country</Text>
+                                <Text fontSize='12px' fontFamily='Inter' color='#fff'>NgN</Text> 
+                            </Box>
+                           </Box>
+                        </Box>
+                    </Grid>
+                    
+                </Box>
+            </Box>
         </Box>
-    </Box>
-    <Box bg='#fff' p='1.5rem' w='full' mt='1rem'>
-        <Box w='full' display='flex' justifyContent='space-evenly' >
-            <Text w='20px' h='20px' borderRadius='16px' bg='#000' ></Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Username</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Player Name</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>2</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Right Fullback</Text>
-            <Text bg='#c99c27' borderRadius='8px' textAlign='left' p='.25rem' color='#000'>View Profile</Text>
-            <Text><IoEllipsisVerticalSharp /></Text>
-        </Box>
-    </Box>
-    <Box bg='#fff' p='1.5rem' w='full' mt='1rem'>
-        <Box w='full' display='flex' justifyContent='space-evenly' >
-            <Text w='20px' h='20px' borderRadius='16px' bg='#000' ></Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Username</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Player Name</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>3</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Left Fullback</Text>
-            <Text bg='#c99c27' borderRadius='8px' textAlign='left' p='.25rem' color='#000'>View Profile</Text>
-            <Text><IoEllipsisVerticalSharp /></Text>
-        </Box>
-    </Box>
-    <Box bg='#fff' p='1.5rem' w='full' mt='1rem'>
-        <Box w='full' display='flex' justifyContent='space-evenly' >
-            <Text w='20px' h='20px' borderRadius='16px' bg='#000' ></Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Username</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Player Name</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>4</Text>
-            <Text fontWeight='400' color='#4F4545' textAlign='left'>Center back</Text>
-            <Text bg='#c99c27' borderRadius='8px' textAlign='left' p='.25rem' color='#000'>View Profile</Text>
-            <Text><IoEllipsisVerticalSharp /></Text>
-        </Box>
-    </Box>
     </Box>
   )
 }
 
-export default Players
+export default Player

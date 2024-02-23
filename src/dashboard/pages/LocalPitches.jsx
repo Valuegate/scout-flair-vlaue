@@ -1,7 +1,10 @@
 import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import {AddIcon } from '@chakra-ui/icons'
 
 const LocalPitches = () => {
+     const userType = JSON.parse(localStorage.getItem('userType'));
   return (
     <Box>
         <Box p='1rem' borderRadius='8px' bg='white' display='flex' justifyContent='space-between' >
@@ -9,6 +12,20 @@ const LocalPitches = () => {
                 <Text>Dashboard &nbsp;</Text>
                 <Text display='inline-block' borderLeft='1px solid #333'>&nbsp;Local Pitches</Text>
             </Box>
+             {
+                userType==='Admin'&&
+                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Link to='/add-local-pitches'><Text >Add Local Pitches</Text></Link>
+                </Box>
+                &nbsp;
+                <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Text >Edit Local Pitches</Text>
+                </Box>
+                </Box>
+            }
         </Box>
         <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','column']}>
             <Box w={['full','full']} display='flex' flexDir='column'>

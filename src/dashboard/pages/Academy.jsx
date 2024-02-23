@@ -4,9 +4,12 @@ import { IoEllipsisVertical } from 'react-icons/io5'
 import logo from '../../assets/academylogo.png'
 import pic from '../../assets/grouppicture.png'
 import Academydetails from '../components/Academydetails'
+import { Link } from 'react-router-dom'
+import {AddIcon } from '@chakra-ui/icons'
 
 const Academy = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const userType = JSON.parse(localStorage.getItem('userType'));
   const data =[
     {
         id:1,
@@ -45,6 +48,20 @@ const Academy = () => {
                 <Text>Profile &nbsp;</Text>
                 <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Academy</Text>
             </Box>
+              {
+                userType==='Admin'&&
+                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Link to='/add-local-pitches'><Text >Add Academy</Text></Link>
+                </Box>
+                &nbsp;
+                <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Text >Edit Local Pitches</Text>
+                </Box>
+                </Box>
+            }
         </Box>
         <Box w={['full','full']} mt='1rem' display='flex' justifyContent='space-between' flexDir={['column','column']}>
             <Box w={['full','100%']} display='flex' flexDir='column'>

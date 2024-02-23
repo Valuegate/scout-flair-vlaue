@@ -30,6 +30,8 @@ import VerifyEmail from './pages/Login/VerifyEmail';
 import LocalPitches from './dashboard/pages/LocalPitches';
 import Academy from './dashboard/pages/Academy';
 import FootballClub from './dashboard/pages/FootballClub';
+import AddPlayer from './dashboard/pages/AddPlayer';
+import Users from './dashboard/pages/Users';
 
 function App() {
   return (
@@ -54,7 +56,9 @@ function App() {
             <Route path='*' element={<ErrorPage/>} />
             <Route element={<ProtectedLayout/>}>
               <Route path='/dashboard' element={<Dashboard/>} />
+              <Route path='/users' element={<Users/>}/>
               <Route path='/player' element={<Players/>} />
+              <Route path='/add-player' element={<AddPlayer/>}/>
               <Route path='/profile' element={<Profile/>} />
               <Route path='/edit-profile' element={<EditProfile/>} />
               <Route path='/tactics' element={<Tatics/>} />
