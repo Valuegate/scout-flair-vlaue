@@ -15,12 +15,37 @@ const Coach = () => {
   const [team, setTeam] = useState('');
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
+  const [list, setList] = useState('');
   const navigate = useNavigate();
    const [showPwd, setShowPwd] = useState(false);
 
     const togglePassword = () => {
 		setShowPwd((prev) => !prev);
 	};
+
+  React.useEffect(()=>{
+     // eslint-disable-next-line
+ const validates = () => {
+
+    setLoading(true);
+
+    axios({
+      method: 'get',
+      responseType: 'json',
+      url: 'https://scoutflair.top:8080/api/v1/est/namesList',
+    })
+      .then(response => {
+        setLoading(false);
+        setList(response.data);
+        console.log(response);
+      })
+      .catch(err => {
+       // toast.error(err.response.data);
+       console.log(err.response.data)
+        setLoading(false);
+      });
+  };
+  },[list])
 
    const validate = ( event) => {
     event.preventDefault();
@@ -81,14 +106,17 @@ const Coach = () => {
                 <Input placeholder='Full Name' onChange={(e)=>setFullName(e.target.value)} value={fullName}  color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Date of Birth' mt='5' onChange={(e)=>setDob(e.target.value)} value={dob} type='date' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />                    
                 <Input placeholder='Coach license number' mt='5' onChange={(e)=>setLicenseNumber(e.target.value)} value={licenseNumber} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'  />
-                <Select placholder='Coaching Experience (years)' mt='5' onChange={(e)=>setExperience(e.target.value)} value={experience} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </Select>
-                <Input placeholder='Current Team or Club' mt='5' onChange={(e)=>setTeam(e.target.value)} value={team} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
+                <Input type='number' placeholder='Coaching Experience (years)' mt='5' onChange={(e)=>setExperience(e.target.value)} value={experience} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />
+                  
+                <Select placeholder='Current Team or Club' mt='5' onChange={(e)=>setTeam(e.target.value)} value={team} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' >
+                 {
+                  list?.map((lists,index)=>{
+                    return(
+                      <options key={index}>{lists}</options>
+                    )
+                  })
+                 }
+                  </Select>
                 <Input placeholder='Email' mt='5' color='#0C1017' onChange={(e)=>setEmail(e.target.value)} value={email} border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Password'type={showPwd ? "text" : "password"} mt='5' color='#0C1017'onChange={(e)=>setPassword(e.target.value)} value={password} border='1px solid #B0B0B0' bg='#FDFDFD' />
                 <Input placeholder='Confirm Password' mt='5' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />

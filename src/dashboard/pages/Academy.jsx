@@ -53,12 +53,12 @@ const Academy = () => {
                 <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
                 <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                     <AddIcon />
-                    <Link to='/add-local-pitches'><Text >Add Academy</Text></Link>
+                    <Link to='/add-academy '><Text >Add Academy</Text></Link>
                 </Box>
                 &nbsp;
                 <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                     <AddIcon />
-                    <Text >Edit Local Pitches</Text>
+                    <Text >Edit Academy</Text>
                 </Box>
                 </Box>
             }

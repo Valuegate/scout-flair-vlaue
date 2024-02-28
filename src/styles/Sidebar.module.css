@@ -5,6 +5,7 @@
 }
 
 .active{
- background-color: #E5AA42;
- color: #000;
+ background-color: #E5AA42 !important;
+ color: #fff !important;
+ z-index: 10;
 }

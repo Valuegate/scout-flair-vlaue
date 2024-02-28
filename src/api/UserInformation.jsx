@@ -31,6 +31,17 @@ export const GetProfile = async () => {
   return response?.data;
 };
 
+export const AddAcademies = async () => {
+  const response = await userInformationApi.get(`/est/academy/addAcademy`);
+  return response?.data;
+};
+
+
+export const GetAcademy = async () => {
+  const response = await userInformationApi.get(`/est/academy/getAcademies?limit=200&offset=0`);
+  return response?.data;
+};
+
 export const GetTatics = async () => {
   const response = await userInformationApi.get(`/tactics/getUserTactics?limit=10&offset=0`);
   return response?.data;

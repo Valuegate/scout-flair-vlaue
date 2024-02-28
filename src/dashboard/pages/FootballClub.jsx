@@ -4,9 +4,12 @@ import { IoEllipsisVertical } from 'react-icons/io5'
 import logo from '../../assets/academylogo.png'
 import pic from '../../assets/grouppicture.png'
 import Academydetails from '../components/Academydetails'
+import { Link } from 'react-router-dom'
+import {AddIcon } from '@chakra-ui/icons'
 
 const FootballClub = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+        const userType = JSON.parse(localStorage.getItem('userType'));
   const data =[
     {
         id:1,
@@ -43,8 +46,22 @@ const FootballClub = () => {
          <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
             <Box border='1px solid #333' p='.5rem' alignItems='center' display='flex'>
                 <Text>Profile &nbsp;</Text>
-                <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Football Club</Text>
+                <Text display='inline-block' fontWeight='700' borderLeft='1px solid #333'>&nbsp;Football Club</Text>                
             </Box>
+              {
+                userType==='Admin'&&
+                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Link to='/add-football-club '><Text >Add Football Club</Text></Link>
+                </Box>
+                &nbsp;
+                <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon />
+                    <Text >Edit Football Club</Text>
+                </Box>
+                </Box>
+            }
         </Box>
         <Box w={['full','full']} mt='1rem' display='flex' justifyContent='space-between' flexDir={['column','column']}>
             <Box w={['full','100%']} display='flex' flexDir='column'>

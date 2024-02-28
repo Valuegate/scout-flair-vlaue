@@ -1,4 +1,4 @@
-import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody, Spinner, } from '@chakra-ui/react'
+import { Box, Grid, Text,Stack,Skeleton, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  } from '@chakra-ui/react'
 import React, {useState, } from 'react'
 //import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
@@ -61,7 +61,13 @@ const Tatics = () => {
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     { isLoading?
                     <Box w='100%' h='100%' display='flex' alignItems='center' justifyContent='center'>
-                    <Spinner/>
+                    <Stack>
+                      <Skeleton height='20px' />
+                      <Skeleton height='20px' />
+                      <Skeleton height='20px' />
+                      <Skeleton height='20px' />
+                      <Skeleton height='20px' />
+                    </Stack>
                     </Box>
                     :
                     <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(4,1fr)']} gap='9'>

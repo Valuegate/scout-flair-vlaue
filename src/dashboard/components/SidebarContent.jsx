@@ -24,7 +24,7 @@ import {
   FiSettings,
   FiFilePlus,
 } from 'react-icons/fi';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation } from 'react-router-dom';
 import '../styles/sidebar.css'
 import { IoBasketball, IoSchool } from 'react-icons/io5';
 
@@ -148,24 +148,30 @@ const SidebarContent = ({ onClose, ...rest }) => {
 };
 
 const NavItem = ({ icon, link, children, ...rest }) => {
+  // eslint-disable-next-line
     const [activeLink, setActiveLink] = React.useState(link);
+    const location = useLocation();
+    const locationName = location.pathname;
 
   const handleNavLinkClick = (link) => {
     setActiveLink(link);
+    console.log(link===locationName)
   };
   return (
     <NavLink
       to={link}
-      style={{ textDecoration: 'none' }}
-      activeClassName={styles.active}
-       className={activeLink && styles.active}
-        onClick={() => handleNavLinkClick('dashboard')}
+      style={{
+         textDecoration: 'none',
+         }}      
       borderRadius="4px"
       // className={({ isActive, isPending }) =>
       //   isPending ? "pending" : isActive ? "active" : styles.NavLink
       // }
     >
       <Flex
+       className={locationName === link && styles.active}
+        onClick={() => handleNavLinkClick(link)}
+        isActive={locationName === link}      
         align="center"
         p="2"
         mx="4"
