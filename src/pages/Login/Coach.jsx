@@ -36,7 +36,7 @@ const Coach = () => {
     })
       .then(response => {
         setLoading(false);
-        setList(response.data);
+        setList(response.data?.content);
         console.log(response);
       })
       .catch(err => {

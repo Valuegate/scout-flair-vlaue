@@ -1,29 +1,27 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text,Stack,Skeleton,Modal,ModalOverlay,ModalBody,ModalContent,ModalCloseButton,useDisclosure } from '@chakra-ui/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
+import AddLocalPitches from '../components/AddLocalPitches'
+import { useQuery, } from 'react-query';
+import { GetLocalPitches } from '../../api/UserInformation'
 
 const LocalPitches = () => {
      const userType = JSON.parse(localStorage.getItem('userType'));
+     const { isOpen, onOpen, onClose } = useDisclosure();
+     const { data:value, isLoading,} = useQuery('myData', GetLocalPitches);
   return (
     <Box>
         <Box p='1rem' borderRadius='8px' bg='white' display='flex' justifyContent='space-between' >
             <Box border='1px solid #333' p='.5rem' alignItems='center' display='flex'>
                 <Text>Dashboard &nbsp;</Text>
-                <Text display='inline-block' borderLeft='1px solid #333'>&nbsp;Local Pitches</Text>
+                <Text display='inline-block'  borderLeft='1px solid #333'>&nbsp;Local Pitches</Text>
             </Box>
              {
                 userType==='Admin'&&
-                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
-                <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
-                    <AddIcon />
-                    <Link to='/add-local-pitches'><Text >Add Local Pitches</Text></Link>
-                </Box>
-                &nbsp;
-                <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
-                    <AddIcon />
-                    <Text >Edit Local Pitches</Text>
-                </Box>
+                <Box w='20%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box border='1px solid #333' cursor='pointer' onClick={onOpen} w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon /><Text >Add Local Pitches</Text>
+                </Box>               
                 </Box>
             }
         </Box>
@@ -40,49 +38,47 @@ const LocalPitches = () => {
                         <Text>Surface</Text>
                         <Text>Dimension</Text>
                     </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
+                      {
+                            isLoading?
+                             <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
+                                <Stack>
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                </Stack>
+                            </Box>
+                            :value ?(
+                        value?.map((data)=>{
+                            return(
+                    <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
                          
-                        <Text>National Stadium</Text>
-                        <Text>Pitch address details...</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Kaduna South</Text>
-                        <Text textAlign='center'>Lat:34.78965, Lon:12.88754</Text>
-                        <Text textAlign='center'>Turf Grass</Text>
-                        <Text textAlign='center'>105m X 68m</Text>
+                        <Text>{data?.name}</Text>
+                        <Text>{data?.address}</Text>
+                        <Text textAlign='center'>{data?.state}</Text>
+                        <Text textAlign='center'>{data?.lga}</Text>
+                        <Text textAlign='center'>Lat:{data?.latitude}, Lon:{data?.longitude}</Text>
+                        <Text textAlign='center'>{data?.surface}</Text>
+                        <Text textAlign='center'>{data?.width}</Text>
                     </Box>
-                     <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         
-                        <Text>National Stadium</Text>
-                        <Text>Pitch address details...</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Kaduna South</Text>
-                        <Text textAlign='center'>Lat:34.78965, Lon:12.88754</Text>
-                        <Text textAlign='center'>Turf Grass</Text>
-                        <Text textAlign='center'>105m X 68m</Text>
-                    </Box>
-                     <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         
-                        <Text>National Stadium</Text>
-                        <Text>Pitch address details...</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Kaduna South</Text>
-                        <Text textAlign='center'>Lat:34.78965, Lon:12.88754</Text>
-                        <Text textAlign='center'>Turf Grass</Text>
-                        <Text textAlign='center'>105m X 68m</Text>
-                    </Box>
-                     <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         
-                        <Text>National Stadium</Text>
-                        <Text>Pitch address details...</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Kaduna South</Text>
-                        <Text textAlign='center'>Lat:34.78965, Lon:12.88754</Text>
-                        <Text textAlign='center'>Turf Grass</Text>
-                        <Text textAlign='center'>105m X 68m</Text>
-                    </Box>
+                    )
+                        })
+                        )    :    (
+                                <div>No data available</div>
+                            )}
                 </Box>
             </Box>
         </Box>
+         <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody w='full'>
+                <AddLocalPitches onClose={onClose}/>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }

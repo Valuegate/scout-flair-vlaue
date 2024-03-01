@@ -66,7 +66,7 @@ const AddFootballClub = () => {
       // Handle success, reset form, show success message, etc.
     } catch (error) {
       setLoading(false)
-      console.error('Error posting data:', error);
+      alert('Error posting data:', error);
       // Handle error, show error message, etc.
     }
   };

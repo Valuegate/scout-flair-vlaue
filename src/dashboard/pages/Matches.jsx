@@ -1,13 +1,17 @@
-import { Box, Text,useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  } from '@chakra-ui/react'
+import { Box, Text,Stack, Skeleton, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  } from '@chakra-ui/react'
 import React from 'react'
 import teamb from '../../assets/b.png'
 import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
 import NewMatch from '../components/NewMatch'
+import { useQuery, } from 'react-query';
+import { GetPreviousMatches, GetUpComingMatches } from '../../api/UserInformation'
 
 const Matches = () => {
     const userType = JSON.parse(localStorage.getItem('userType'));
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { data:value, isLoading,} = useQuery('myData', GetPreviousMatches);
+    const { data:coming, loading,} = useQuery('myData', GetUpComingMatches);
   return (
     <Box>
         <Box p='1rem' borderRadius='8px' bg='white' display='flex' justifyContent='space-between' >
@@ -30,11 +34,19 @@ const Matches = () => {
                 </Box>
                 : null
             }
+             {
+                userType==='Admin'&&
+                <Box w='20%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box border='1px solid #333' cursor='pointer' onClick={onOpen} w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                    <AddIcon /><Text >Add Matches</Text>
+                </Box>               
+                </Box>
+            }
             
         </Box>
         <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','column']}>
             <Box w={['full','full']} display='flex' flexDir='column'>
-                <Text>Match Result</Text>
+                <Text>Upcoming Match</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     <Box p='1rem' borderTopLeftRadius='8px' borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
                         <Text>Home Team</Text>
@@ -45,69 +57,42 @@ const Matches = () => {
                         <Text>Refree</Text>
                         <Text>Stadium/Pitch</Text>
                     </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
+                    {
+                            loading?
+                             <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
+                                <Stack>
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                </Stack>
+                            </Box>
+                            :coming ?(
+                        coming?.map((data)=>{
+                            return(
+                     <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
                          <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A</Text>
+                            <img src={data?.homeTeamLogoUrl?data?.homeTeamLogoUrl:teamb} alt='team a' />
+                            <Text marginLeft='.5rem'>Team A 2</Text>
                         </Box>
                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B</Text>
+                            <img src={data?.awayTeamLogoUrl?data?.awayTeamLogoUrl:teamb} alt='team a' />
+                            <Text marginLeft='.5rem'>Team B 0</Text>
                         </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Champions League</Text>
-                        <Text textAlign='center'>Thomas Hills</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
+                        <Text textAlign='center'>{data?.dateTime}</Text>
+                        <Text textAlign='center'> {data?.date} </Text>
+                        <Text textAlign='center'>{data?.competition}</Text>
+                        <Text textAlign='center'>{data?.stadium}</Text>
                     </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B</Text>
-                        </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Champions League</Text>
-                        <Text textAlign='center'>Thomas Hills</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B</Text>
-                        </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Champions League</Text>
-                        <Text textAlign='center'>Thomas Hills</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B</Text>
-                        </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Champions League</Text>
-                        <Text textAlign='center'>Thomas Hills</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
-                    </Box>
+                    )
+                        })
+                        )    :    (
+                                <div>No data available</div>
+                            )}
                 </Box>
                 <Box w={['full','full']} display='flex' mt='.75rem' flexDir='column'>
-                <Text>Match Result</Text>
+                <Text> Previous Match Result</Text>
                 <Box p='1rem' borderTopLeftRadius='8px' borderTopRightRadius='8px' bg='white' display='flex' flexDir='column'>
                     <Box p='1rem' borderRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
                         <Text>Home Team</Text>
@@ -117,48 +102,39 @@ const Matches = () => {
                         <Text>Competition</Text>
                         <Text>Stadium/Pitch</Text>
                     </Box>
-                     <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
+                    {
+                            isLoading?
+                             <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
+                                <Stack>
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                <Skeleton height='20px' />
+                                </Stack>
+                            </Box>
+                            :value ?(
+                        value?.map((data)=>{
+                            return(
+                     <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
                          <Box display='flex'>
-                            <img src={teamb} alt='team a' />
+                            <img src={data?.homeTeamLogoUrl?data?.homeTeamLogoUrl:teamb} alt='team a' />
                             <Text marginLeft='.5rem'>Team A 2</Text>
                         </Box>
                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
+                            <img src={data?.awayTeamLogoUrl?data?.awayTeamLogoUrl:teamb} alt='team a' />
                             <Text marginLeft='.5rem'>Team B 0</Text>
                         </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Nigerian Champions League</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
+                        <Text textAlign='center'>{data?.dateTime}</Text>
+                        <Text textAlign='center'> {data?.date} </Text>
+                        <Text textAlign='center'>{data?.competition}</Text>
+                        <Text textAlign='center'>{data?.stadium}</Text>
                     </Box>
-                     <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A 2</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B 0</Text>
-                        </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Nigerian Champions League</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A 2</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B 0</Text>
-                        </Box>
-                        <Text textAlign='center'>8:30 Am</Text>
-                        <Text textAlign='center'>11-09-23</Text>
-                        <Text textAlign='center'>Nigerian Champions League</Text>
-                        <Text textAlign='center'>National Stadium, Kaduna</Text>
-                    </Box>
+                    )
+                        })
+                        )    :    (
+                                <div>No data available</div>
+                            )}
                 </Box>
             </Box>
             </Box>
@@ -168,7 +144,7 @@ const Matches = () => {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody w='full'>
-                <NewMatch/>
+                <NewMatch onClose={onClose}/>
           </ModalBody>
         </ModalContent>
       </Modal>

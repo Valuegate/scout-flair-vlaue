@@ -60,7 +60,7 @@ const Tatics = () => {
                 <Text fontWeight='700' mt='.75rem' mb='.5rem' fontSize=''>Performance Videos</Text>
                 <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     { isLoading?
-                    <Box w='100%' h='100%' display='flex' alignItems='center' justifyContent='center'>
+                    <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
                     <Stack>
                       <Skeleton height='20px' />
                       <Skeleton height='20px' />

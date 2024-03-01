@@ -32,19 +32,44 @@ export const GetProfile = async () => {
 };
 
 export const AddAcademies = async () => {
-  const response = await userInformationApi.get(`/est/academy/addAcademy`);
+  const response = await userInformationApi.post(`/est/academy/addAcademy`);
+  return response?.data;
+};
+
+export const AddLocalPitches = async () => {
+  const response = await userInformationApi.post(`/pitches/addLocalPitches`);
   return response?.data;
 };
 
 
 export const GetAcademy = async () => {
   const response = await userInformationApi.get(`/est/academy/getAcademies?limit=200&offset=0`);
-  return response?.data;
+  return response?.data?.content;
+};
+
+export const GetPreviousMatches = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/matches/previous/getMatches?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetUpComingMatches = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/matches/upcoming/getMatches?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetFootballClub = async () => {
+  const response = await userInformationApi.get(`/est/fc/getFootballClubs?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetLocalPitches = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/pitches/getLocalPitches?limit=200&offset=0`);
+  return response?.data?.content;
 };
 
 export const GetTatics = async () => {
   const response = await userInformationApi.get(`/tactics/getUserTactics?limit=10&offset=0`);
-  return response?.data;
+  return response?.data?.content;
 };
 
 export const EditProfiles = async (newProfile) => {

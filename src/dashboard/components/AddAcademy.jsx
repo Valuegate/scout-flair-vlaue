@@ -4,6 +4,7 @@ import InputValue from '../components/InputValue'
 import { useQuery } from 'react-query'
 import {GetAcademy } from '../../api/UserInformation'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const AddAcademy = () => {
     const { data} = useQuery('myData', GetAcademy);
@@ -35,8 +36,6 @@ const AddAcademy = () => {
   // Use a single state object to hold all input field values
   const [formState, setFormState] = useState(initialFormState);
 
-    
-
     const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevFormState) => ({
@@ -61,12 +60,20 @@ const AddAcademy = () => {
           'x-access-token, Origin, X-Requested-With, Content-Type, Accept',
       };
       const response = await axios.post('https://scoutflair.top:8080/api/v1/est/academy/addAcademy', newAcademy,{ headers });
-      alert('Data posted successfully:', response.data);
+       Swal.fire({
+  title: 'Success',
+  text: response.data,
+  icon: 'sucess',
+})
       setLoading(false)
       // Handle success, reset form, show success message, etc.
     } catch (error) {
       setLoading(false)
-      console.error('Error posting data:', error);
+       Swal.fire({
+  title: 'Error',
+  text: error,
+  icon: 'error',
+})
       // Handle error, show error message, etc.
     }
   };
