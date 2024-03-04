@@ -51,7 +51,7 @@ const NewMatch = ({onClose}) => {
       onClose();
        Swal.fire({
   title: 'Error',
-  text: error,
+  text: error.response.error,
   icon: 'error',
 })
     }

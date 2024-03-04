@@ -55,7 +55,6 @@ const LinkCoach = [
 const LinkAdmin = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
   {name: 'users', link: '/users', icon: FiUsers},
-    { name: 'Profile', link: '/profile', icon: FiFilePlus },
   { name: 'Players', link: '/player', icon: FiTrendingUp },
   { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
   { name: 'Matches', link: '/matches', icon: FiBriefcase },
