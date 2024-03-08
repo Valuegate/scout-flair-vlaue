@@ -4,7 +4,7 @@ import InputValue from './InputValue'
 import axios from 'axios'
 import Swal from 'sweetalert2';
 
-const VideoUpload = () => {
+const VideoUpload = ({onClose}) => {
     
     const [file, setFile] = useState();
     const [preview, setPreview] = useState(null);
@@ -76,9 +76,10 @@ function handleOnChange(e) {
     })
       .then(response => {
         setLoading(false);
+        onClose();
                Swal.fire({
   title: 'Success',
-  text: response?.data,
+  text: response?.data.message,
   icon: 'success',
 })
       })

@@ -22,7 +22,6 @@ import {
   FiUsers,
   FiMessageSquare,
   FiSettings,
-  FiFilePlus,
 } from 'react-icons/fi';
 import { NavLink,useLocation } from 'react-router-dom';
 import '../styles/sidebar.css'
@@ -55,7 +54,7 @@ const LinkCoach = [
 const LinkAdmin = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
   {name: 'users', link: '/users', icon: FiUsers},
-  { name: 'Players', link: '/player', icon: FiTrendingUp },
+  // { name: 'Players', link: '/player', icon: FiTrendingUp },
   { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
   { name: 'Matches', link: '/matches', icon: FiBriefcase },
    { name: 'Local Pitches', link: '/local-pitches', icon: IoBasketball },

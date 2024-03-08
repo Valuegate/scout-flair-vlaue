@@ -49,12 +49,17 @@ export const GetAcademy = async () => {
 
 export const GetPreviousMatches = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/matches/previous/getMatches?limit=200&offset=0`);
+  return response?.data;
+};
+
+export const GetUsers = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getPlayers?limit=200&offset=0`);
   return response?.data?.content;
 };
 
 export const GetUpComingMatches = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/matches/upcoming/getMatches?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const GetFootballClub = async () => {
@@ -68,7 +73,11 @@ export const GetLocalPitches = async () => {
 };
 
 export const GetTatics = async () => {
-  const response = await userInformationApi.get(`/tactics/getUserTactics?limit=10&offset=0`);
+  const response = await userInformationApi.get(`/tactics/getUserTactics?limit=200&offset=0`);
+  return response?.data;
+};
+export const GetAdminTatics = async () => {
+  const response = await userInformationApi.get(`/tactics/admin/getUserTactics?limit=200&offset=0`);
   return response?.data?.content;
 };
 

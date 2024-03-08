@@ -1,10 +1,14 @@
-import { Box, Text,Menu, MenuItem, MenuButton, IconButton, MenuList,   } from '@chakra-ui/react'
+import { Box, Text,Table, Thead, Tr, Th, Tbody, Td,   } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
-import teamb from '../../assets/b.png'
-import square from '../../assets/blackSquare.png'
+import { useQuery, } from 'react-query';
+// import teamb from '../../assets/b.png'
+// import square from '../../assets/blackSquare.png'
+import { GetUsers } from '../../api/UserInformation'
 
 const Users = () => {
+    // eslint-disable-next-line
+      const { data, isLoading,} = useQuery('myData', GetUsers);
   return (
      <Box>
          <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
@@ -54,383 +58,126 @@ const Users = () => {
         </Box>
         <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Players</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='.5rem' borderTopLeftRadius='8px'  borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text textAlign='left'>Profile Picture</Text>
-                        <Text textAlign='left'>Name</Text>
-                        <Text textAlign='left'>Age</Text>
-                        <Text textAlign='left'>Jersey No.</Text>
-                        <Text textAlign='left'>Position</Text>
-                        <Text textAlign='left'>State</Text>
-                        <Text textAlign='left'>Email</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>07</Text>
-                        <Text textAlign='center'>Right Wing/Forward</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                        <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>07</Text>
-                        <Text textAlign='center'>Right Wing/Forward</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>07</Text>
-                        <Text textAlign='center'>Right Wing/Forward</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>07</Text>
-                        <Text textAlign='center'>Right Wing/Forward</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                </Box>
+               
+                <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                            <Th color='#C99C27'>Profile Picture</Th>
+                        <Th color='#C99C27'>Name</Th>
+                        <Th color='#C99C27'>Age</Th>
+                        <Th color='#C99C27'>Jersey No.</Th>
+                        <Th color='#C99C27'>Position</Th>
+                        <Th color='#C99C27'>State</Th>
+                        <Th color='#C99C27'>Email</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                        {
+                            data?
+                            data?.map((info)=>{
+                                return(
+                                    <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td>M<img src={info?.imageUrl}alt='pic'/>M</Td>
+                                        <Td>{info?.fullName }</Td>
+                                        <Td>{info?.dob }</Td>
+                                        <Td>{info?.jerseyNumber }</Td>
+                                        <Td>{info?.position }</Td>
+                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.email }</Td>
+                                    
+                                    </Tr>
+                                </Tbody>
+                                )
+                            }):
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        }
+                    
+                </Table>
         </Box>
         <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Coaches</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='.5rem' borderTopLeftRadius='8px'  borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text textAlign='left'>Profile Picture</Text>
-                        <Text textAlign='left'>Name</Text>
-                        <Text textAlign='left'>Age</Text>
-                        <Text textAlign='left'>Experince</Text>
-                        <Text textAlign='left'>Nationality</Text>
-                        <Text textAlign='left'>State</Text>
-                        <Text textAlign='left'>Team</Text>
-                        <Text textAlign='left'>Email</Text>
-                        <Text>&nbsp;&nbsp;&nbsp;</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>10</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>ScoutFlair FC</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                        <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>ScoutFlair FC</Text>
-
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>ScoutFlair FC</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>ScoutFlair FC</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                </Box>
+                 <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                            <Th color='#C99C27'>Profile Picture</Th>
+                        <Th color='#C99C27'>Name</Th>
+                        <Th color='#C99C27'>Age</Th>
+                        <Th color='#C99C27'>Experience</Th>
+                        <Th color='#C99C27'>Nationality</Th>
+                        <Th color='#C99C27'>State</Th>
+                        <Th color='#C99C27'>Team</Th>
+                        <Th color='#C99C27'>Email</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                        {
+                            data?
+                            data?.map((info)=>{
+                                return(
+                                    <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td>M<img src={info?.imageUrl}alt='pic'/>M</Td>
+                                        <Td>{info?.fullName }</Td>
+                                        <Td>{info?.dob }</Td>
+                                        <Td>{info?.jerseyNumber }</Td>
+                                        <Td>{info?.position }</Td>
+                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.email }</Td>
+                                    
+                                    </Tr>
+                                </Tbody>
+                                )
+                            }):
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        }
+                    
+                </Table>
         </Box>
         <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Scouts</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='.5rem' borderTopLeftRadius='8px'  borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text textAlign='left'>Profile Picture</Text>
-                        <Text textAlign='left'>Name</Text>
-                        <Text textAlign='left'>Age</Text>
-                        <Text textAlign='left'>Experience(Y)</Text>
-                        <Text textAlign='left'>Nationality</Text>
-                        <Text textAlign='left'>State</Text>
-                        <Text textAlign='left'>Scouting(No.)</Text>
-                        <Text textAlign='left'>Email</Text>
-                        <Text>&nbsp;&nbsp;&nbsp;</Text>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>5</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                        <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>5</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>07</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                    <Box p='1rem' borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={teamb} alt='team a' />
-                        </Box>
-                        <Box display='flex'>
-                            <Text marginLeft='.5rem'>Karis Amber</Text>
-                        </Box>
-                        <Text textAlign='center'>24</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Nigerian</Text>
-                        <Text textAlign='center'>Kaduna</Text>
-                        <Text textAlign='center'>7</Text>
-                        <Text textAlign='center'>Player@gmail.com</Text>
-                        
-                         <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<img src={square} alt='' />}
-                                variant='none'
-                            />
-                            <MenuList>
-                                {/* MenuItems are not rendered unless Menu is open */}
-                                <MenuItem  >View Player Profile</MenuItem>
-                                <MenuItem >Update Player Data</MenuItem>
-                                <MenuItem color='#e72422'  >Remove Player</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                </Box>
+                <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                            <Th color='#C99C27'>Profile Picture</Th>
+                        <Th color='#C99C27'>Name</Th>
+                        <Th color='#C99C27'>Age</Th>
+                        <Th color='#C99C27'>Experience(Y)</Th>
+                        <Th color='#C99C27'>Nationality</Th>
+                        <Th color='#C99C27'>State</Th>
+                        <Th color='#C99C27'>Scouting(No.)</Th>
+                        <Th color='#C99C27'>Email</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                        {
+                            data?
+                            data?.map((info)=>{
+                                return(
+                                    <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td>M<img src={info?.imageUrl}alt='pic'/>M</Td>
+                                        <Td>{info?.fullName }</Td>
+                                        <Td>{info?.dob }</Td>
+                                        <Td>{info?.jerseyNumber }</Td>
+                                        <Td>{info?.position }</Td>
+                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.email }</Td>
+                                    
+                                    </Tr>
+                                </Tbody>
+                                )
+                            }):
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        }
+                    
+                </Table>
         </Box>
     </Box>
   )

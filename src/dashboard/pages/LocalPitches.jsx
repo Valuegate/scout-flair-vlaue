@@ -1,4 +1,4 @@
-import { Box, Text,Stack,Skeleton,Modal,ModalOverlay,ModalBody,ModalContent,ModalCloseButton,useDisclosure } from '@chakra-ui/react'
+import { Box, Text,Stack,Table, Thead, Tr, Th, Tbody, Td,Skeleton,Modal,ModalOverlay,ModalBody,ModalContent,ModalCloseButton,useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import {AddIcon } from '@chakra-ui/icons'
 import AddLocalPitches from '../components/AddLocalPitches'
@@ -26,19 +26,22 @@ const LocalPitches = () => {
             }
         </Box>
         <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','column']}>
-            <Box w={['full','full']} display='flex' flexDir='column'>
+            <Box overflowX='scroll' w={['full','full']} display='flex' flexDir='column'>
                 <Text>Local Pitches</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='1rem' borderTopLeftRadius='8px' borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text>Name</Text>
-                        <Text>Address</Text>
-                        <Text>State</Text>
-                        <Text>LGA</Text>
-                        <Text>Geolocation</Text>
-                        <Text>Surface</Text>
-                        <Text>Dimension</Text>
-                    </Box>
-                      {
+                <Table overflowX='scroll' borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                        <Th color='#C99C27'>Name</Th>
+                        <Th color='#C99C27'>Address</Th>
+                        <Th color='#C99C27'>State</Th>
+                        <Th color='#C99C27'>LGA</Th>
+                        <Th color='#C99C27'>Geolocation</Th>
+                        <Th color='#C99C27'>Surface</Th>
+                        <Th color='#C99C27'>Dimension</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                          {
                             isLoading?
                              <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
                                 <Stack>
@@ -50,24 +53,28 @@ const LocalPitches = () => {
                                 </Stack>
                             </Box>
                             :value ?(
-                        value?.map((data)=>{
-                            return(
-                    <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         
-                        <Text>{data?.name}</Text>
-                        <Text>{data?.address}</Text>
-                        <Text textAlign='center'>{data?.state}</Text>
-                        <Text textAlign='center'>{data?.lga}</Text>
-                        <Text textAlign='center'>Lat:{data?.latitude}, Lon:{data?.longitude}</Text>
-                        <Text textAlign='center'>{data?.surface}</Text>
-                        <Text textAlign='center'>{data?.width}</Text>
-                    </Box>
-                    )
+                        value?.map((info)=>{
+                                return(
+                                <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td>{info?.name}</Td>
+                                        <Td>{info?.address} </Td>
+                                        <Td>{info?.state} </Td>
+                                        <Td>{info?.lga} </Td>
+                                        <Td>Lat:{info?.latitude}, Lon:{info?.longitude}</Td>
+                                        <Td>{info?.surface}</Td>
+                                        <Td>{info?.width}</Td> 
+                                    </Tr>
+                                </Tbody>
+                              )
                         })
                         )    :    (
-                                <div>No data available</div>
-                            )}
-                </Box>
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        )}
+                    
+                </Table>
             </Box>
         </Box>
          <Modal isOpen={isOpen} onClose={onClose}>

@@ -5,7 +5,8 @@ import {AddIcon } from '@chakra-ui/icons'
 import square from '../../assets/Square.png'
 import VideoUpload from '../components/VideoUpload'
 import { useQuery, useMutation,useQueryClient } from 'react-query';
-import { GetTatics,DeleteTactics } from '../../api/UserInformation'
+// eslint-disable-next-line
+import { GetTatics,DeleteTactics, GetAdminTatics } from '../../api/UserInformation'
 
 const Tatics = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -42,6 +43,8 @@ const Tatics = () => {
   };
     const { data, isLoading} = useQuery('myData', GetTatics);
 
+    // const {data, isLoading} = useQuery('myData',GetAdminTatics)
+
   
   return (
     <Box>
@@ -58,7 +61,7 @@ const Tatics = () => {
         <Box w={['full','full']} mt='1rem' display='flex' justifyContent='space-between' flexDir={['column','column']}>
             <Box w={['full','100%']} display='flex' flexDir='column'>
                 <Text fontWeight='700' mt='.75rem' mb='.5rem' fontSize=''>Performance Videos</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
+                <Box p='1rem' overflowX='scroll' borderRadius='8px' bg='white' display='flex' flexDir='column'>
                     { isLoading?
                     <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
                     <Stack>
@@ -70,7 +73,7 @@ const Tatics = () => {
                     </Stack>
                     </Box>
                     :
-                    <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(4,1fr)']} gap='9'>
+                    <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(2,1fr)','repeat(4,1fr)']} gap={['5','4','9']}>
                         {
                         data?.map((datas)=>{
                             return(
@@ -114,7 +117,7 @@ const Tatics = () => {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody w='full'>
-                <VideoUpload />
+                <VideoUpload onClose={onClose} />
           </ModalBody>
         </ModalContent>
       </Modal>

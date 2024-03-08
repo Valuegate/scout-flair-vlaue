@@ -1,8 +1,8 @@
-import { Box, Text,Stack, Skeleton, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  } from '@chakra-ui/react'
+import { Box, Text,Stack, Skeleton,Table, Thead, Tr, Th, Tbody, Td,  useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  } from '@chakra-ui/react'
 import React from 'react'
 import teamb from '../../assets/b.png'
 import { Link } from 'react-router-dom'
-import {AddIcon } from '@chakra-ui/icons'
+import {AddIcon, } from '@chakra-ui/icons'
 import NewMatch from '../components/NewMatch'
 import { useQuery, } from 'react-query';
 import { GetPreviousMatches, GetUpComingMatches } from '../../api/UserInformation'
@@ -45,19 +45,22 @@ const Matches = () => {
             
         </Box>
         <Box w={['full','full']} mt='1rem'  display='flex'  justifyContent='space-between' flexDir={['column','column']}>
-            <Box w={['full','full']} display='flex' flexDir='column'>
+            <Box w={['full','full']} display='flex' overflowX='scroll' flexDir='column'>
                 <Text>Upcoming Match</Text>
-                <Box p='1rem' borderRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='1rem' borderTopLeftRadius='8px' borderTopRightRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text>Home Team</Text>
-                        <Text>Away Team</Text>
-                        <Text>Time</Text>
-                        <Text>Date</Text>
-                        <Text>Competition</Text>
-                        <Text>Refree</Text>
-                        <Text>Stadium/Pitch</Text>
-                    </Box>
-                    {
+                <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                        <Th color='#C99C27'>Home Team</Th>
+                        <Th color='#C99C27'>Away Team</Th>
+                        <Th color='#C99C27'>Time</Th>
+                        <Th color='#C99C27'>Date</Th>
+                        <Th color='#C99C27'>Competition</Th>
+                        <Th color='#C99C27'>Refree</Th>
+                        <Th color='#C99C27'>Stadium/Pitch</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                          {
                             loading?
                              <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
                                 <Stack>
@@ -69,40 +72,43 @@ const Matches = () => {
                                 </Stack>
                             </Box>
                             :coming ?(
-                        coming?.map((data)=>{
-                            return(
-                     <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={data?.homeTeamLogoUrl?data?.homeTeamLogoUrl:teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A 2</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={data?.awayTeamLogoUrl?data?.awayTeamLogoUrl:teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B 0</Text>
-                        </Box>
-                        <Text textAlign='center'>{data?.dateTime}</Text>
-                        <Text textAlign='center'> {data?.date} </Text>
-                        <Text textAlign='center'>{data?.competition}</Text>
-                        <Text textAlign='center'>{data?.stadium}</Text>
-                    </Box>
-                    )
+                        coming?.map((info)=>{
+                                return(
+                                <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td><img src={info?.homeTeamLogoUrl?info?.homeTeamLogoUrl:teamb}alt='pic'/>M</Td>
+                                        <Td> <img src={info?.awayTeamLogoUrl?info?.awayTeamLogoUrl:teamb} alt='pic' /> </Td>
+                                        <Td>{info?.dateTime }</Td>
+                                        <Td>{info?.date }</Td>
+                                        <Td>{info?.competition }</Td>
+                                        <Td>{info?.referee}</Td>
+                                        <Td>{info?.stadiumPitch}</Td> 
+                                    </Tr>
+                                </Tbody>
+                              )
                         })
                         )    :    (
-                                <div>No data available</div>
-                            )}
-                </Box>
-                <Box w={['full','full']} display='flex' mt='.75rem' flexDir='column'>
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        )}
+                    
+                </Table>
+                <Box w={['full','full']}  display='flex' mt='.75rem' flexDir='column'>
                 <Text> Previous Match Result</Text>
-                <Box p='1rem' borderTopLeftRadius='8px' borderTopRightRadius='8px' bg='white' display='flex' flexDir='column'>
-                    <Box p='1rem' borderRadius='8px' fontWeight='700' color='#C99C27' bg='black' display='flex' justifyContent='space-between'>
-                        <Text>Home Team</Text>
-                        <Text>Away Team</Text>
-                        <Text>Time</Text>
-                        <Text>Date</Text>
-                        <Text>Competition</Text>
-                        <Text>Stadium/Pitch</Text>
-                    </Box>
-                    {
+                 <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                        <Th color='#C99C27'>Home Team</Th>
+                        <Th color='#C99C27'>Away Team</Th>
+                        <Th color='#C99C27'>Time</Th>
+                        <Th color='#C99C27'>Date</Th>
+                        <Th color='#C99C27'>Competition</Th>
+                        <Th color='#C99C27'>Stadium/Pitch</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>                    
+                          {
                             isLoading?
                              <Box w='100%' h='100%' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
                                 <Stack>
@@ -113,29 +119,28 @@ const Matches = () => {
                                 <Skeleton height='20px' />
                                 </Stack>
                             </Box>
-                            :value ?(
-                        value?.map((data)=>{
-                            return(
-                     <Box p='1rem' key={data?.id} borderRadius='8px'color='#000' bg='#fff' mt='.5rem' display='flex' justifyContent='space-between'>
-                         <Box display='flex'>
-                            <img src={data?.homeTeamLogoUrl?data?.homeTeamLogoUrl:teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team A 2</Text>
-                        </Box>
-                        <Box display='flex'>
-                            <img src={data?.awayTeamLogoUrl?data?.awayTeamLogoUrl:teamb} alt='team a' />
-                            <Text marginLeft='.5rem'>Team B 0</Text>
-                        </Box>
-                        <Text textAlign='center'>{data?.dateTime}</Text>
-                        <Text textAlign='center'> {data?.date} </Text>
-                        <Text textAlign='center'>{data?.competition}</Text>
-                        <Text textAlign='center'>{data?.stadium}</Text>
-                    </Box>
-                    )
+                            :value?(
+                        coming?.map((info)=>{
+                                return(
+                                <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td><img src={info?.homeTeamLogoUrl?info?.homeTeamLogoUrl:teamb}alt='pic'/>M</Td>
+                                        <Td> <img src={info?.awayTeamLogoUrl?info?.awayTeamLogoUrl:teamb} alt='pic' /> </Td>
+                                        <Td>{info?.dateTime }</Td>
+                                        <Td>{info?.date }</Td>
+                                        <Td>{info?.competition }</Td>
+                                        <Td>{info?.stadiumPitch}</Td> 
+                                    </Tr>
+                                </Tbody>
+                              )
                         })
                         )    :    (
-                                <div>No data available</div>
-                            )}
-                </Box>
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        )}
+                    
+                </Table>
             </Box>
             </Box>
         </Box>
