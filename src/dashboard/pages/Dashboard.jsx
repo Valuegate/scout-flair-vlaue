@@ -1,4 +1,4 @@
-import { Box, Text, Image } from '@chakra-ui/react';
+import { Box, Text, Image,Table, Thead, Tr, Th, Tbody, Td, } from '@chakra-ui/react';
 import React from 'react';
 import img1 from '../../assets/arrowupgreen.svg'
 import img2 from '../../assets/arrowdownred.svg'
@@ -15,7 +15,7 @@ const Dashboard = () => {
           alignItems={['center', 'center', 'center', 'flex-start']}
           w="full"
         >
-          <Box w='full' h='full' justifyContent='space-between' flexWrap={['wrap','wrap','wrap','']} display='flex'>
+          <Box w='full' h='full' justifyContent='space-between' flexWrap={['wrap','wrap','wrap','']} gap='5' display='flex'>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #C99C27' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Upcoming matches</Text>
               <Box display='flex' alignItems='center'>
@@ -50,137 +50,51 @@ const Dashboard = () => {
             </Box>
           </Box>
           
-          {/* 
-          <Box
-            w={['full', 'full', 'full', '45%']}
-            h="100%"
-            borderRadius="16px"
-            p="1rem"
-            m="1rem"
-            display="flex"
-            alignItems="center"
-            bg="rgba(242, 170, 198, 1)"
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <Box display="flex" w="full" justifyContent="space-between">
-              <Text
-                color="rgba(12, 11, 11, 0.75)"
-                fontWeight="700"
-                fontSize="1.1rem"
-              >
-                Recent Orders
-              </Text>
-              <Text
-                as="a"
-                href="/orders"
-                cursor="pointer"
-                color="rgba(12, 11, 11, 0.75)"
-                fontWeight="700"
-                fontSize="1rem"
-              >
-                See All
-              </Text>
-            </Box>
-            <Box w="full">
-              <NotificationCard/>
-            </Box>
-          </Box>
-          <Box
-            w={['full', 'full', 'full', '45%']}
-            minH="332px"
-            borderRadius="16px"
-            p="1rem"
-            m="1rem"
-            display="flex"
-            alignItems={['center', 'flex-start']}
-            bg="rgba(242, 170, 198, 1)"
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <Box display="flex" w="full" justifyContent="space-between">
-              <Text
-                color="rgba(12, 11, 11, 0.75)"
-                fontWeight="700"
-                fontSize="1.1rem"
-              >
-                Top Products
-              </Text>
-              <Text
-                as="a"
-                href="/product"
-                color="rgba(12, 11, 11, 0.75)"
-                fontWeight="700"
-                cursor="pointer"
-                fontSize="1rem"
-              >
-                See All
-              </Text>
-            </Box>
-
-            <Box display="flex" w="full" flexDirection="column">
-              
-            </Box>
-          </Box> */}
+         
         </Box>
         {/* ................................................. */}
-        <Box display='flex' justifyContent='space-between' flexDirection={['column', 'row']} mt='2.5rem'> 
-            <Box bg='#fff' p='1rem' borderRadius='4px' w={['full','50%']}>
-              <Text fontWeight='700' mb='1rem' fontSize='18px'>Player Performance Metrics</Text>
-              <Box bg='#fff' p='1rem' borderRadius='4px' mt='.5rem' >
-                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
-                  <Text>Player 1</Text>
-                  <Box>
-                    <Text>Goals</Text>
-                    <Text textAlign='center'>1</Text>
-                  </Box>
-
-                  <Box>
-                    <Text>Assists</Text>
-                    <Text textAlign='center'>5</Text>
-                  </Box>
-                  <Box>
-                    <Text>Pass Accuracy</Text>
-                    <Text textAlign='center'>86%</Text>
-                  </Box>
-                </Box>
-                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
-                  <Text>Player 1</Text>
-                  <Box>
-                    <Text>Goals</Text>
-                    <Text textAlign='center'>1</Text>
-                  </Box>
-
-                  <Box p='.5rem'>
-                    <Text>Assists</Text>
-                    <Text textAlign='center'>5</Text>
-                  </Box>
-                  <Box p='.5rem' >
-                    <Text>Pass Accuracy</Text>
-                    <Text textAlign='center'>86%</Text>
-                  </Box>
-                </Box>
-
-                <Box display='flex' justifyContent='space-between' borderBottom='1px solid #333' >
-                  <Text>Player 1</Text>
-                  <Box >
-                    <Text>Goals</Text>
-                    <Text textAlign='center'>1</Text>
-                  </Box>
-
-                  <Box p='.5rem' >
-                    <Text>Assists</Text>
-                    <Text textAlign='center'>5</Text>
-                  </Box>
-                  <Box p='.5rem'>
-                    <Text>Pass Accuracy</Text>
-                    <Text textAlign='center'>86%</Text>
-                  </Box>
-                </Box>
-              </Box>
-
+        <Box display='flex' justifyContent='space-between' flexDirection={['column','column','column', 'row']} mt='2.5rem'> 
+            <Box overflowX='scroll'  bg='#fff' p='1rem' borderRadius='4px' w={['full','full','full','50%']}>
+              <Text fontWeight='700' mb='1rem' ml='.8rem' fontSize='18px'>Player Performance Metrics</Text>
+              
+              <Table  borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='#fff'>
+                        <Tr>
+                        <Th color='#C99C27'>Players</Th>
+                        <Th color='#C99C27'>Goals</Th>
+                        <Th color='#C99C27'>Assists</Th>
+                        <Th color='#C99C27'>Pass</Th>
+                        <Th color='#C99C27'>Accuracy</Th>
+                        <Th color='#C99C27'></Th>
+                        </Tr>
+                    </Thead>      
+                    <Tbody width='100%'>
+                        <Tr> 
+                            <Td>Player 1</Td>
+                            <Td>5 </Td>
+                            <Td>5 </Td>
+                            <Td>2 </Td>
+                            <Td>86%</Td> 
+                        </Tr>
+                         <Tr> 
+                            <Td>Player 1</Td>
+                            <Td>5 </Td>
+                            <Td>5 </Td>
+                            <Td>2 </Td>
+                            <Td>86%</Td> 
+                        </Tr>
+                         <Tr> 
+                            <Td>Player 1</Td>
+                            <Td>5 </Td>
+                            <Td>5 </Td>
+                            <Td>2 </Td>
+                            <Td>86%</Td> 
+                        </Tr>
+                    </Tbody>
+                    
+                </Table>
             </Box>
-            <Box display='flex' w={['full','40%']} justifyContent='space-between' flexDirection='column' p='1.5rem' bg='#fff' borderRadius='4px'  >
+            <Box display='flex' w={['full','full','full','40%']} mt={['1rem','1rem','1rem','0rem',]} justifyContent='space-between' flexDirection='column' p='1.5rem' bg='#fff' borderRadius='4px'  >
               
               <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
               <Box>

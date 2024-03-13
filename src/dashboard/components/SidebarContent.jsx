@@ -10,10 +10,11 @@ import {
   DrawerContent,
   useDisclosure,
   Image,
+  Button,
   //Image,
 } from '@chakra-ui/react';
 import MobileNav from './Navbar';
-import logo from '../../assets/White Logo.png'
+import logo from '../../assets/logo.png'
 import styles from '../../styles/Sidebar.module.css'
 import {
   FiHome,
@@ -22,8 +23,13 @@ import {
   FiUsers,
   FiMessageSquare,
   FiSettings,
+  FiArrowLeftCircle,
+  FiUser,
+  FiFilePlus,
+  FiBook,
+  FiBell,
 } from 'react-icons/fi';
-import { NavLink,useLocation } from 'react-router-dom';
+import { NavLink,useLocation,useNavigate } from 'react-router-dom';
 import '../styles/sidebar.css'
 import { IoBasketball, IoSchool } from 'react-icons/io5';
 
@@ -41,14 +47,14 @@ const LinkPlayers = [
 
 const LinkCoach = [
   { name: 'Dashboard', link: '/dashboard', icon: FiHome },
-    { name: 'Profile', link: '/profile', icon: FiTrendingUp },
-  { name: 'Players', link: '/player', icon: FiTrendingUp },
+    { name: 'Profile', link: '/profile', icon: FiUser },
+  { name: 'Players', link: '/player', icon: FiUsers },
   { name: 'Tactics', link: '/tactics', icon: FiMessageSquare },
   { name: 'Matches', link: '/matches', icon: FiBriefcase },
-   { name: 'Local Pitches', link: '/local-pitches', icon: FiBriefcase },
-  { name: 'Academics', link: '/academy', icon: FiSettings },
+   { name: 'Local Pitches', link: '/local-pitches', icon: FiFilePlus },
+  { name: 'Academics', link: '/academy', icon: FiBook },
    { name: 'Football Club', link: '/football-club', icon: FiMessageSquare },
-  { name: 'Notifications', link: '/notifications', icon: FiBriefcase },
+  { name: 'Notifications', link: '/notifications', icon: FiBell },
   { name: 'Settings', link: '/settings', icon: FiSettings },
 ];
 const LinkAdmin = [
@@ -66,6 +72,7 @@ const LinkAdmin = [
 
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+ 
   
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -97,6 +104,12 @@ export default function SidebarWithHeader({ children }) {
 
 const SidebarContent = ({ onClose, ...rest }) => {
   const userType = JSON.parse(localStorage.getItem('userType'));
+
+  const navigate=useNavigate();
+
+  const logout = ()=>{
+    navigate('/login')
+  }
   return (
     <Box
       transition="3s ease"
@@ -114,7 +127,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         {/* <Image ml={['', '3rem']} objectFit="contain" src={logo} /> */}
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      <Image ml='2rem' mb='1rem' src={logo} alt=''/>
+      <Image ml='1.2rem' mt='-2rem' mb='2.75rem' src={logo} alt=''/>
       
    {
   userType === 'COACH'
@@ -141,6 +154,28 @@ const SidebarContent = ({ onClose, ...rest }) => {
         </NavItem>
       ))
 }
+        <Button 
+        bottom='0'
+        mb=".75rem"
+        bg= '#000'
+        color= '#C99C27'
+        border='1px solid #C99C27'
+        w='40'
+        fontSize='14px'
+        fontWeight='700'
+        fontFamily='Inter'
+        mx="4"
+        display='flex'
+        alignItems='center'
+        _hover={{
+           bg: '#C99C27',
+          color:'#000'
+        }} position='absolute'
+        onClick={logout}
+        >
+          <FiArrowLeftCircle/> &nbsp;&nbsp;
+          Logout
+          </Button>
     </Box>
   );
 };
@@ -171,14 +206,17 @@ const NavItem = ({ icon, link, children, ...rest }) => {
         onClick={() => handleNavLinkClick(link)}
         isActive={locationName === link}      
         align="center"
-        p="2"
+        p="1.5"
+        fontSize='14px'
+        fontWeight='700'
+        fontFamily='Inter'
         mx="4"
         borderRadius="lg"
         role="group"
         cursor="pointer"
         color="#C99C27"
         bg="#000"
-        mb=".5rem"
+        mb=".75rem"
         _hover={{
           bg: '#C99C27',
           color: '#fff',
