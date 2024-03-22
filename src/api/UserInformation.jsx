@@ -55,6 +55,33 @@ export const GetTopPlayersCount = async () => {
   const response = await userInformationApi.get(`/profile/getTopPlayers`);
   return response?.data;
 };
+export const GetAdminPlayersCount = async () => {
+  const response = await userInformationApi.get(`/profile/admin/getPlayersCount`);
+  return response?.data;
+};
+
+export const GetAdminCoachCount = async () => {
+  const response = await userInformationApi.get(`/profile/admin/getCoachesCount`);
+  return response?.data;
+};
+
+
+export const GetAdminScoutCount = async () => {
+  const response = await userInformationApi.get(`/profile/admin/getScoutCount`);
+  return response?.data;
+};
+
+
+export const GetAdminCount = async () => {
+  const response = await userInformationApi.get(`/profile/admin/getAdminCount`);
+  return response?.data;
+};
+
+
+export const GetNotification = async () => {
+  const response = await userInformationApi.get(`/notifications/getNotifications?limit=10&offset=0`);
+  return response?.data;
+};
 
 export const AddAcademies = async () => {
   const response = await userInformationApi.post(`/est/academy/addAcademy`);
@@ -88,6 +115,21 @@ export const GetUsers = async () => {
 
 export const GetPlayers = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/coach/getPlayers?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetAdminPlayers = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getPlayers?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetCoach = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getCoaches?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
+export const GetScout = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getScout?limit=200&offset=0`);
   return response?.data?.content;
 };
 

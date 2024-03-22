@@ -5,13 +5,18 @@ import { useQueries, } from 'react-query';
 import React,{useState} from 'react'
 // import teamb from '../../assets/b.png'
 // import square from '../../assets/blackSquare.png'
-import { GetPreviousMatches, GetUpComingMatches } from '../../api/UserInformation'
+import { GetAdminCoachCount, GetAdminCount, GetAdminPlayersCount, GetAdminScoutCount, GetCoach, GetAdminPlayers, GetScout,  } from '../../api/UserInformation'
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons'
 
 const Users = () => {
        const queries = useQueries([
-    { queryKey: 'value', queryFn: GetPreviousMatches },
-    { queryKey: 'coming', queryFn: GetUpComingMatches },
+    { queryKey: 'coach', queryFn: GetAdminCoachCount },
+    { queryKey: 'admin', queryFn: GetAdminCount },
+    { queryKey: 'player', queryFn: GetAdminPlayersCount },
+    { queryKey: 'scout', queryFn: GetAdminScoutCount},
+    { queryKey: 'value', queryFn: GetAdminPlayers },
+    { queryKey: 'coming', queryFn: GetCoach},
+     { queryKey: 'coming', queryFn: GetScout}
   ]);
 
   // eslint-disable-next-line
@@ -24,18 +29,18 @@ const firstIndex = lastIndex - recordsPerPage;
 
 // for players
 // Ensure the data exists before accessing it
-const info = queries[0]?.data || [];
-const recordsone = info.slice(firstIndex, lastIndex);
+const info = queries[4]?.data || [];
+const recordsone = info?.slice(firstIndex, lastIndex);
 
 // for coaches
 // Ensure the data exists before accessing it
-const data = queries[1]?.data || [];
-const recordstwo = data.slice(firstIndex, lastIndex);
+const data = queries[5]?.data || [];
+const recordstwo = data?.slice(firstIndex, lastIndex);
 
 // for scout
 // Ensure the data exists before accessing it
-const sub = queries[2]?.data || [];
-const recordsthree = sub.slice(firstIndex, lastIndex);
+const sub = queries[6]?.data || [];
+const recordsthree = sub?.slice(firstIndex, lastIndex);
 
 // Ensure the data length is greater than 0 to avoid division by 0
 const npage = Math.ceil(data.length / recordsPerPage);
@@ -86,25 +91,25 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #C99C27' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Total Players</Text>
               <Box display='flex' alignItems='center'>
-                <Text fontSize='32px' color='#4f4545'>284</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[2].data?.count}</Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #EF0107' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Total Coaches</Text>
               <Box display='flex' alignItems='center'>
-                <Text fontSize='32px' color='#4f4545'>84</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[0].data?.count}</Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #4F4545' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Total Scouts</Text>
               <Box display='flex' alignItems='center'>
-                <Text fontSize='32px' color='#4f4545'>72</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[3].data?.count}</Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #191818' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Admin</Text>
               <Box display='flex' alignItems='center'>
-                <Text fontSize='32px' color='#4f4545'>1</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[1].data?.count}</Text>
               </Box>
             </Box>
           </Box>
