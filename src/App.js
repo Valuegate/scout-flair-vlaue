@@ -34,6 +34,8 @@ import AddPlayer from './dashboard/pages/AddPlayer';
 import Users from './dashboard/pages/Users';
 import AddAcademys from './dashboard/pages/AddAcademy';
 import AddFootballClub from './dashboard/components/AddFootballClub';
+import AcademyDetails from './dashboard/pages/AcademyDetails';
+import FootballClubDetails from './dashboard/pages/FootballClubDetails';
 
 function App() {
   return (
@@ -69,8 +71,10 @@ function App() {
               <Route path='/settings' element={<Settings/>} />
               <Route path='/local-pitches' element={<LocalPitches/>} />
               <Route path='/academy' element={<Academy/>} />
+              <Route path='/academy-details/:id' element={<AcademyDetails/>} />
               <Route path='/add-academy' element={<AddAcademys/>}/>
               <Route path='/football-club' element={<FootballClub/>}/>
+              <Route path='/football-club-details/:id' element={<FootballClubDetails/>}/>
               <Route path='/add-football-club' element={<AddFootballClub/>} />
             </Route>
           </Routes>

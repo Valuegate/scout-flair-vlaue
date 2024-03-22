@@ -4,8 +4,21 @@ import img1 from '../../assets/arrowupgreen.svg'
 import img2 from '../../assets/arrowdownred.svg'
 import teama from '../../assets/a.png'
 import teamb from '../../assets/b.png'
+import { GetAcademiesCount, GetFootballClubCount, GetLocalPitchesCount, GetMatchesCount } from '../../api/UserInformation';
+import { useQueries } from 'react-query';
 
 const Dashboard = () => {
+  // const { data:matches} = useQuery('myData', GetMatchesCount);
+  // const { data:pitches} = useQuery('myData', GetLocalPitchesCount);
+  // const { data:ball} = useQuery('myData', GetFootballClubCount);
+  // const { data:academy} = useQuery('myData', GetAcademiesCount);
+
+  const queries = useQueries([
+    { queryKey: 'matches', queryFn: GetMatchesCount },
+    { queryKey: 'pitches', queryFn: GetLocalPitchesCount },
+    { queryKey: 'ball', queryFn: GetFootballClubCount },
+    { queryKey: 'academy', queryFn: GetAcademiesCount }
+  ]);
   return (
       <Box w="full" h="full">
         <Box
@@ -20,32 +33,32 @@ const Dashboard = () => {
               <Text fontSize='18px'>Upcoming matches</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
-                <Text fontSize='32px' color='#4f4545'>84</Text>
-                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[0].data?.count}</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'></Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #EF0107' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Local Pitches</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img2} alt='green' />&nbsp;&nbsp;
-                <Text fontSize='32px' color='#4f4545'>84</Text>
-                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[1].data?.count}</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'></Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #4F4545' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Football Academies</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
-                <Text fontSize='32px' color='#4f4545'>72</Text>
-                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[3].data?.count}</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'></Text>
               </Box>
             </Box>
             <Box w='213px' h='125px' justifyContent='space-between' borderBottom='7px solid #191818' bg='#fff' borderRadius=' 8px' display='flex' flexDir='column' p='1rem' >
               <Text fontSize='18px'>Football Clubs</Text>
               <Box display='flex' alignItems='center'>
                 <Image src={img1} alt='green' />&nbsp;&nbsp;
-                <Text fontSize='32px' color='#4f4545'>64</Text>
-                <Text fontSize='20px' color='#b0b0b0b' as='span'>%</Text>
+                <Text fontSize='32px' color='#4f4545'>{queries[2].data?.count}</Text>
+                <Text fontSize='20px' color='#b0b0b0b' as='span'></Text>
               </Box>
             </Box>
           </Box>

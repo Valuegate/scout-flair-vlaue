@@ -10,22 +10,26 @@ const NewMatch = ({onClose}) => {
   const [dateTime, setDateTime] = useState();
   const [competition, setCompetition] = useState();
   const [refree, setRefree]  = useState();
+  const [pitch, setPitch]  = useState();
   const [homeTeamLogoUrl, setHomeTeamLogoUrl] = useState();
   const [awayTeamLogoUrl, setAwayTeamLogoUrl] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const dateTimes = dateTime
+  const formattedDateTime = dateTimes.replace("T", " ").concat(":00");
     
      const input= {
         homeTeam : homeTeam,
         awayTeam:awayTeam,
-        dateTime:dateTime,
+        dateTime:formattedDateTime,
         competition:competition,
-        refree:refree,
+        referee:refree,
         homeTeamLogoUrl:homeTeamLogoUrl,
-        awayTeamLogoUrl:awayTeamLogoUrl
+        awayTeamLogoUrl:awayTeamLogoUrl,
+        pitch:pitch
 
     }
     
@@ -51,7 +55,7 @@ const NewMatch = ({onClose}) => {
       onClose();
        Swal.fire({
   title: 'Error',
-  text: error.response.error,
+  text: error.response.message,
   icon: 'error',
 })
     }
@@ -72,6 +76,8 @@ const NewMatch = ({onClose}) => {
            placeholder='Competition' />
                 <InputValue text='Refree' name='refree' value={refree} onChange={(e)=>setRefree(e.target.value)}
            placeholder='name' />
+            <InputValue text='Pitch' name='pitch' value={pitch} onChange={(e)=>setPitch(e.target.value)}
+           placeholder='pitch' />
             </Box>
         </Box>
         <Box w={["full",'100%']} mt='1rem'>

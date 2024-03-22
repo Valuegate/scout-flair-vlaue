@@ -31,8 +31,37 @@ export const GetProfile = async () => {
   return response?.data;
 };
 
+export const GetMatchesCount = async () => {
+  const response = await userInformationApi.get(`/matches/upcoming/getMatchesCount`);
+  return response?.data;
+};
+
+export const GetLocalPitchesCount = async () => {
+  const response = await userInformationApi.get(`/pitches/getLocalPitchesCount`);
+  return response?.data;
+};
+
+export const GetFootballClubCount = async () => {
+  const response = await userInformationApi.get(`/est/fc/getFootballClubsCount`);
+  return response?.data;
+};
+
+export const GetAcademiesCount = async () => {
+  const response = await userInformationApi.get(`/est/academy/getAcademiesCount`);
+  return response?.data;
+};
+
+export const GetTopPlayersCount = async () => {
+  const response = await userInformationApi.get(`/profile/getTopPlayers`);
+  return response?.data;
+};
+
 export const AddAcademies = async () => {
   const response = await userInformationApi.post(`/est/academy/addAcademy`);
+  return response?.data;
+};
+export const Addplayers= async () => {
+  const response = await userInformationApi.post(`https://scoutflair.top:8080/api/v1/profile/coach/createPlayer`);
   return response?.data;
 };
 
@@ -57,6 +86,11 @@ export const GetUsers = async () => {
   return response?.data?.content;
 };
 
+export const GetPlayers = async () => {
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/coach/getPlayers?limit=200&offset=0`);
+  return response?.data?.content;
+};
+
 export const GetUpComingMatches = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/matches/upcoming/getMatches?limit=200&offset=0`);
   return response?.data;
@@ -73,8 +107,8 @@ export const GetLocalPitches = async () => {
 };
 
 export const GetTatics = async () => {
-  const response = await userInformationApi.get(`/tactics/getUserTactics?limit=200&offset=0`);
-  return response?.data;
+  const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/tactics/coach/getPlayersTactics?limit=200&offset=0`);
+  return response?.data.content;
 };
 export const GetAdminTatics = async () => {
   const response = await userInformationApi.get(`/tactics/admin/getUserTactics?limit=200&offset=0`);

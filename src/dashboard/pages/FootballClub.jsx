@@ -10,7 +10,7 @@ import { GetFootballClub } from '../../api/UserInformation'
 import FootballClubDetails from '../components/FootballClubDetails'
 
 const FootballClub = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onClose } = useDisclosure()
         const userType = JSON.parse(localStorage.getItem('userType'));
   const { data, isLoading,} = useQuery('myData', GetFootballClub);
 
@@ -24,16 +24,16 @@ const FootballClub = () => {
             </Box>
               {
                 userType==='Admin'&&
-                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box w='20%' display='flex' justifyContent='flex-end' alignItems='center' > 
                 <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                     <AddIcon />
                     <Link to='/add-football-club '><Text >Add Football Club</Text></Link>
                 </Box>
                 &nbsp;
-                <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
+                {/* <Box border='1px solid #333' o cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                     <AddIcon />
                     <Text >Edit Football Club</Text>
-                </Box>
+                </Box> */}
                 </Box>
             }
         </Box>
@@ -74,9 +74,11 @@ const FootballClub = () => {
                                         />
                                         <MenuList>
                                             {/* MenuItems are not rendered unless Menu is open */}
-                                            <MenuItem onClick={onOpen} >View club details</MenuItem>
-                                            <MenuItem > View club gallery</MenuItem>
-                                            <MenuItem  >Locate club</MenuItem>
+                                            <MenuItem  ><Link to={`/football-club-details/${datas?.id}`} state={{
+              name:datas?.name, id:datas?.id, address:datas?.address, latitude:datas?.latitude,longitude:datas?.longitude,principalOrCoach : datas?.principalOrCoach,founded:datas?.founded, competedCount:datas?.competedCount, winCount:datas?.winCount, lostCount:datas?.lostCount 
+            }} >View club details</Link></MenuItem>
+                                            {/* <MenuItem > View club gallery</MenuItem>
+                                            <MenuItem  >Locate club</MenuItem> */}
                                         </MenuList>
                                         </Menu>
                                 </Box>

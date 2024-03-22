@@ -4,6 +4,7 @@ import InputValue from '../components/InputValue'
 import { DeleteIcon} from '@chakra-ui/icons'
 
 const Settings = () => {
+    const userType = JSON.parse(localStorage.getItem('userType'));
   return (
     <Box>
         <Box p='1rem' borderRadius='8px' bg='white' alignItems='center' display='flex' justifyContent='space-between' >
@@ -26,46 +27,54 @@ const Settings = () => {
 
            
         </Box>
+       
         <Box w={['full','50%']}  p='1rem' mt='1rem' >
-             <Text  fontWeight='700'>Change Settings</Text>
-             <Box  borderRadius='8px' mt='.5rem' p='1rem ' bg='#fff'>
-                <Box display='flex' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
-                    <Box >
-                        <Text fontWeight='700' >Match Notification</Text>
-                        <Text>Get notified for upcoming matchs</Text>
+              {userType!=='Admin' &&
+                <>
+                    <Text  fontWeight='700'>Change Settings</Text>
+                    <Box  borderRadius='8px' mt='.5rem' p='1rem ' bg='#fff'>
+                        <Box display='flex' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
+                            <Box >
+                                <Text fontWeight='700' >Match Notification</Text>
+                                <Text>Get notified for upcoming matchs</Text>
+                            </Box>
+                            <Switch />
+                        </Box>
+                        <Box display='flex' mt='.5rem' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
+                            <Box >
+                                <Text fontWeight='700' >Promotion</Text>
+                                <Text>Get notification on updates from  ScoutFlair</Text>
+                            </Box>
+                            <Switch />
+                        </Box>
+                        <Box display='flex' mt='.5rem' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
+                            <Box >
+                                <Text fontWeight='700' >Player Abscence</Text>
+                                <Text>Get notified when a player has been absent</Text>
+                            </Box>
+                            <Switch />
+                        </Box>
+                        <Box display='flex' mt='.5rem'  justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
+                            <Box >
+                                <Text fontWeight='700' >Email Notification</Text>
+                                <Text>Get notified by mail</Text>
+                            </Box>
+                            <Switch />
+                        </Box>
                     </Box>
-                    <Switch />
-                </Box>
-                <Box display='flex' mt='.5rem' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
-                    <Box >
-                        <Text fontWeight='700' >Promotion</Text>
-                        <Text>Get notification on updates from  ScoutFlair</Text>
-                    </Box>
-                    <Switch />
-                </Box>
-                <Box display='flex' mt='.5rem' justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
-                    <Box >
-                        <Text fontWeight='700' >Player Abscence</Text>
-                        <Text>Get notified when a player has been absent</Text>
-                    </Box>
-                    <Switch />
-                </Box>
-                <Box display='flex' mt='.5rem'  justifyContent='space-between' w='full' boxShadow='3px 3px 3px #ccc' p='1rem' borderRadius='4px' >
-                    <Box >
-                        <Text fontWeight='700' >Email Notification</Text>
-                        <Text>Get notified by mail</Text>
-                    </Box>
-                    <Switch />
-                </Box>
-            </Box>
+                </>
+                }
             <Box w='full' display='flex' mt='1rem' justifyContent='flex-end'>
                 <Button bg='#E5AA42' color='#fff' p='.75rem' w='30%' cursor='pointer' _hover={{color:'#000'}} >Save</Button>
             </Box>
+            {userType!=='Admin' &&
             <Box border='1px solid #ff1818' w='189px' display='flex' bg='none' color='#ff1818' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                 <DeleteIcon/>
                 <Text fontWeight='700'>Delete Account</Text>
             </Box>
+}
         </Box>
+
 
             
     </Box>

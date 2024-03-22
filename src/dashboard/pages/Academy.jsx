@@ -1,5 +1,5 @@
 import { Box, Grid, Text,Stack,Skeleton, Menu, MenuItem, MenuButton, IconButton, MenuList, useDisclosure,Modal,ModalOverlay,ModalContent,ModalCloseButton,ModalBody,  Button, } from '@chakra-ui/react'
-import React  from 'react'
+import React,{useState}  from 'react'
 import { IoEllipsisVertical } from 'react-icons/io5'
 import logo from '../../assets/academylogo.png'
 import pic from '../../assets/grouppicture.png'
@@ -8,14 +8,48 @@ import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
 import { useQuery, } from 'react-query';
 import { GetAcademy } from '../../api/UserInformation'
+import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons'
 
 const Academy = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onClose } = useDisclosure();
     const userType = JSON.parse(localStorage.getItem('userType'));
 
 
-      const { data:value, isLoading,error} = useQuery('myData', GetAcademy);
-      if (error) return <div>Error: {error.message}</div>;
+      const { data:value, isLoading} = useQuery('myData', GetAcademy);
+      
+const [currentPage, setCurrentPage] = useState(1);
+const recordsPerPage = 6;
+const lastIndex = currentPage * recordsPerPage;
+const firstIndex = lastIndex - recordsPerPage;
+
+// Ensure the data exists before accessing it
+const data = value || [];
+const records = data.slice(firstIndex, lastIndex);
+
+// Ensure the data length is greater than 0 to avoid division by 0
+const npage = Math.ceil(data.length / recordsPerPage);
+
+// Ensure npage is a non-negative number
+const validNpage = Math.max(npage, 0);
+
+// Generate numbers array only if validNpage is a positive number
+const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : [];
+
+
+     const prePage=()=>{
+    if(currentPage !== 1) {
+        setCurrentPage(currentPage - 1);
+    }
+  }
+  const changeCPage=(id)=>{
+    setCurrentPage(id);
+  }
+  const nextPage=()=>{
+    if(currentPage !== npage){
+        setCurrentPage(currentPage + 1)
+    }
+  }
+
 
       
   return (
@@ -27,7 +61,7 @@ const Academy = () => {
             </Box>
               {
                 userType==='Admin'&&
-                <Box w='35%' display='flex' justifyContent='flex-end' alignItems='center' > 
+                <Box w='20%' display='flex' justifyContent='flex-end' alignItems='center' > 
                 <Box border='1px solid #333' cursor='pointer' w='full'  display='flex' justifyContent='space-evenly' alignItems='center' p='.25rem' borderRadius='.5rem'>
                     <AddIcon />
                     <Link to='/add-academy '><Text >Add Academy</Text></Link>
@@ -54,8 +88,8 @@ const Academy = () => {
                                 <Skeleton height='20px' />
                                 </Stack>
                             </Box>
-                            :value ?(
-                        value?.map((datas)=>{
+                            :records ?(
+                        records?.map((datas)=>{
                             return(
                             <Box key={datas?.id} w='304px' p='5px' h='391px' position='relative'>
                                 <Box display='flex' mb='.5rem' justifyContent='space-between' alignItems='center' width='100%' >
@@ -73,9 +107,11 @@ const Academy = () => {
                                         />
                                         <MenuList>
                                             {/* MenuItems are not rendered unless Menu is open */}
-                                            <MenuItem onClick={onOpen} >View academy details</MenuItem>
-                                            <MenuItem > View academy gallery</MenuItem>
-                                            <MenuItem  >Locate academy</MenuItem>
+                                            <MenuItem ><Link to={`/academy-details/${datas?.id}`} state={{
+              name:datas?.name, id:datas?.id, address:datas?.address, latitude:datas?.latitude,longitude:datas?.longitude,principalOrCoach : datas?.principalOrCoach,founded:datas?.founded, competedCount:datas?.competedCount, winCount:datas?.winCount, lostCount:datas?.lostCount 
+            }} >View academy details</Link></MenuItem>
+                                            {/* <MenuItem > View academy gallery</MenuItem>
+                                            <MenuItem  >Locate academy</MenuItem> */}
                                         </MenuList>
                                         </Menu>
                                 </Box>
@@ -91,6 +127,24 @@ const Academy = () => {
                                 <div>No data available</div>
                             )}
                     </Grid>
+                      <Box w='full' float='right' display='flex' justifyContent='flex-end'>
+                    <Box display='flex' w='30%' alignItems='center' justifyContent='space-evenly'>
+                            <Button p='.5rem' border='1px solid #ccc' borderRadius='4px' display='flex' justifyContent='center' alignItems='center' isDisabled={currentPage === 1&&true}>
+                                <ArrowLeftIcon/> &nbsp; &nbsp;
+                                <Text onClick={prePage} >Prev</Text>
+                            </Button>
+                            {
+                                numbers.map((n,i)=>(
+                                    <Box w='35px' h='35px' display='flex' fontSize='.7rem' justifyContent='center' alignItems='center' borderRadius='4px' border='1px solid lightblue' background='lightblue' fontWeight={currentPage===n&&'700'}  color={currentPage === n ? "black" : '#fff'} >
+                                        <Text onClick={changeCPage}>{n}</Text>
+                                    </Box>
+                                ))
+                            }
+                            <Button isDisabled={currentPage === npage &&true} p='.5rem' border='1px solid #ccc' borderRadius='4px' display='flex' justifyContent='center' alignItems='center' cursor='pointer'>                            
+                                <Text onClick={nextPage} >Next</Text>&nbsp;&nbsp; <ArrowRightIcon/>
+                            </Button>
+                    </Box>
+                </Box>
                 </Box>
             </Box>
         </Box>
