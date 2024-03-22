@@ -72,7 +72,8 @@ const Addplayers = () => {
         'Access-Control-Allow-Headers':
           'x-access-token, Origin, X-Requested-With, Content-Type, Accept',
       };
-      const response = await axios.post('https://scoutflair.top:8080/api/v1/profile/coach/createPlayer', input,{ headers });
+      const response = await userTypes==='COACH'? axios.post('https://scoutflair.top:8080/api/v1/profile/coach/createPlayer', input,{ headers }) : axios.post('https://scoutflair.top:8080/api/v1/profile/admin/createPlayer', input,{ headers });
+      
        Swal.fire({
   title: 'Success',
   text: response.data.message,

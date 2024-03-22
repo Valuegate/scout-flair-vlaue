@@ -141,7 +141,7 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                         <Td>{info?.dob }</Td>
                                         <Td>{info?.jerseyNumber }</Td>
                                         <Td>{info?.position }</Td>
-                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.address }</Td>
                                         <Td>{info?.email }</Td>
                                     
                                     </Tr>
@@ -180,7 +180,6 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                         <Tr>
                             <Th color='#C99C27'>Profile Picture</Th>
                         <Th color='#C99C27'>Name</Th>
-                        <Th color='#C99C27'>Age</Th>
                         <Th color='#C99C27'>Experience</Th>
                         <Th color='#C99C27'>Nationality</Th>
                         <Th color='#C99C27'>State</Th>
@@ -197,10 +196,10 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                     <Tr> 
                                         <Td><img style={{width:'20px',height:'20px'}} src={info?.imageUrl}alt='pic'/></Td>
                                         <Td>{info?.fullName }</Td>
-                                        <Td>{info?.dob }</Td>
                                         <Td>{info?.jerseyNumber }</Td>
-                                        <Td>{info?.position }</Td>
-                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.nationality }</Td>
+                                        <Td>{info?.state }</Td>
+                                        <Td>{info?.currentTeam }</Td>
                                         <Td>{info?.email }</Td>
                                     
                                     </Tr>
@@ -239,10 +238,9 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                         <Tr>
                             <Th color='#C99C27'>Profile Picture</Th>
                         <Th color='#C99C27'>Name</Th>
-                        <Th color='#C99C27'>Age</Th>
                         <Th color='#C99C27'>Experience(Y)</Th>
                         <Th color='#C99C27'>Nationality</Th>
-                        <Th color='#C99C27'>State</Th>
+                        <Th color='#C99C27'>State &nbsp;&nbsp;&nbsp;</Th>
                         <Th color='#C99C27'>Scouting(No.)</Th>
                         <Th color='#C99C27'>Email</Th>
                         <Th color='#C99C27'></Th>
@@ -256,10 +254,10 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                     <Tr> 
                                         <Td><img style={{width:'20px',height:'20px'}} src={info?.imageUrl}alt='pic'/></Td>
                                         <Td>{info?.fullName }</Td>
-                                        <Td>{info?.dob }</Td>
-                                        <Td>{info?.jerseyNumber }</Td>
-                                        <Td>{info?.position }</Td>
-                                        <Td>{info?.location }</Td>
+                                        <Td>{info?.experence||2 }</Td>
+                                        <Td>{info?.nationality || 'no data' }</Td>
+                                        <Td>{info?.address||'no data' }</Td>
+                                        <Td>{info?.licenseNo||'no data' }</Td>
                                         <Td>{info?.email }</Td>
                                     
                                     </Tr>

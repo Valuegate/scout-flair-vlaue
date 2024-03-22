@@ -4,14 +4,14 @@ import React, {useState, } from 'react'
 import {AddIcon } from '@chakra-ui/icons'
 import square from '../../assets/Square.png'
 import VideoUpload from '../components/VideoUpload'
-import { useQuery, useMutation,useQueryClient } from 'react-query';
+import { useQueries, useMutation,useQueryClient } from 'react-query';
 // eslint-disable-next-line
 import { GetTatics,DeleteTactics, GetAdminTatics } from '../../api/UserInformation'
 
 const Tatics = () => {
     const [isPlaying, setIsPlaying] = useState(false);
 
-
+const userType = JSON.parse(localStorage.getItem('userType'));
   
   const handleVideoClick = () => {
     const video = document.getElementById('video');
@@ -41,9 +41,13 @@ const Tatics = () => {
     // Call the mutation function with the tacticsId
     mutation.mutate(tacticsId);
   };
-    const { data, isLoading} = useQuery('myData', GetTatics);
+    
 
-    // const {data, isLoading} = useQuery('myData',GetAdminTatics)
+     const queries = useQueries([
+    { queryKey: 'tactics', queryFn: GetTatics },
+    { queryKey: 'admin', queryFn: GetAdminTatics },
+  ]);
+  const isLoading = queries.some(query => query.isLoading);
 
   
   return (
@@ -73,11 +77,45 @@ const Tatics = () => {
                     </Stack>
                     </Box>
                     :
+
                     <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(2,1fr)','repeat(4,1fr)']} gap={['5','4','9']}>
                         {
-                        data?.map((datas)=>{
+                        userType==='Admin' && queries[1]?.data?.map((datas)=>{
                             return(
-                            <Box key={data.id} w='229px' position='relative'>
+                            <Box key={userType==='Admin' && queries[1]?.id} w='229px' position='relative'>
+                            <video width="229" height="139" id="video" controls>
+                                <source src={datas.videoUrl} />
+                            </video>
+                            
+                            <Box  position='absolute' top='0px' right='0' zIndex='1000'>
+                                 <Menu>
+                                <MenuButton
+                                    as={IconButton}
+                                    aria-label='Options'
+                                    icon={<img src={square} alt='' />}
+                                    variant='none'
+                                />
+                                <MenuList>
+                                    {/* MenuItems are not rendered unless Menu is open */}
+                                    <MenuItem  onClick={handleVideoClick}>{isPlaying? 'Pause Video':'Play Video'}</MenuItem>
+                                    <MenuItem > <a href={datas?.videoUrl} target='_blank' rel="noreferrer" download> Download Video </a></MenuItem>
+                                    <MenuItem color='#e72422' onClick={(tacticsId)=>handleDelete(tacticsId=datas?.id)} >Delete Video</MenuItem>
+                                </MenuList>
+                            </Menu>
+                            </Box>
+                           <Text fontWeight='700' fontSize='12px' mt='.5rem' >{datas.text}</Text>
+                           <Box w='full' display='flex' mt='.5rem' justifyContent='space-between' flexDir={['column','row']}>
+                            <Text fontSize='8px' color='#4f4545'>{datas.category}</Text>
+                            <Text fontSize='8px' color='#4f4545'>{datas.date}</Text>
+                           </Box>
+                        </Box>
+                            )
+                        })
+}
+                  {
+                        userType!=='Admin' && queries[0]?.data?.map((datas)=>{
+                            return(
+                            <Box key={userType==='Admin' && queries[1]?.id} w='229px' position='relative'>
                             <video width="229" height="139" id="video" controls>
                                 <source src={datas.videoUrl} />
                             </video>

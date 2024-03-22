@@ -92,6 +92,11 @@ export const Addplayers= async () => {
   return response?.data;
 };
 
+export const AddAdminplayers= async () => {
+  const response = await userInformationApi.post(`https://scoutflair.top:8080/api/v1/profile/admin/createPlayer`);
+  return response?.data;
+};
+
 export const AddLocalPitches = async () => {
   const response = await userInformationApi.post(`/pitches/addLocalPitches`);
   return response?.data;
@@ -120,17 +125,17 @@ export const GetPlayers = async () => {
 
 export const GetAdminPlayers = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getPlayers?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const GetCoach = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getCoaches?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const GetScout = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/admin/getScout?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const GetUpComingMatches = async () => {
@@ -154,7 +159,7 @@ export const GetTatics = async () => {
 };
 export const GetAdminTatics = async () => {
   const response = await userInformationApi.get(`/tactics/admin/getUserTactics?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const EditProfiles = async (newProfile) => {
