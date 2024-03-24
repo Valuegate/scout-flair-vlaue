@@ -15,7 +15,7 @@ const Coach = () => {
   const [team, setTeam] = useState('');
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
-  const [list, setList] = useState('');
+  const [list, setList] = useState([]);
   const navigate = useNavigate();
    const [showPwd, setShowPwd] = useState(false);
 
@@ -23,10 +23,8 @@ const Coach = () => {
 		setShowPwd((prev) => !prev);
 	};
 
-  React.useEffect(()=>{
-     // eslint-disable-next-line
- const validates = () => {
-
+ React.useEffect(() => {
+  const fetchData = () => {
     setLoading(true);
 
     axios({
@@ -36,16 +34,21 @@ const Coach = () => {
     })
       .then(response => {
         setLoading(false);
-        setList(response.data?.content);
+        setList(response?.data?.content);
         console.log(response);
       })
       .catch(err => {
-       // toast.error(err.response.data);
-       console.log(err.response.data)
+        // toast.error(err.response.data); 
+        console.log(err.response.data);
         setLoading(false);
       });
   };
-  },[list])
+
+  fetchData(); // Call the fetchData function immediately when the component mounts
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []); // Empty dependency array to run the effect only once when the component mounts
+
 
    const validate = ( event) => {
     event.preventDefault();

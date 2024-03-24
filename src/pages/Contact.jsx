@@ -12,7 +12,7 @@ const Contact = () => {
      <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }}>
         <Box w='full'h={['100%','100%','100vh']} style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
+                <Text fontFamily='Knewave' fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
                 <Button _hover={{
                     color:'#E5AA42',
                     background:'#232B35',
@@ -37,7 +37,7 @@ const Contact = () => {
                 <Image src={pic2} position='absolute' transform='translate(15%,25%)'zIndex='2' />
             </Box>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2rem','36px']} fontWeight='700' color='#E5AA42' >Write us a message</Text>
+                <Text fontFamily='Knewave' fontSize={['2rem','36px']} display={['none','block']} fontWeight='700' color='#E5AA42' >Write us a message</Text>
                <Box>
                 <FormControl mt='1rem'>
                     <FormLabel color='#E5AA42'>Name</FormLabel>

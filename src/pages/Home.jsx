@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box,Button,Grid,Image,Text } from '@chakra-ui/react'
+import { Box,Grid,Image,Text } from '@chakra-ui/react'
 import pic from '../assets/anyrgb 2.png'
 import pic2 from '../assets/Ellipse 73.png'
 import pic3 from '../assets/Group 3102.png'
@@ -19,9 +19,9 @@ import expor from '../assets/export.png'
 import ronaldo from '../assets/ronaldo.png'
 import small from '../assets/smallchart.png'
 import Footer from '../componets/Footer'
-import Faq from '../componets/Faq'
+// import Faq from '../componets/Faq'
 //import bg from '../assets/bg.jpg'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 //import Navbar from '../componets/Navbar'
 
 const Home = () => {
@@ -98,14 +98,14 @@ const Home = () => {
         },
     ]
   return (
-    <Box w='full'h='100%' style={{ backgroundImage: `transparent`,backgroundRepeat:'' }} >
+    <Box w='full'h='100%' fontFamily='Knewave !important' style={{ backgroundImage: `transparent`,backgroundRepeat:'' }} >
         <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2.75rem','4rem']} fontWeight='700' color='#E5AA42' >Capturing <br/>
+                <Text fontSize={['2.5rem','4rem']} fontFamily='Knewave' fontWeight='700' color='#E5AA42' >Capturing <br/>
                 Football <br/>
                 Performance</Text>
-                <Text fontWeight='700' fontSize='24px' color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
-               <Link to='/select-role'>
+                <Text fontWeight={['400','700']} fontFamily='Knewave' fontSize={['.9rem','24px']} color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
+               {/* <Link to='/select-role'>
                 <Button _hover={{
                     color:'#E5AA42',
                     background:'var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))',
@@ -119,7 +119,7 @@ const Home = () => {
                 p='16px, 48px, 16px, 48px'
                 width='200px'
                 borderRadius='48px'>Sign Up</Button>
-                </Link>
+                </Link> */}
             </Box>
             <Box w={['full','50%']}  position='relative' alignItems='center' justifyContent='center' display={['none','flex']} flexDirection='column' >
                 <Image src={pic}zIndex='4' position='absolute'  />
@@ -131,56 +131,56 @@ const Home = () => {
                 <Image src={pic3} />
             </Box>
              <Box w={['full','full','full','50%']} mt={['2rem','']}  p={['0rem','2rem']}>
-                <Text fontSize='1.4rem' fontWeight='700' color='#E5AA42' >Limited Football Insights for Enthusiasts</Text>
-                <Text fontSize='1.2rem' fontWeight={['400','700']} color='#fff' >Football enthusiasts lack access to comprehensive, in-depth game insights and advanced player statistics.</Text>
-                <Text fontSize='1.4rem' mt='1rem' fontWeight='700' color='#E5AA42' >Football Fan's Dilemma</Text>
-                <Text fontSize='1.2rem' fontWeight={['400','700']} color='#fff' >You love football, but the stats you see are as basic as they come. You want more than just goals and assists; you want to explore the intricacies of the game. It's like watching a thriller with missing chapters, and you're left craving the whole story.</Text>
-                <Text fontSize='1.4rem' mt='1rem' fontWeight='700' color='#E5AA42' >Revolutionizing Football Analysis</Text>
-                <Text fontWeight={['400','700']} fontSize='1.2rem' color='#fff'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
+                <Text fontSize={['1rem','1.4rem']} fontFamily='Knewave' fontWeight='700' color='#E5AA42' >Limited Football Insights for Enthusiasts</Text>
+                <Text fontSize={['.9rem','1.2rem']} fontFamily='Knewave' fontWeight={['400','700']} color='#fff' >Football enthusiasts lack access to comprehensive, in-depth game insights and advanced player statistics.</Text>
+                <Text fontSize={['1rem','1.4rem']} fontFamily='Knewave' mt='1rem' fontWeight='700' color='#E5AA42' >Football Fan's Dilemma</Text>
+                <Text fontSize={['.9rem','1.2rem']} fontFamily='Knewave' fontWeight={['400','700']} color='#fff' >You love football, but the stats you see are as basic as they come. You want more than just goals and assists; you want to explore the intricacies of the game. It's like watching a thriller with missing chapters, and you're left craving the whole story.</Text>
+                <Text fontSize={['1rem','1.4rem']} fontFamily='Knewave' mt='1rem' fontWeight='700' color='#E5AA42' >Revolutionizing Football Analysis</Text>
+                <Text fontWeight={['400','700']} fontSize={['.9rem','1.2rem']} fontFamily='Knewave' color='#fff'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
                 
             </Box>
         </Box>
         <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
-            <Text fontSize='52px' mt='1rem' fontWeight='700' display={['none','block']} color='#E5AA42' >Discover the Advantages</Text>
-            <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Why Choose Scoutflair: Unveiling the Advantages of Our Football Analytics Platforms</Text>
+            <Text fontSize='52px' mt='1rem' fontFamily='Knewave' fontWeight='700' display={['none','block']} color='#E5AA42' >Discover the Advantages</Text>
+            <Text fontWeight='700' fontSize={['1rem','28px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'>Why Choose Scoutflair: Unveiling the Advantages of Our Football Analytics Platforms</Text>
              <Box w='full' h='100%' mt={['8rem','5rem']}  display='flex' p='2rem'  alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
                 <Box w='full' h='100%' alignItems='center' justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic4}zIndex='4' position='absolute'  />
                         <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
                     </Box>
-                    <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Player Metrics</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Enhance Decision-Making:</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#E5AA42'> Analyze player metrics like heatmaps and passing accuracy for smarter decisions.</Text>
+                    <Text fontWeight='700' fontSize={['1rem','28px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'>Player Metrics</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#fff'>Enhance Decision-Making:</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'> Analyze player metrics like heatmaps and passing accuracy for smarter decisions.</Text>
                 </Box>
                 <Box w='full' h='100%' alignItems='center' mt={['7rem','0']} justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic6}zIndex='4' position='absolute'  />
                         <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
                     </Box>
-                    <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Personalized Dashboards</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Tailored Analysis:</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#E5AA42'> Customize your dashboard for a personalized football analysis experience.</Text>
+                    <Text fontWeight='700' fontSize={['1rem','28px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'>Personalized Dashboards</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#fff'>Tailored Analysis:</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'> Customize your dashboard for a personalized football analysis experience.</Text>
                 </Box>
                 <Box w='full' h='100%' alignItems='center' mt={['7rem','0']} justifyContent='center' display='flex' flexDirection='column'>
                     <Box w={['full','50%']} mb='6rem' position='relative' alignItems='center' justifyContent='center' display='flex' flexDirection='column' >
                         <Image src={pic7}zIndex='4' position='absolute'  />
                         <Image src={pic5} position='absolute' transform='translate(15%,25%)'zIndex='2' />
                     </Box>
-                    <Text fontWeight='700' fontSize='28px' textAlign='center' color='#E5AA42'>Real-Time Insights</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#fff'>Stay Informed Instantly:</Text>
-                    <Text fontWeight='700' fontSize='22px' textAlign='center' color='#E5AA42'> Receive real-time tactical insights, reacting swiftly to game changes.</Text>
+                    <Text fontWeight='700' fontSize={['1rem','28px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'>Real-Time Insights</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#fff'>Stay Informed Instantly:</Text>
+                    <Text fontWeight='700' fontSize={['.9rem','22px']} fontFamily='Knewave' textAlign='center' color='#E5AA42'> Receive real-time tactical insights, reacting swiftly to game changes.</Text>
                 </Box>
              </Box>
         </Box>
         <Box w='full'h={['100%','100%','100vh']}  display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
-            <Text fontSize='52px' mt='1rem' fontWeight='700' display={['none','inline-block']} color='#E5AA42' >Success Stories</Text>
-            <Text fontWeight='700' fontSize='25px' color='#E5AA42' textAlign='center'>Discover Inspirational Success Stories: How ScoutFlaire Has Transformed Football Analysis for Our Users</Text>
+            <Text fontSize='52px' mt='1rem' fontFamily='Knewave' fontWeight='700' display={['none','inline-block']} color='#E5AA42' >Success Stories</Text>
+            <Text fontWeight='700' fontSize='25px' fontFamily='Knewave' color='#E5AA42' textAlign='center'>Discover Inspirational Success Stories: How ScoutFlaire Has Transformed Football Analysis for Our Users</Text>
             <Box  w='full' h='100%' display='flex'  position='relative' flexDirection={['column','row','row']} alignItems='center' justifyContent='center' >
                 <Image mr='1rem' src={comma} position='absolute' display={['none','block','none','block']} transform={['translate(-250%,-250%)' ,'translate(-250%,-250%)','translate(-250%,-250%)','translate(-420%,-125%)']} />
                 <Box w={['full','full','full','70%']} h='70%' mt={['1rem','']} display='flex' flexDirection={['column','column','column','row']} alignItems='center' justifyContent='space-between'>
                     <Box display='flex' justifyContent='center' alignItems='center' p='1rem'>
-                        <Text fontSize='22px' textAlign='center' fontWeight='400' color='#E5AA42' >
+                        <Text fontSize={['.9rem','22px']} textAlign='center' fontWeight='400' color='#E5AA42' >
                             "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
                             <Box display='flex' justifyContent='center' alignItems='center' >
                                 <Image src={cir}  />
@@ -198,7 +198,7 @@ const Home = () => {
                         </Text>
                     </Box>
                     <Box display='flex' justifyContent='center' alignItems='center' p='1rem'>
-                        <Text fontSize='22px' textAlign='center' fontWeight='400' color='#E5AA42' >
+                        <Text fontSize={['.9rem','22px']} textAlign='center' fontWeight='400' color='#E5AA42' >
                             "For fantasy football,ScoutFlare is my secret weapon. Personalized dashboards and live updates keep me ahead of the curve."
                             <Box display='flex' justifyContent='center' alignItems='center'>
                                 <Image src={cir} />
@@ -216,7 +216,7 @@ const Home = () => {
                         </Text>
                     </Box>
                     <Box display='flex' justifyContent='center' alignItems='center' p='1rem'>
-                        <Text fontSize='22px' fontWeight='400' textAlign='center' color='#E5AA42' >
+                        <Text fontSize={['.9rem','22px']} fontWeight='400' textAlign='center' color='#E5AA42' >
                         "I'm a football enthusiast, and Scoutflair transformed my passion. Detailed stats and real-time insights are game-changers. Highly recommended!"
                             <Box display='flex' justifyContent='center' alignItems='center'>
                                 <Image src={cir} />
@@ -244,8 +244,8 @@ const Home = () => {
                 return(
                 <Box key={details.id} w={['full','402px']} h='287px' shadow='-9px 8px 0px #D0D3D8' borderRadius='12px'  transform={['none','skew(0deg,0deg)']} bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
                    <Image src={details?.img} alt=''/>
-                   <Text fontSize='24px' fontWeight='700' color='#1A1818'>{details?.title}</Text>
-                    <Text fontSize='18px' fontWeight='400' color='#1A1818'>{details?.text}</Text>
+                   <Text fontSize={['1rem','24px']} fontWeight='700' color='#1A1818'>{details?.title}</Text>
+                    <Text fontSize={['.9rem','18px']} fontWeight='400' color='#1A1818'>{details?.text}</Text>
                 </Box>
                 )
                 })
@@ -277,8 +277,8 @@ const Home = () => {
                 return(
                 <Box key={details.id} w='278px' h='278px' shadow='-9px 8px 0px #D0D3D8' borderRadius='8px' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
                    <Image src={small} alt=''/>
-                   <Text fontSize='24px' fontWeight='700' color='#1A1818'>{details?.title}</Text>
-                    <Text fontSize='18px' fontWeight='400' color='#1A1818'>{details?.text}</Text>
+                   <Text fontSize={['1rem','24px']} fontWeight='700' color='#1A1818'>{details?.title}</Text>
+                    <Text fontSize={['.9rem','18px']} fontWeight='400' color='#1A1818'>{details?.text}</Text>
                 </Box>
                 )
                 })
@@ -287,7 +287,7 @@ const Home = () => {
                 </Box>
             </Box>
         </Box>
-        <Faq/>
+        {/* <Faq/> */}
         <Footer/>
     </Box>
   )

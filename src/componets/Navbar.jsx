@@ -35,7 +35,7 @@ export default function WithSubnavigation() {
         color='#E5AA42'
         minH={'60px'}
         py={{ base: 2 }}
-        px={{ base: 4 }}
+        px={[2,4]}
         justifyContent='space-between'
         //borderBottom={1}
         //borderStyle={'solid'}
@@ -54,7 +54,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems='baseline' justify={{ base: 'space-between', md: 'space-between' }}>
           <Link to='/'>
-            <Image src={Logo} alt='' mr={['4rem','']} />
+            <Image src={Logo} alt='' boxSize={['5 25','']} mr={['','']} />
           </Link>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -67,6 +67,7 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           alignItems='center'
           direction={'row'}
+          display={['none','']}
           spacing={6}>
             <Link to='/login' >
              <Button _hover={{
@@ -142,6 +143,7 @@ const DesktopNav = () => {
           </Popover>
         </Box>
       ))}
+      
     </Stack>
   )
 }
@@ -187,6 +189,29 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <Stack
+          justify={'flex-end'}
+          alignItems='center'
+          direction={'row'}
+          display={['block','none']}
+          spacing={6}>
+            <Link to='/login' >
+             <Button _hover={{
+                    color:'#E5AA42',
+                    background:'var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))',
+                    border: '1px solid #232b35',
+                    shadow:'-2px 8px 0px #ddd'
+                }} 
+                color='#fff'
+                border='1px solid rgba(0,0,0,.15)'
+                mt='1rem'
+                shadow='-2px 8px 0px #ddd'
+                bg='var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))'
+                width='200px'
+                p='16px, 48px, 16px, 48px'
+                borderRadius='48px'>Sign in</Button>
+            </Link>
+        </Stack>
     </Stack>
   )
 }
