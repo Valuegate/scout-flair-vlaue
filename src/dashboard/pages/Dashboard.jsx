@@ -4,7 +4,7 @@ import img1 from '../../assets/arrowupgreen.svg'
 import img2 from '../../assets/arrowdownred.svg'
 import teama from '../../assets/a.png'
 import teamb from '../../assets/b.png'
-import { GetAcademiesCount, GetFootballClubCount, GetLocalPitchesCount, GetMatchesCount } from '../../api/UserInformation';
+import { GetAcademiesCount, GetFootballClubCount, GetLocalPitchesCount, GetMatchesCount,GetAdminPlayers,GetUpComingMatches } from '../../api/UserInformation';
 import { useQueries } from 'react-query';
 
 const Dashboard = () => {
@@ -17,7 +17,9 @@ const Dashboard = () => {
     { queryKey: 'matches', queryFn: GetMatchesCount },
     { queryKey: 'pitches', queryFn: GetLocalPitchesCount },
     { queryKey: 'ball', queryFn: GetFootballClubCount },
-    { queryKey: 'academy', queryFn: GetAcademiesCount }
+    { queryKey: 'academy', queryFn: GetAcademiesCount },
+     { queryKey: 'value', queryFn: GetAdminPlayers },
+     { queryKey: 'coming', queryFn: GetUpComingMatches },
   ]);
   return (
       <Box w="full" h="full">
@@ -76,68 +78,70 @@ const Dashboard = () => {
                         <Th color='#C99C27'>Players</Th>
                         <Th color='#C99C27'>Goals</Th>
                         <Th color='#C99C27'>Assists</Th>
-                        <Th color='#C99C27'>Pass</Th>
-                        <Th color='#C99C27'>Accuracy</Th>
+                        <Th color='#C99C27'>Preffered Foot</Th>
                         <Th color='#C99C27'></Th>
                         </Tr>
                     </Thead>      
-                    <Tbody width='100%'>
-                        <Tr> 
-                            <Td>Player 1</Td>
-                            <Td>5 </Td>
-                            <Td>5 </Td>
-                            <Td>2 </Td>
-                            <Td>86%</Td> 
-                        </Tr>
-                         <Tr> 
-                            <Td>Player 1</Td>
-                            <Td>5 </Td>
-                            <Td>5 </Td>
-                            <Td>2 </Td>
-                            <Td>86%</Td> 
-                        </Tr>
-                         <Tr> 
-                            <Td>Player 1</Td>
-                            <Td>5 </Td>
-                            <Td>5 </Td>
-                            <Td>2 </Td>
-                            <Td>86%</Td> 
-                        </Tr>
-                    </Tbody>
+                   {
+                            queries[4].data?
+                            queries[4].data?.map((info)=>{
+                                return(
+                                    <Tbody width='100%'>
+                                    <Tr> 
+                                        <Td whiteSpace='nowrap'>{info?.fullName }</Td>
+                                        <Td whiteSpace='nowrap'>{info?.goals }</Td>
+                                        <Td>{info?.assist }</Td>
+                                        <Td>{info?.prefferedFoot }</Td>
+                                    
+                                    </Tr>
+                                </Tbody>
+                                )
+                            }):
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        }
                     
                 </Table>
             </Box>
             <Box display='flex' w={['full','full','full','40%']} mt={['1rem','1rem','1rem','0rem',]} justifyContent='space-between' flexDirection='column' p='1.5rem' bg='#fff' borderRadius='4px'  >
               
-              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
-              <Box>
-                <img src={teama} alt='team a' />
-              <Text fontWeight='700' mb='1rem' fontSize='18px'>Upcoming Matches</Text>  <Text>Team A</Text>
-              </Box>
-              <Box>
-                  <img src={teamb} alt='team a' />
-                  <Text>Team B</Text>
-              </Box>
-              </Box>
-              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
-              <Box>
-                <img src={teama} alt='team a' />
-                <Text>Team A</Text>
-              </Box>
-              <Box>
-                  <img src={teamb} alt='team a' />
-                  <Text>Team B</Text>
-              </Box>
-              </Box>
-              <Box w='full' p='.75rem' display='flex' justifyContent='space-between' borderBottom='1px solid #333'>
-              <Box>
-                <img src={teama} alt='team a' />
-                <Text>Team A</Text>
-              </Box>
-              <Box>
-                  <img src={teamb} alt='team a' />
-                  <Text>Team B</Text>
-              </Box>
+              <Box w='full' p='.75rem' display='flex' flexDir='column' justifyContent='space-between' borderBottom='1px solid #333'>
+                <Box>
+                  <Text fontWeight='700' mb='1rem' fontSize='18px'>Upcoming Matches</Text> 
+                </Box>
+                <Table borderRadius='8px' mt='1rem' >
+                    <Thead borderRadius='8px' color='#C99C27' bg='black'>
+                        <Tr>
+                        <Th color='#C99C27' whiteSpace='nowrap'>Home Team</Th>
+                        <Th color='#C99C27' whiteSpace='nowrap'>Away Team</Th>
+                        </Tr>
+                    </Thead> 
+                     <Tbody width='100%'>                  
+                          {
+                         queries[5].data ?(
+                        queries[5].data?.map((info)=>{
+                                return(
+                                
+                                    <Tr> 
+                                        <Td whiteSpace='nowrap'>
+                                          <img style={{width:'20px',height:'20px'}} src={info?.homeTeamLogoUrl?info?.homeTeamLogoUrl:teama}alt='pic'/>
+                                          <Text>{info?.homeTeam} </Text>
+                                        </Td>
+                                        <Td whiteSpace='nowrap'> 
+                                          <img style={{width:'20px',height:'20px'}} src={info?.awayTeamLogoUrl?info?.awayTeamLogoUrl:teamb} alt='pic' /> 
+                                          <Text>{info?.awayTeam}</Text>
+                                        </Td>
+                                    </Tr>                                
+                              )
+                        })
+                        )    :    (
+                            <Box mt='1rem' w='100%' display='flex' alignItems='center' justifyContent='center'>
+                            <Text ml='auto' textAlign='center !important'>No active player</Text>
+                            </Box>
+                        )}
+                    </Tbody>
+                </Table>
               </Box>
             </Box>
           </Box>

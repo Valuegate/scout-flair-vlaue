@@ -67,7 +67,8 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           alignItems='center'
           direction={'row'}
-          display={['none','']}
+          display={['none','block']}
+          mb='1.5rem'
           spacing={6}>
             <Link to='/login' >
              <Button _hover={{

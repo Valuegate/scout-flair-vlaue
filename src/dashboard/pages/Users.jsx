@@ -114,16 +114,16 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
             </Box>
           </Box>
         </Box>
-        <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
+        <Box w={['full','full']} overflowX='scroll'  display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Players</Text>
                
                 <Table borderRadius='8px' mt='1rem' >
                     <Thead borderRadius='8px' color='#C99C27' bg='black'>
                         <Tr>
-                            <Th color='#C99C27'>Profile Picture</Th>
+                            <Th color='#C99C27' whiteSpace='nowrap'>Profile Picture</Th>
                         <Th color='#C99C27'>Name</Th>
                         <Th color='#C99C27'>Age</Th>
-                        <Th color='#C99C27'>Jersey No.</Th>
+                        <Th color='#C99C27' whiteSpace='nowrap'>Jersey No.</Th>
                         <Th color='#C99C27'>Position</Th>
                         <Th color='#C99C27'>State</Th>
                         <Th color='#C99C27'>Email</Th>
@@ -137,11 +137,11 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                     <Tbody width='100%'>
                                     <Tr> 
                                         <Td><img style={{width:'20px',height:'20px'}} src={info?.imageUrl}alt='pic'/></Td>
-                                        <Td>{info?.fullName }</Td>
-                                        <Td>{info?.dob }</Td>
+                                        <Td whiteSpace='nowrap'>{info?.fullName }</Td>
+                                        <Td whiteSpace='nowrap'>{info?.dob }</Td>
                                         <Td>{info?.jerseyNumber }</Td>
                                         <Td>{info?.position }</Td>
-                                        <Td>{info?.address }</Td>
+                                        <Td whiteSpace='nowrap'>{info?.address }</Td>
                                         <Td>{info?.email }</Td>
                                     
                                     </Tr>
@@ -173,7 +173,7 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                     </Box>
                 </Box>
         </Box>
-        <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
+        <Box w={['full','full']} overflowX='scroll'  display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Coaches</Text>
                  <Table borderRadius='8px' mt='1rem' >
                     <Thead borderRadius='8px' color='#C99C27' bg='black'>
@@ -231,7 +231,7 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                     </Box>
                 </Box>
         </Box>
-        <Box w={['full','full']} display='flex' mt='1.25rem' flexDir='column'>
+        <Box w={['full','full']} overflowX='scroll'  display='flex' mt='1.25rem' flexDir='column'>
                 <Text>Scouts</Text>
                 <Table borderRadius='8px' mt='1rem' >
                     <Thead borderRadius='8px' color='#C99C27' bg='black'>
