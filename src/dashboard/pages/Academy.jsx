@@ -110,8 +110,8 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                             <MenuItem ><Link to={`/academy-details/${datas?.id}`} state={{
               name:datas?.name, id:datas?.id, address:datas?.address, latitude:datas?.latitude,longitude:datas?.longitude,principalOrCoach : datas?.principalOrCoach,founded:datas?.founded, competedCount:datas?.competedCount, winCount:datas?.winCount, lostCount:datas?.lostCount 
             }} >View academy details</Link></MenuItem>
-                                            {/* <MenuItem > View academy gallery</MenuItem>
-                                            <MenuItem  >Locate academy</MenuItem> */}
+                                            {/* <MenuItem > View academy gallery</MenuItem>*/}
+                                            <MenuItem  >Locate academy</MenuItem> 
                                         </MenuList>
                                         </Menu>
                                 </Box>

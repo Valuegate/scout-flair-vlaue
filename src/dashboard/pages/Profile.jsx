@@ -10,6 +10,7 @@ import { GetProfile } from '../../api/UserInformation'
 const Profile = () => {
     // eslint-disable-next-line
      const { data, isLoading} = useQuery('myData', GetProfile);
+     const userType = JSON.parse(localStorage.getItem('userType'));
       
     
   return (
@@ -40,8 +41,8 @@ const Profile = () => {
                         <Text>{data?.fullName}</Text>
                     </Box>
                     <Box w='full' display='flex' justifyContent='space-between' bg='#e9e9e9' mb='.5rem' p='.5rem'>
-                        <Text>Nationality:</Text>
-                        <Text>{data?.nationality}</Text>
+                        <Text>{userType==='PLAYER'?'Nationality':'Current Team'}:</Text>
+                        <Text>{userType==='PLAYER'?data?.nationality:data?.currentTeam}</Text>
                     </Box>
                     <Box w='full' display='flex' justifyContent='space-between' bg='#e9e9e9' mb='.5rem' p='.5rem'>
                         <Text>
