@@ -38,7 +38,7 @@ const Profile = () => {
                     </Box>
                     <Box w='full' display='flex' justifyContent='space-between' bg='#e9e9e9' mb='.5rem' p='.5rem'>
                         <Text>Date of Birth:</Text>
-                        <Text>{data?.fullName}</Text>
+                        <Text>{data?.dob}</Text>
                     </Box>
                     <Box w='full' display='flex' justifyContent='space-between' bg='#e9e9e9' mb='.5rem' p='.5rem'>
                         <Text>{userType==='PLAYER'?'Nationality':'Current Team'}:</Text>
