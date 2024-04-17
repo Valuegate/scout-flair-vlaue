@@ -103,9 +103,9 @@ const Coach = () => {
   return (
     <Box w='full'h='100%' bg='#1A1818' position='relative' display='flex' p='2rem' alignItems='center' justifyContent='center' flexDirection={['column','column']}>
        <Image src={ball} alt='' position='absolute' zIndex='2' display={['none','block']}  mt='2rem' transform='translate(-300%,-150%)' />
-        <Box w={['full','50%']} h={['100%','100%','100%']} bg='#fff' zIndex='5' display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
+        <Box w={['full','50%']} h={['100%','100%','100%']} bg='#fff' zIndex='5' display='flex' p={['1rem','2rem']}  alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Image src={scoutflair} alt='' />
-            <Box p='2rem' w={['100%','75%']} m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
+            <Box p={['1rem','2rem']} w={['100%','75%']} m='auto' alignItems='center' justifyContent='center' flexDirection={['column','column']} display='flex'  >
                 <Input placeholder='Full Name' onChange={(e)=>setFullName(e.target.value)} value={fullName}  color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'/>
                 <Input placeholder='Date of Birth' mt='5' onChange={(e)=>setDob(e.target.value)} value={dob} type='date' color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD' />                    
                 <Input placeholder='Coach license number' mt='5' onChange={(e)=>setLicenseNumber(e.target.value)} value={licenseNumber} color='#0C1017' border='1px solid #B0B0B0' bg='#FDFDFD'  />

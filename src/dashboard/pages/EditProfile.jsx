@@ -6,6 +6,7 @@ import { useMutation,useQuery } from 'react-query'
 import { GetProfile } from '../../api/UserInformation'
 const EditProfile = () => {
     const { data} = useQuery('myData', GetProfile);
+    const userType = JSON.parse(localStorage.getItem('userType'));
     
     const initialFormState = {
     address:data?.address,
@@ -19,7 +20,7 @@ const EditProfile = () => {
     height:data?.height,
     imageUrl:'https://i.pravatar.cc/300',
     injuryStatus:data?.injuryStatus,
-    jerseyNumber:data?.jerseyNumber,
+    jerseyNumber:data?.jerseyNumber||'',
     licenceNumber:data?.licenceNumber,
     location:data?.location,
     nationality:data?.nationality,
@@ -85,7 +86,7 @@ const EditProfile = () => {
                     <InputValue placeholder='NgN' name="nationality"
           value={formState.nationality}
           onChange={handleInputChange}  text='Nationality:'/>
-                    <InputValue placeholder='number' name="jerseyNumber" value={formState.jerseyNumber} onChange={handleInputChange} text='Jersey Number:'/>
+                   {userType==='PLAYER'?'': <InputValue placeholder='number' name="jerseyNumber" value={formState.jerseyNumber} onChange={handleInputChange} text='Jersey Number:'/>}
                     <InputValue placeholder='number' name='currentTeam' value={formState.currentTeam} onChange={handleInputChange}  text='Current Team:'/>
                     <InputValue placeholder='number' name='position' value={formState.position} onChange={handleInputChange}  text='Position:'/>
                 </Box>

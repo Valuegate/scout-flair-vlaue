@@ -89,6 +89,10 @@ export const AddAcademies = async () => {
   const response = await userInformationApi.post(`/est/academy/addAcademy`);
   return response?.data;
 };
+export const ChangePassword= async () => {
+  const response = await userInformationApi.post(`/profile/changePassword`);
+  return response?.data;
+};
 export const Addplayers= async () => {
   const response = await userInformationApi.post(`https://scoutflair.top:8080/api/v1/profile/coach/createPlayer`);
   return response?.data;

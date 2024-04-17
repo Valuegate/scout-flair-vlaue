@@ -23,7 +23,7 @@ const Footer = () => {
                 <Text fontFamily='Knewave' fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text> */}
             </Box>
              <Box>
-                <Link to='/service'>
+                <Link to='/services'>
                     <Text fontFamily='Knewave' fontSize={['.9rem','24px']} fontWeight='400' color='#E5AA42' >Services</Text>
                 </Link>
                 {/* <Text fontFamily='Knewave' fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Services</Text>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <Text fontFamily='Knewave' fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text> */}
             </Box>
              <Box>
-                <Link to='/contact'>
+                <Link to='/contacts'>
                     <Text fontFamily='Knewave' fontSize={['.9rem','24px']} fontWeight='400' color='#E5AA42' >Contact Us</Text>
                 </Link>
                 {/* <Text fontFamily='Knewave' fontSize={['1rem','24px']} fontWeight='400' color='#E5AA42' >Services</Text>

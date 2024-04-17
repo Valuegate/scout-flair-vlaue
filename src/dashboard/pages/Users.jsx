@@ -66,6 +66,9 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
     }
   }
 
+  const currentDate = new Date();
+const year = currentDate.getFullYear();
+
        
   return (
      <Box>
@@ -138,7 +141,7 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                     <Tr> 
                                         <Td><img style={{width:'20px',height:'20px'}} src={info?.imageUrl}alt='pic'/></Td>
                                         <Td whiteSpace='nowrap'>{info?.fullName }</Td>
-                                        <Td whiteSpace='nowrap'>{info?.dob }</Td>
+                                        <Td whiteSpace='nowrap'>{year - info?.dob.split("-")[0] }</Td>
                                         <Td>{info?.jerseyNumber }</Td>
                                         <Td>{info?.position }</Td>
                                         <Td whiteSpace='nowrap'>{info?.address }</Td>

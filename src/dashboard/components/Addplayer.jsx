@@ -111,7 +111,7 @@ const Addplayers = () => {
           onChange={(e)=>{setFullName(e.target.value)}} text='Full Name:'/>
                     <InputValue placeholder='Nigeria'  name="location"
                     value={location}
-                    onChange={(e)=>{setLocation(e.target.value)}} text='Place if Birth:'/>
+                    onChange={(e)=>{setLocation(e.target.value)}} text='Place of Birth:'/>
                     <InputValue placeholder='Nationality' name="nationality"
                     value={nationality}
                     onChange={(e)=>{setNationality(e.target.value)}} text='Nationality:'/>

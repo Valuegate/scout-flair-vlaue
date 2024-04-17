@@ -115,6 +115,7 @@ const Scout = () => {
             border='1px solid rgba(0,0,0,.15)'
             onClick={validate}
             mt='1rem'
+            type='button'
             //w='330px'
             fontSize='24px'
             fontWeight='700'

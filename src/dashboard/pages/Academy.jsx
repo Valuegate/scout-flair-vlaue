@@ -107,7 +107,7 @@ const numbers = validNpage > 0 ? [...Array(validNpage + 1).keys()].slice(1) : []
                                         />
                                         <MenuList>
                                             {/* MenuItems are not rendered unless Menu is open */}
-                                            <MenuItem ><Link to={`/academy-details/${datas?.id}`} state={{
+                                            <MenuItem ><Link to={`/academy/${datas?.id}`} state={{
               name:datas?.name, id:datas?.id, address:datas?.address, latitude:datas?.latitude,longitude:datas?.longitude,principalOrCoach : datas?.principalOrCoach,founded:datas?.founded, competedCount:datas?.competedCount, winCount:datas?.winCount, lostCount:datas?.lostCount 
             }} >View academy details</Link></MenuItem>
                                             {/* <MenuItem > View academy gallery</MenuItem>*/}
