@@ -49,7 +49,7 @@ const Footer = () => {
                 <Image w={['20px','']} h={['20px','']} src={fb} alt=''/>
                 <Image w={['20px','']} h={['20px','']} src={tweet} alt=''/>
                 <Image w={['20px','']} h={['20px','']} src={insta} alt=''/>
-                <Image w={['20px','']} h={['20px','']} src={web} alt=''/>
+               <a href='' no-refferal > <Image w={['20px','']} h={['20px','']} src={web} alt=''/></a>
             </Box>
             <Text fontFamily='Knewave' fontSize='17px' mt='1rem' fontWeight='400' color='#E5AA42' >© scoutflair {new Date().getFullYear()}</Text>
         </Box>
