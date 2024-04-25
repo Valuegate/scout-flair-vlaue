@@ -101,7 +101,7 @@ const Home = () => {
     <Box w='full'h='100%' fontFamily='Knewave !important' style={{ backgroundImage: `transparent`,backgroundRepeat:'' }} >
         <Box w='full'h={['100%','100%','100vh']}  display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontSize={['2.5rem','4rem']} fontFamily='Knewave' fontWeight='700' color='#E5AA42' >Capturingss <br/>
+                <Text fontSize={['2.5rem','4rem']} fontFamily='Knewave' fontWeight='700' color='#E5AA42' >Capturing <br/>
                 Football <br/>
                 Performance</Text>
                 <Text fontWeight={['400','700']} fontFamily='Knewave' fontSize={['.9rem','24px']} color='#E5AA42'>Unlock Football's Secrets with ScoutFlair – Your Premier Destination for Advanced Analytics and Insights</Text>
