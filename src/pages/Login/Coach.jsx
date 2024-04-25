@@ -34,16 +34,14 @@ const Coach = () => {
     })
       .then(response => {
         setLoading(false);
-        setList(response?.data?.content);
-        console.log(response);
+        setList(response?.data);
       })
       .catch(err => {
         // toast.error(err.response.data); 
-        console.log(err.response.data);
+        alert(err.response.data);
         setLoading(false);
       });
   };
-
   fetchData(); // Call the fetchData function immediately when the component mounts
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,7 +113,7 @@ const Coach = () => {
                  {
                   list?.map((lists,index)=>{
                     return(
-                      <options key={index}>{lists}</options>
+                      <option key={index}>{lists}</option>
                     )
                   })
                  }

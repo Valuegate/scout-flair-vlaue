@@ -1,11 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
-import bg from '../assets/bg.jpg'
 
 const ProtectedNav = () => {
   return (
-    <div style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'repeat', fontFamily:'Knewave' }}>
+    <div style={{ background:'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%)', fontFamily:'Knewave' }}>
         <Navbar/>
         <Outlet/>
     </div>

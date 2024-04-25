@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <Box w='full' h='100%' alignItems='center' mt={['','2rem']} justifyContent='center' flexDirection='column' display='flex'>
-        <Box w='85%' h='100%' borderTop='1px solid #E5AA42'  paddingTop='1.5rem' paddingBottom='1.5rem' gap='3' display='flex' flexWrap={['wrap','wrap','wrap','nowrap']} justifyContent='space-between' borderBottom='1px solid #E5AA42'>
+        <Box w='85%' h='100%' borderTop='1px solid #E5AA42' alignItems='center'  paddingTop='1.5rem' paddingBottom='1.5rem' gap='3' display='flex' flexWrap={['wrap','wrap','wrap','nowrap']} justifyContent='space-between' borderBottom='1px solid #E5AA42'>
             <Box w={['full','356px']}>
                 <Text fontFamily='Knewave' fontSize='32px' fontWeight='400' color='#E5AA42'  >ScoutFlair</Text>               
                 <Text fontFamily='Knewave' fontSize={['.9rem','16px']} fontWeight='400' color='#E5AA42' >At ScoutFlair, we're passionate about football analysis. Our mission is to provide football enthusiasts, coaches, and analysts with the tools they need to unlock the game's hidden insights. Join us in redefining football analysis. Explore. Analyze. Succeed.</Text>

@@ -83,12 +83,12 @@ const About = () => {
         <Box w='full'h={['100%','100%','100%']}  display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontFamily='Knewave' fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700'  color='#E5AA42' >What We Do</Text>
             <Text fontFamily='Knewave' fontWeight='400' fontSize={['1rem','28px']} color='#E5AA42' textAlign='center'>We solve the analytics problem</Text>
-            <Image mt='1rem' src={tri} />
+            <Image  src={tri} width='400px' height='400px'  />
        </Box>
        <Box w='full'h={['100%','100%','100%']} mt='1.5rem'  display='flex' p='1rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','column']}>
             <Text fontFamily='Knewave' fontSize={['2.3rem','52px']} mt='1rem' fontWeight='700' color='#E5AA42' >Analyze Us</Text>
             <Text fontFamily='Knewave' fontWeight='400' fontSize='28px' color='#E5AA42' textAlign='center'>Our numbers</Text>
-            <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']} templateColumns={['repeat(1,1fr)','repeat(1,1fr)','repeat(1,1fr)','repeat(3,1fr)']} gap='9'>
+            <Grid w='full' h='100%' placeItems='center' mt='2rem' p={['2rem','']} templateColumns={['repeat(1,1fr)','repeat(1,1fr)','repeat(1,1fr)','repeat(2,1fr)']} gap='9'>
                 { detail.map((details)=>{
                 return(
                 <Box key={details.id} w={['full','402px']} h='207px' shadow='-9px 8px 0px #ddd' borderRadius='12px' bg='#E5AA42' color='#1a1818'  display='flex' p='1rem' alignItems='baseline' justifyContent='space-evenly' flexDirection='column'>
@@ -114,7 +114,7 @@ We're your trusted source for next-level football insights.</Text>
         </Box>
         <Box w='full'h={['100%','100%','100%']}  display='flex' p={['0','2rem']} alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
              <Box w={['full','50%']}  position='relative' alignItems='center' justifyContent='center' display={['block','flex']} flexDirection='column' >
-                <Image src={tripic} />
+                <Image src={tripic}  />
             </Box>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Image mr='1rem' src={yellowcomma} position='absolute' display={['none','block','none','block']} transform={['translate(-250%,-250%)' ,'translate(-250%,-250%)','translate(-250%,-250%)','translate(-120%,0%)']} />

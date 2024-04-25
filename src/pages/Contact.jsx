@@ -5,12 +5,11 @@ import pic from '../assets/anyrgb 2.png'
 import pic2 from '../assets/Ellipse 75.png'
 import Cta from '../componets/Cta'
 import Footer from '../componets/Footer'
-import bg from '../assets/bg.jpg'
 
 const Contact = () => {
   return (
-     <Box w='full'h='100%' style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }}>
-        <Box w='full'h={['100%','100%','100vh']} style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
+     <Box w='full'h='100%' style={{ background:'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%)' }}>
+        <Box w='full'h={['100%','100%','100vh']} style={{ background: 'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%)' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
                 <Text fontFamily='Knewave' fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
                 <Button _hover={{
@@ -30,7 +29,7 @@ const Contact = () => {
                 <Image src={contact} />
             </Box>
         </Box>
-         <Box w='full'h={['100%','100%','100vh']} style={{ backgroundImage: `url(${bg})`,backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
+         <Box w='full'h={['100%','100%','100vh']} style={{ background: 'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%);',backgroundRepeat:'' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column','row']}>
             
             <Box w={['full','50%']}  position='relative' alignItems='center' justifyContent='center' display={['none','flex']} flexDirection='column' >
                 <Image src={pic}zIndex='4' position='absolute'  />

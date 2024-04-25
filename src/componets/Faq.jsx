@@ -8,10 +8,10 @@ const Faq = () => {
             <Text fontFamily='Knewave' fontSize={['2.4rem','52px']} mt='1rem' fontWeight='700' color='#E5AA42' >FAQ</Text>
             <Text fontFamily='Knewave' fontWeight='700' fontSize={['1rem','25px']} color='#E5AA42' textAlign='center'>Explore common queries about ScoutFlair. Get quick answers to enhance your experience</Text>
             <Box w='full' h='100%' display='flex' alignItems='center' flexDirection={['column','row']}  justifyContent='center' mt='2rem'>
-                <Box w={['full','full','full','50%']}>
+                <Box w={['full','full','full','40%']}>
                     <Image src={quest} alt=''/>
                 </Box>
-                <Box w={['full','full','full','50%']} h='full'>
+                <Box w={['full','full','full','60%']} h='full'>
                     <Box w={['full','660px']} paddingBottom='1.5rem' paddingTop='1.5rem' borderBottom='1px solid #E5AA42'>
                         <Text fontFamily='Knewave' color='#E5AA42' fontWeight='700' fontSize={['1rem','24px']} >How can I access ScoutFlair?</Text>
                     </Box>
