@@ -82,7 +82,7 @@ const EditProfile = () => {
           onChange={handleInputChange} text='Date of Birth:' type='date'/> */}
                     <InputValue placeholder='Nigeria'  name="location"
           value={formState.location}
-          onChange={handleInputChange} text='Place if Birth:'/>
+          onChange={handleInputChange} text='Place of Birth:'/>
                     <InputValue placeholder='NgN' name="nationality"
           value={formState.nationality}
           onChange={handleInputChange}  text='Nationality:'/>

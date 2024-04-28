@@ -1,5 +1,5 @@
 import { Box, Grid, Text, Menu, MenuItem, MenuButton, IconButton, MenuList,  } from '@chakra-ui/react'
-import React, {useState, } from 'react'
+import React, {useState} from 'react'
 //import { Link } from 'react-router-dom'
 import {AddIcon } from '@chakra-ui/icons'
 import square from '../../assets/blackSquare.png'
@@ -10,10 +10,14 @@ import { useQuery, } from 'react-query';
 
 const Player = () => {
     const [isPlaying, setIsPlaying] = useState(false);
-    const { data:value,} = useQuery('myData', GetPlayers);
+    const { data:value,isLoading} = useQuery('myData', GetPlayers);
      const userType = JSON.parse(localStorage.getItem('userType'));
 
-
+    // useEffect(()=>{
+    //     if(!isLoading){
+    //         console.log(valu)
+    //     }
+    // },[isLoading])
 
 
   
@@ -58,9 +62,8 @@ const Player = () => {
                     </Box>
                     : */}
                     <Grid  w='full' h='100%' placeItems='center' justifyContent='space-evenly' mt='1rem' p={['1rem','']}  templateColumns={['repeat(1,1fr)','repeat(4,1fr)']} gap='9'>
-                        {
-                userType==='COACH'&& 
-                value?.map((data)=>{
+                        {!isLoading&&
+                userType==='COACH'&&  value?.map((data)=>{
                     return(
                         <Box key={data.id} w='229px' position='relative'>
                             <img width="229" height="139"  src={data?.imageUrl} alt="video" />  
@@ -101,8 +104,7 @@ const Player = () => {
                            </Box>
                         </Box>
                     )
-                })
-                
+                })                
                 }
                          {/* <Box  w='229px' position='relative'>
                             <img width="229" height="139"  src={player} alt="video" />

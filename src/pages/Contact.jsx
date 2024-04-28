@@ -11,7 +11,7 @@ const Contact = () => {
      <Box w='full'h='100%' style={{ background:'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%)' }}>
         <Box w='full'h={['100%','100%','100vh']} style={{ background: 'linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(65,57,57,1) 35%, rgba(18,22,23,1) 100%)' }} display='flex' p='2rem' alignItems='center' justifyContent='space-betweeen' flexDirection={['column-reverse','row']}>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontFamily='Knewave' fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
+                <Text fontFamily='Raleway' fontSize={['2.3rem','4rem']} fontWeight='700' color='#E5AA42' >Write us today</Text>
                 <Button _hover={{
                     color:'#E5AA42',
                     background:'#232B35',
@@ -36,7 +36,7 @@ const Contact = () => {
                 <Image src={pic2} position='absolute' transform='translate(15%,25%)'zIndex='2' />
             </Box>
             <Box w={['full','50%']} p={['0rem','2rem']}>
-                <Text fontFamily='Knewave' fontSize={['2rem','36px']} display={['none','block']} fontWeight='700' color='#E5AA42' >Write us a message</Text>
+                <Text fontFamily='Raleway' fontSize={['2rem','36px']} display={['none','block']} fontWeight='700' color='#E5AA42' >Write us a message</Text>
                <Box>
                 <FormControl mt='1rem'>
                     <FormLabel color='#E5AA42'>Name</FormLabel>

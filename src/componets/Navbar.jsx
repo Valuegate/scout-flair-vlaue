@@ -11,7 +11,6 @@ import {
   Icon,
   Popover,
   PopoverTrigger,
-  Image,
   PopoverContent,
   useColorModeValue,
   useDisclosure,
@@ -22,20 +21,19 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons'
-import Logo from '../assets/logo.png'
 import { Link, } from 'react-router-dom'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box>
+    <Box >
       <Flex
          bg='transparent'
         color='#E5AA42'
         minH={'60px'}
         py={{ base: 2 }}
-        px={[2,4]}
+        px='2rem' 
         justifyContent='space-between'
         //borderBottom={1}
         //borderStyle={'solid'}
@@ -54,7 +52,8 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems='baseline' justify={{ base: 'space-between', md: 'space-between' }}>
           <Link to='/'>
-            <Image src={Logo} alt='' boxSize={['5 25','']} mr={['','']} />
+            {/* <Image src={Logo} alt='' boxSize={['5 25','']} mr={['','']} /> */}
+            <Text fontFamily='Raleway' fontSize='32px' fontWeight='700' >ScoutFlair</Text>
           </Link>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -84,6 +83,7 @@ export default function WithSubnavigation() {
                 bg='var(--Gradient, linear-gradient(270deg, #A83733 5.33%, #E5AA42 100%))'
                 width='200px'
                 p='16px, 48px, 16px, 48px'
+                fontFamily='Raleway'
                 borderRadius='48px'>Sign in</Button>
             </Link>
         </Stack>
@@ -102,15 +102,15 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack direction={'row'}  spacing={4}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label}  fontFamily='Raleway'>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link to={navItem.href ?? '#'}>
               <Box
                 //as="a"
-                p='2rem'
+                // p='2rem'
                // href={navItem.href ?? '#'}
                 fontSize={['12px','1rem','24px']}
                 fontWeight={700}

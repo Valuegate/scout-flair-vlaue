@@ -126,7 +126,7 @@ export const GetUsers = async () => {
 
 export const GetPlayers = async () => {
   const response = await userInformationApi.get(`https://scoutflair.top:8080/api/v1/profile/coach/getPlayers?limit=200&offset=0`);
-  return response?.data?.content;
+  return response?.data;
 };
 
 export const GetAdminPlayers = async () => {
